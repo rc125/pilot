@@ -562,6 +562,19 @@
       "success": "A transação foi reprocessada com sucesso",
       "title": "Reprocessar transação"
     },
+    "self_register": {
+      "create_account": {
+        "attraction": "Crie sua conta e aceite pagamentos online hoje!",
+        "confirm_password": "Confirmar a senha",
+        "continue": "Continuar",
+        "email": "E-mail",
+        "password": "Senha",
+        "welcome": "Boas vindas ao Pagar.me!"
+      },
+      "different_passwords_error": "As senhas não conferem",
+      "required_error": "Campo obrigatório",
+      "return": "Voltar"
+    },
     "sidebar": {
       "anticipation": "Antecipar",
       "available": "Disponível",

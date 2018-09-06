@@ -1,0 +1,90 @@
+@import "former-kit-skin-pagarme/dist/styles/colors/light.css";
+@import "former-kit-skin-pagarme/dist/styles/spacing.css";
+
+html { /* stylelint-disable-line selector-max-type */
+  background-color: var(--color-light-silver-20);
+}
+
+.logo {
+  height: 41.5px;
+}
+
+.headerTitle {
+  font-size: 24px;
+}
+
+.headerBody {
+  font-size: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+
+  &:first-child {
+    padding-left: var(--spacing-small);
+    padding-top: 9px;
+  }
+}
+
+.fullScreen {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.blankCard {
+  height: 100vh;
+  width: 1024px;
+
+  & .rowBullet {
+    margin: 0;
+  }
+}
+
+.contentRow {
+  height: calc(100vh - 40px);
+
+  & > div {
+    height: 100%;
+  }
+}
+
+.stretchVertically {
+  height: 100%;
+}
+
+.growContent {
+  display: flex;
+  flex: 1;
+}
+
+.noPaddingBottom {
+  padding-bottom: 0;
+}
+
+.columnPadding {
+  padding: 10px 10px 0 34px;
+}
+
+.centerContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0;
+}
+
+.fillWidth {
+  width: 100%;
+}
+
+.buttonSubmit {
+  width: 100%;
+
+  & > button {
+    margin-top: var(--spacing-medium);
+    width: 100%;
+  }
+}
