@@ -570,6 +570,14 @@
         "question": "Sua empresa tem CNPJ ativo?",
         "yes": "Sim"
       },
+      "company_data": {
+        "commercial_phone": "Telefone comercial (com DDD)",
+        "continue": "Continuar",
+        "form_title": "Dados da Empresa",
+        "legal_name": "Razão social",
+        "site": "Site (opcional)",
+        "trade_name": "Nome fantasia"
+      },
       "create_account": {
         "attraction": "Crie sua conta e aceite pagamentos online hoje!",
         "confirm_password": "Confirmar a senha",
@@ -579,6 +587,7 @@
         "welcome": "Boas vindas ao Pagar.me!"
       },
       "different_passwords_error": "As senhas não conferem",
+      "number_error": "Deve ser um número",
       "required_error": "Campo obrigatório",
       "return": "Voltar",
       "type_cnpj": {

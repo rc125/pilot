@@ -8,4 +8,10 @@ function handleMaskField (fieldName) {
   }
 }
 
-export { handleMaskField }
+function onFormMaskFieldChange (data) {
+  this.setState({
+    ...data,
+  })
+}
+
+export { handleMaskField, onFormMaskFieldChange }
