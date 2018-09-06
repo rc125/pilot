@@ -580,7 +580,14 @@
       },
       "different_passwords_error": "As senhas não conferem",
       "required_error": "Campo obrigatório",
-      "return": "Voltar"
+      "return": "Voltar",
+      "type_cnpj": {
+        "cnpj": "CNPJ",
+        "continue": "Continuar",
+        "description_part_1": "Todas as lojas virtuais precisam apresentar número de CPF ou CNPJ em seu rodapé.",
+        "description_part_2": "Isso confere segurança e credibilidade aos seus clientes, além de ser obrigatório de acordo com o Decreto Federal nº 7962/13.",
+        "question": "Sua empresa tem CNPJ ativo?"
+      }
     },
     "sidebar": {
       "anticipation": "Antecipar",

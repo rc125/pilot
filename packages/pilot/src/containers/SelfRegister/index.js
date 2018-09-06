@@ -82,6 +82,7 @@ SelfRegister.propTypes = {
   step: PropTypes.oneOf([
     'create-account',
     'check-cnpj',
+    'type-cnpj',
   ]),
   t: PropTypes.func.isRequired,
 }

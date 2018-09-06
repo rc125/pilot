@@ -7,6 +7,7 @@ import ImageCNPJ from './cnpj.svg'
 const mapStepToImage = {
   'create-account': <ImageCreateAccount />,
   'check-cnpj': <ImageCNPJ />,
+  'type-cnpj': <ImageCNPJ />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -16,6 +17,7 @@ HeaderImage.propTypes = {
   step: PropTypes.oneOf([
     'create-account',
     'check-cnpj',
+    'type-cnpj',
   ]).isRequired,
 }
 

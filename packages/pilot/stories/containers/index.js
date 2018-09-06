@@ -35,7 +35,11 @@ import {
 import Reprocess from './Reprocess'
 import ReprocessForm from './Reprocess/Form'
 import ReprocessResult from './Reprocess/Result'
-import { SelfRegisterCreateAccount } from './SelfRegister'
+import {
+  SelfRegisterCreateAccount,
+  SelfRegisterCheckCNPJ,
+  SelfRegisterTypeCNPJ,
+} from './SelfRegister'
 import Withdraw from './Withdraw'
 import WithdrawConfirmation from './Withdraw/Confirmation'
 import WithdrawForm from './Withdraw/Form'
@@ -165,6 +169,9 @@ storiesOf('Containers', module)
   ))
   .add('Self Register Check CNPJ', () => (
     <SelfRegisterCheckCNPJ />
+  ))
+  .add('Self Register Type CNPJ', () => (
+    <SelfRegisterTypeCNPJ />
   ))
   .add('Withdraw', () => (
     <Withdraw />
