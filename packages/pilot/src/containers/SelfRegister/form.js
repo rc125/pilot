@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import CreateAccount from './CreateAccount'
+import CheckCNPJ from './CheckCNPJ'
 
 const mapStepToContainer = {
   'create-account': CreateAccount,
+  'check-cnpj': CheckCNPJ,
 }
 
 const SelfRegisterForm = ({
@@ -27,6 +29,7 @@ SelfRegisterForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   step: PropTypes.oneOf([
     'create-account',
+    'check-cnpj',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

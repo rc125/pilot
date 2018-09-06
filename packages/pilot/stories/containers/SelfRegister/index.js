@@ -17,4 +17,17 @@ const SelfRegisterCreateAccount = () => (
   />
 )
 
-export { SelfRegisterCreateAccount }
+const SelfRegisterCheckCNPJ = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="check-cnpj"
+    t={identity}
+  />
+)
+
+export {
+  SelfRegisterCreateAccount,
+  SelfRegisterCheckCNPJ,
+}
