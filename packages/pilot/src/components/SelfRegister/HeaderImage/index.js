@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 
 import ImageCreateAccount from './create-account.svg'
 import ImageCNPJ from './cnpj.svg'
+import ImageWithoutCNPJ from './without-cnpj.svg'
 
 const mapStepToImage = {
   'create-account': <ImageCreateAccount />,
   'check-cnpj': <ImageCNPJ />,
   'type-cnpj': <ImageCNPJ />,
+  'without-cnpj': <ImageWithoutCNPJ />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -18,6 +20,7 @@ HeaderImage.propTypes = {
     'create-account',
     'check-cnpj',
     'type-cnpj',
+    'without-cnpj',
   ]).isRequired,
 }
 

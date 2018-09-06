@@ -37,8 +37,19 @@ const SelfRegisterTypeCNPJ = () => (
   />
 )
 
+const SelfRegisterWithoutCNPJ = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="without-cnpj"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
   SelfRegisterTypeCNPJ,
+  SelfRegisterWithoutCNPJ,
 }

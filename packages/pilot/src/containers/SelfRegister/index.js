@@ -83,6 +83,7 @@ SelfRegister.propTypes = {
     'create-account',
     'check-cnpj',
     'type-cnpj',
+    'without-cnpj',
   ]),
   t: PropTypes.func.isRequired,
 }

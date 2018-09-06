@@ -4,11 +4,13 @@ import PropTypes from 'prop-types'
 import CreateAccount from './CreateAccount'
 import CheckCNPJ from './CheckCNPJ'
 import TypeCNPJ from './TypeCNPJ'
+import WithoutCNPJ from './WithoutCNPJ'
 
 const mapStepToContainer = {
   'create-account': CreateAccount,
   'check-cnpj': CheckCNPJ,
   'type-cnpj': TypeCNPJ,
+  'without-cnpj': WithoutCNPJ,
 }
 
 const SelfRegisterForm = ({
@@ -33,6 +35,7 @@ SelfRegisterForm.propTypes = {
     'create-account',
     'check-cnpj',
     'type-cnpj',
+    'without-cnpj',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }
