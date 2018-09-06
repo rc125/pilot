@@ -12,6 +12,7 @@ import ArrowBack from 'emblematic-icons/svg/ChevronBack24.svg'
 import classNames from 'classnames'
 
 import Logo from '../../pages/logo.svg'
+import SelfRegisterBulletSteps from '../../components/SelfRegister/BulletSteps'
 import SelfRegisterForm from './form'
 import style from './style.css'
 
@@ -69,6 +70,14 @@ const SelfRegister = ({
               </Grid>
             </CardContent>
           </Card>
+        </Col>
+      </Row>
+
+      <Row className={style.rowBullet}>
+        <Col tv={12} desk={12} tablet={12} palm={12} className={style.stepsMiddle}>
+          <SelfRegisterBulletSteps
+            step={step}
+          />
         </Col>
       </Row>
     </Grid>

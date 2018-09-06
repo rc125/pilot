@@ -44,7 +44,7 @@ html { /* stylelint-disable-line selector-max-type */
 }
 
 .contentRow {
-  height: calc(100vh - 40px);
+  height: calc(100vh - 60px);
 
   & > div {
     height: 100%;
@@ -87,4 +87,13 @@ html { /* stylelint-disable-line selector-max-type */
     margin-top: var(--spacing-medium);
     width: 100%;
   }
+}
+
+.stepsMiddle {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 41px;
+  justify-content: center;
+  padding-bottom: 0;
 }
