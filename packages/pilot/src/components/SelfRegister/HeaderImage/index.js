@@ -5,6 +5,7 @@ import ImageCreateAccount from './create-account.svg'
 import ImageCNPJ from './cnpj.svg'
 import ImageWithoutCNPJ from './without-cnpj.svg'
 import ImageCompanyData from './company-data.svg'
+import ImagePartnerAddress from './partner-address.svg'
 import ImagePartnerData from './partner-data.svg'
 
 const mapStepToImage = {
@@ -14,6 +15,7 @@ const mapStepToImage = {
   'without-cnpj': <ImageWithoutCNPJ />,
   'company-data': <ImageCompanyData />,
   'partner-data': <ImagePartnerData />,
+  'partner-address': <ImagePartnerAddress />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -27,6 +29,7 @@ HeaderImage.propTypes = {
     'without-cnpj',
     'company-data',
     'partner-data',
+    'partner-address',
   ]).isRequired,
 }
 

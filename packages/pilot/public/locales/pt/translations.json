@@ -588,6 +588,16 @@
       },
       "different_passwords_error": "As senhas não conferem",
       "number_error": "Deve ser um número",
+      "partner_address": {
+        "cep": "CEP",
+        "city": "Cidade",
+        "complement": "Complemento (opcional)",
+        "continue": "Continuar",
+        "form_title": "Endereço do Proprietário",
+        "neighborhood": "Bairro",
+        "number": "Número",
+        "street": "Rua"
+      },
       "partner_data": {
         "birth_date": "Data de nascimento",
         "continue": "Continuar",

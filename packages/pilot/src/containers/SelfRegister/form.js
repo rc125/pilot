@@ -6,6 +6,7 @@ import CheckCNPJ from './CheckCNPJ'
 import TypeCNPJ from './TypeCNPJ'
 import WithoutCNPJ from './WithoutCNPJ'
 import CompanyData from './CompanyData'
+import PartnerAddress from './PartnerAddress'
 import PartnerData from './PartnerData'
 
 const mapStepToContainer = {
@@ -15,6 +16,7 @@ const mapStepToContainer = {
   'without-cnpj': WithoutCNPJ,
   'company-data': CompanyData,
   'partner-data': PartnerData,
+  'partner-address': PartnerAddress,
 }
 
 const SelfRegisterForm = ({
@@ -42,6 +44,7 @@ SelfRegisterForm.propTypes = {
     'without-cnpj',
     'company-data',
     'partner-data',
+    'partner-address',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

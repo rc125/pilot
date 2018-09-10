@@ -86,6 +86,7 @@ SelfRegister.propTypes = {
     'without-cnpj',
     'company-data',
     'partner-data',
+    'partner-address',
   ]),
   t: PropTypes.func.isRequired,
 }
