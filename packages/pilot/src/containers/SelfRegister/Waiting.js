@@ -66,6 +66,7 @@ SelfRegisterWaiting.propTypes = {
   onRedirectToHome: PropTypes.func.isRequired,
   step: PropTypes.oneOf([
     'waiting-creating',
+    'refused-account',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

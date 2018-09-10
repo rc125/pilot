@@ -148,6 +148,16 @@ const SelfRegisterWaitingRiskAnalysis = () => (
   />
 )
 
+const SelfRegisterRefusedAccount = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="refused-account"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -163,4 +173,5 @@ export {
   SelfRegisterSalesAmountFuture,
   SelfRegisterContract,
   SelfRegisterWaitingRiskAnalysis,
+  SelfRegisterRefusedAccount,
 }

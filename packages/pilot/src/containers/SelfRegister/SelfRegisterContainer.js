@@ -14,6 +14,7 @@ import CompanyData from './CompanyData'
 import PartnerAddress from './PartnerAddress'
 import PartnerData from './PartnerData'
 import WaitingRiskAnalysis from './WaitingRiskAnalysis'
+import RefusedAccount from './RefusedAccount'
 
 const mapStepToContainer = {
   'create-account': CreateAccount,
@@ -30,6 +31,7 @@ const mapStepToContainer = {
   'sales-amount-future': SalesAmount('future'),
   contract: Contract,
   'waiting-risk-analysis': WaitingRiskAnalysis,
+  'refused-account': RefusedAccount,
 }
 
 const SelfRegisterContainer = ({
@@ -69,6 +71,7 @@ SelfRegisterContainer.propTypes = {
     'sales-amount-future',
     'contract',
     'waiting-risk-analysis',
+    'refused-account',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

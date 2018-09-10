@@ -75,6 +75,7 @@ SelfRegister.propTypes = {
     'sales-amount-future',
     'contract',
     'waiting-creating',
+    'refused-account',
   ]),
   t: PropTypes.func.isRequired,
 }

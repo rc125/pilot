@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="365" height="166" viewBox="0 0 365 166">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#17C9B2" stroke-linecap="square" stroke-width="2" d="M51.5 164.5h238M34.5 164.5h12M296.5 164.25h20"/>
+        <g fill="#D9E4EA" opacity=".509">
+            <rect width="67" height="13" x="20" y="119" rx="6.5"/>
+            <rect width="162" height="18" x="148" rx="8"/>
+            <rect width="116" height="13" x="90" y="23" rx="6.5"/>
+            <rect width="306" height="18" y="43" rx="8"/>
+            <rect width="168" height="18" x="197" y="73" rx="8"/>
+            <rect width="106" height="18" x="197" y="123" rx="8"/>
+            <rect width="162" height="18" x="141" y="147" rx="8"/>
+            <rect width="222" height="13" x="33" y="96" rx="6.5"/>
+        </g>
+        <g transform="translate(86 75)">
+            <path fill="#FFF" stroke="#8459B9" d="M16.925 81H0c.627 4.2 2.194 6.9 4.701 8.1 2.508 1.2 61.747 1.2 177.717 0C186.806 87.9 189 85.2 189 81h-20.687"/>
+            <path fill="#FFF" stroke="#8459B9" d="M16.5.5h161v81h-161z"/>
+            <path fill="#EBF1F4" stroke="#8459B9" d="M22.5 5.5h149v71h-149z" opacity=".7"/>
+            <circle cx="85" cy="41" r="2" fill="#9D7BC7"/>
+            <circle cx="111" cy="41" r="2" fill="#9D7BC7"/>
+            <path stroke="#9D7BC7" stroke-linecap="square" d="M91.5 54.5h12"/>
+        </g>
+        <g transform="translate(55 39)">
+            <path fill="#858C8F" d="M187.784 42l-.784-.784L189.216 39l.784.784L187.784 42zm-3.568 0L182 39.784l.784-.784L185 41.216l-.784.784zm3.568 2L190 46.216l-.784.784L187 44.784l.784-.784zm-3.568 0l.784.784L182.784 47l-.784-.784L184.216 44z"/>
+            <circle cx="246" cy="102" r="4" stroke="#858C8F" stroke-width="2"/>
+            <circle cx="20" cy="11" r="4" stroke="#858C8F" stroke-width="2"/>
+            <circle cx="33" cy="20" r="3" stroke="#858C8F" stroke-width="2"/>
+            <path fill="#858C8F" d="M0 106v-2h15v2H0zm12 5v-2h12v2H12zm5-5v-2h6v2h-6zm-11 5v-2h5v2H6zM194 2V0h13v2h-13zm10 6V6h11v2h-11zm4-6V0h6v2h-6zm-10 6V6h4v2h-4z"/>
+        </g>
+    </g>
+</svg>

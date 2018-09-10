@@ -635,6 +635,10 @@
         "partner_name": "Nome",
         "phone": "Telefone (com DDD)"
       },
+      "refused_account": {
+        "description": "Sua empresa não foi aprovada na análise e não poderá usar o Pagar.me",
+        "title": "Ops..."
+      },
       "required_error": "Campo obrigatório",
       "return": "Voltar",
       "sales_amount": {

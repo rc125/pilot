@@ -5,6 +5,7 @@ import ImageAlreadySell from './already-sell.svg'
 import ImageBusinessDetail from './business-detail.svg'
 import ImageContract from './contract.svg'
 import ImageCreateAccount from './create-account.svg'
+import ImageRefusedAccount from './refused-account.svg'
 import ImageCNPJ from './cnpj.svg'
 import ImageSalesAmount from './sales-amount.svg'
 import ImageWithoutCNPJ from './without-cnpj.svg'
@@ -28,6 +29,7 @@ const mapStepToImage = {
   'sales-amount-future': <ImageSalesAmount />,
   contract: <ImageContract />,
   'waiting-risk-analysis': <ImageWaitingRiskAnalysis />,
+  'refused-account': <ImageRefusedAccount />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -49,6 +51,7 @@ HeaderImage.propTypes = {
     'sales-amount-future',
     'contract',
     'waiting-risk-analysis',
+    'refused-account',
   ]).isRequired,
 }
 
