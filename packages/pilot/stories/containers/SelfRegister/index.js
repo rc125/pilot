@@ -87,6 +87,16 @@ const SelfRegisterAlreadySell = () => (
   />
 )
 
+const SelfRegisterBusinessDetailPresent = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="business-detail-present"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -96,4 +106,5 @@ export {
   SelfRegisterPartnerData,
   SelfRegisterPartnerAddress,
   SelfRegisterAlreadySell,
+  SelfRegisterBusinessDetailPresent,
 }

@@ -97,6 +97,7 @@ SelfRegister.propTypes = {
     'partner-data',
     'partner-address',
     'already-sell',
+    'business-detail-present',
   ]),
   t: PropTypes.func.isRequired,
 }
