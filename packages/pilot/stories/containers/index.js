@@ -41,6 +41,7 @@ import {
   SelfRegisterTypeCNPJ,
   SelfRegisterWithoutCNPJ,
   SelfRegisterCompanyData,
+  SelfRegisterPartnerData,
 } from './SelfRegister'
 import Withdraw from './Withdraw'
 import WithdrawConfirmation from './Withdraw/Confirmation'
@@ -180,6 +181,9 @@ storiesOf('Containers', module)
   ))
   .add('Self Register Company Data', () => (
     <SelfRegisterCompanyData />
+  ))
+  .add('Self Register Partnet Data', () => (
+    <SelfRegisterPartnerData />
   ))
   .add('Withdraw', () => (
     <Withdraw />

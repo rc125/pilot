@@ -57,10 +57,21 @@ const SelfRegisterCompanyData = () => (
   />
 )
 
+const SelfRegisterPartnerData = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="partner-data"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
   SelfRegisterTypeCNPJ,
   SelfRegisterWithoutCNPJ,
   SelfRegisterCompanyData,
+  SelfRegisterPartnerData,
 }
