@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ImageAlreadySell from './already-sell.svg'
 import ImageCreateAccount from './create-account.svg'
 import ImageCNPJ from './cnpj.svg'
 import ImageWithoutCNPJ from './without-cnpj.svg'
@@ -16,6 +17,7 @@ const mapStepToImage = {
   'company-data': <ImageCompanyData />,
   'partner-data': <ImagePartnerData />,
   'partner-address': <ImagePartnerAddress />,
+  'already-sell': <ImageAlreadySell />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -30,6 +32,7 @@ HeaderImage.propTypes = {
     'company-data',
     'partner-data',
     'partner-address',
+    'already-sell',
   ]).isRequired,
 }
 

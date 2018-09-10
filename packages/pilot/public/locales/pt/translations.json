@@ -563,6 +563,11 @@
       "title": "Reprocessar transação"
     },
     "self_register": {
+      "already_sell": {
+        "no": "Não",
+        "question": "Você já vende pela internet?",
+        "yes": "Sim"
+      },
       "check_cnpj": {
         "description_part_1": "Todas as lojas virtuais precisam apresentar número de CPF ou CNPJ em seu rodapé.",
         "description_part_2": "Isso confere segurança e credibilidade aos seus clientes, além de ser obrigatório de acordo com o Decreto Federal nº 7962/13.",
