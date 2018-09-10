@@ -12,6 +12,7 @@ const mapStepToPosition = {
   'partner-address': 5,
   'already-sell': 6,
   'business-detail-present': 7,
+  'business-detail-future': 7,
 }
 
 const getStatus = (step, currentStep) => {
@@ -64,6 +65,7 @@ SelfRegisterBulletSteps.propTypes = {
     'partner-address',
     'already-sell',
     'business-detail-present',
+    'business-detail-future',
   ]).isRequired,
 }
 

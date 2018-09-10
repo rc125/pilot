@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import AlreadySell from './AlreadySell'
 import BusinessDetailPresent from './BusinessDetailPresent'
+import BusinessDetailFuture from './BusinessDetailFuture'
 import CreateAccount from './CreateAccount'
 import CheckCNPJ from './CheckCNPJ'
 import TypeCNPJ from './TypeCNPJ'
@@ -21,6 +22,7 @@ const mapStepToContainer = {
   'partner-address': PartnerAddress,
   'already-sell': AlreadySell,
   'business-detail-present': BusinessDetailPresent,
+  'business-detail-future': BusinessDetailFuture,
 }
 
 const SelfRegisterForm = ({
@@ -51,6 +53,7 @@ SelfRegisterForm.propTypes = {
     'partner-address',
     'already-sell',
     'business-detail-present',
+    'business-detail-future',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

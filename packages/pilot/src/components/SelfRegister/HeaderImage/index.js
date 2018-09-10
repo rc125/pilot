@@ -20,6 +20,7 @@ const mapStepToImage = {
   'partner-address': <ImagePartnerAddress />,
   'already-sell': <ImageAlreadySell />,
   'business-detail-present': <ImageBusinessDetail />,
+  'business-detail-future': <ImageBusinessDetail />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -36,6 +37,7 @@ HeaderImage.propTypes = {
     'partner-address',
     'already-sell',
     'business-detail-present',
+    'business-detail-future',
   ]).isRequired,
 }
 

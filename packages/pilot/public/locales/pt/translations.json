@@ -574,6 +574,18 @@
         "which_platform": "Qual plataforma você usa?",
         "which_segment": "Em qual segmento você atua?"
       },
+      "business_detail_future": {
+        "continue": "Continuar",
+        "form_title": "Detalhes do seu negócio",
+        "when_will_open_options": {
+          "is_ready": "Meu negócio já está pronto",
+          "is_still_a_project": "Ainda é um projeto",
+          "will_start_in_30_days": "Pretendo iniciar as vendas daqui a 30 dias",
+          "will_start_in_60_days": "Pretendo iniciar as vendas daqui a 60 dias"
+        },
+        "when_will_open": "Quando pretende abrir uma loja virtual ou negócio digital?",
+        "which_segment": "Em qual segmento você atuará?"
+      },
       "check_cnpj": {
         "description_part_1": "Todas as lojas virtuais precisam apresentar número de CPF ou CNPJ em seu rodapé.",
         "description_part_2": "Isso confere segurança e credibilidade aos seus clientes, além de ser obrigatório de acordo com o Decreto Federal nº 7962/13.",
