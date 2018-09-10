@@ -633,6 +633,14 @@
       },
       "required_error": "Campo obrigatório",
       "return": "Voltar",
+      "sales_amount": {
+        "question_present": "Qual o seu volume de vendas atual?",
+        "question_future": "Qual o seu volume de vendas esperado?",
+        "from0to20": "R$ 0 a R$ 20 mil",
+        "from20to30": "R$ 20 mil a R$ 30 mil",
+        "from30to50": "R$ 30 mil a R$ 50 mil",
+        "higher": "Acima de R$ 50 mil"
+      },
       "type_cnpj": {
         "cnpj": "CNPJ",
         "continue": "Continuar",

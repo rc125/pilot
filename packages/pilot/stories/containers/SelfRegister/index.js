@@ -107,6 +107,26 @@ const SelfRegisterBusinessDetailFuture = () => (
   />
 )
 
+const SelfRegisterSalesAmountPresent = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="sales-amount-present"
+    t={identity}
+  />
+)
+
+const SelfRegisterSalesAmountFuture = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="sales-amount-future"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -118,4 +138,6 @@ export {
   SelfRegisterAlreadySell,
   SelfRegisterBusinessDetailPresent,
   SelfRegisterBusinessDetailFuture,
+  SelfRegisterSalesAmountPresent,
+  SelfRegisterSalesAmountFuture,
 }
