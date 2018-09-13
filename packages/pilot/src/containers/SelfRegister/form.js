@@ -6,6 +6,7 @@ import BusinessDetailPresent from './BusinessDetailPresent'
 import BusinessDetailFuture from './BusinessDetailFuture'
 import CreateAccount from './CreateAccount'
 import CheckCNPJ from './CheckCNPJ'
+import Contract from './Contract'
 import SalesAmount from './SalesAmount'
 import TypeCNPJ from './TypeCNPJ'
 import WithoutCNPJ from './WithoutCNPJ'
@@ -26,6 +27,7 @@ const mapStepToContainer = {
   'business-detail-future': BusinessDetailFuture,
   'sales-amount-present': SalesAmount('present'),
   'sales-amount-future': SalesAmount('future'),
+  contract: Contract,
 }
 
 const SelfRegisterForm = ({
@@ -59,6 +61,7 @@ SelfRegisterForm.propTypes = {
     'business-detail-future',
     'sales-amount-present',
     'sales-amount-future',
+    'contract',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

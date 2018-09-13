@@ -15,6 +15,7 @@ const mapStepToPosition = {
   'business-detail-future': 7,
   'sales-amount-present': 8,
   'sales-amount-future': 8,
+  contract: 9,
 }
 
 const getStatus = (step, currentStep) => {
@@ -43,6 +44,7 @@ const SelfRegisterBulletSteps = ({ step }) => {
         { id: 'already-sell', status: getStatus(6, position) },
         { id: 'business-detail', status: getStatus(7, position) },
         { id: 'sales-amount', status: getStatus(8, position) },
+        { id: 'contract', status: getStatus(9, position) },
       ]}
       steps={[
         { id: 'create-account' },
@@ -53,6 +55,7 @@ const SelfRegisterBulletSteps = ({ step }) => {
         { id: 'already-sell' },
         { id: 'business-detail' },
         { id: 'sales-amount' },
+        { id: 'contract' },
       ]}
     />
   )
@@ -72,6 +75,7 @@ SelfRegisterBulletSteps.propTypes = {
     'business-detail-future',
     'sales-amount-present',
     'sales-amount-future',
+    'contract',
   ]).isRequired,
 }
 

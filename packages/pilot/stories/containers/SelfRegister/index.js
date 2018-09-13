@@ -127,6 +127,16 @@ const SelfRegisterSalesAmountFuture = () => (
   />
 )
 
+const SelfRegisterContract = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="contract"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -140,4 +150,5 @@ export {
   SelfRegisterBusinessDetailFuture,
   SelfRegisterSalesAmountPresent,
   SelfRegisterSalesAmountFuture,
+  SelfRegisterContract,
 }
