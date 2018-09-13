@@ -43,8 +43,16 @@ html { /* stylelint-disable-line selector-max-type */
   }
 }
 
-.contentRow {
+.contentRowForm {
   height: calc(100vh - 60px);
+
+  & > div {
+    height: 100%;
+  }
+}
+
+.contentRowWaitingPage {
+  height: calc(100vh - 10px);
 
   & > div {
     height: 100%;

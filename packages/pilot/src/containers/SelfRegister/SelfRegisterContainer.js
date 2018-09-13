@@ -30,7 +30,7 @@ const mapStepToContainer = {
   contract: Contract,
 }
 
-const SelfRegisterForm = ({
+const SelfRegisterContainer = ({
   onRedirectToHome,
   onSubmit,
   step,
@@ -45,9 +45,9 @@ const SelfRegisterForm = ({
   })
 }
 
-SelfRegisterForm.propTypes = {
+SelfRegisterContainer.propTypes = {
   onRedirectToHome: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   step: PropTypes.oneOf([
     'create-account',
     'check-cnpj',
@@ -66,4 +66,8 @@ SelfRegisterForm.propTypes = {
   t: PropTypes.func.isRequired,
 }
 
-export default SelfRegisterForm
+SelfRegisterContainer.defaultProps = {
+  onSubmit: null,
+}
+
+export default SelfRegisterContainer
