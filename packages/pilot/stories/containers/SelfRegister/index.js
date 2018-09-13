@@ -137,6 +137,16 @@ const SelfRegisterContract = () => (
   />
 )
 
+const SelfRegisterWaitingRiskAnalysis = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="waiting-risk-analysis"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -151,4 +161,5 @@ export {
   SelfRegisterSalesAmountPresent,
   SelfRegisterSalesAmountFuture,
   SelfRegisterContract,
+  SelfRegisterWaitingRiskAnalysis,
 }

@@ -13,6 +13,7 @@ import WithoutCNPJ from './WithoutCNPJ'
 import CompanyData from './CompanyData'
 import PartnerAddress from './PartnerAddress'
 import PartnerData from './PartnerData'
+import WaitingRiskAnalysis from './WaitingRiskAnalysis'
 
 const mapStepToContainer = {
   'create-account': CreateAccount,
@@ -28,6 +29,7 @@ const mapStepToContainer = {
   'sales-amount-present': SalesAmount('present'),
   'sales-amount-future': SalesAmount('future'),
   contract: Contract,
+  'waiting-risk-analysis': WaitingRiskAnalysis,
 }
 
 const SelfRegisterContainer = ({
@@ -62,6 +64,7 @@ SelfRegisterContainer.propTypes = {
     'sales-amount-present',
     'sales-amount-future',
     'contract',
+    'waiting-risk-analysis',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

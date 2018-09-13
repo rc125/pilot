@@ -652,6 +652,11 @@
         "description_part_2": "Isso confere segurança e credibilidade aos seus clientes, além de ser obrigatório de acordo com o Decreto Federal nº 7962/13.",
         "question": "Sua empresa tem CNPJ ativo?"
       },
+      "waiting_risk_analysis": {
+        "message_email_sent": "Dentro de 30 minutos você receberá um e-mail confirmando a sua conta.",
+        "message_support": "Caso você não receba nenhum e-mail de confirmação em 24 horas, por favor nos avise em relacionamento@pagar.me",
+        "we_are_almost_finish": "Estamos quase lá!"
+      },
       "without_cnpj": {
         "description_part_1": "O CNPJ é obrigatório para usar o Pagar.me hoje.",
         "description_part_2": "Obrigado pelo interesse, estamos nos aprimorando para poder atendê-lo em breve.",

@@ -60,7 +60,9 @@ const SelfRegisterWaiting = ({
 
 SelfRegisterWaiting.propTypes = {
   onRedirectToHome: PropTypes.func.isRequired,
-  step: PropTypes.oneOf([]).isRequired,
+  step: PropTypes.oneOf([
+    'waiting-creating',
+  ]).isRequired,
   t: PropTypes.func.isRequired,
 }
 
