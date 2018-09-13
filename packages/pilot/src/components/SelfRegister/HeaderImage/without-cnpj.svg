@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="365" height="127" viewBox="0 0 365 127">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#17C9B2" stroke-linecap="square" stroke-width="2" d="M75 125.5h214.5M34.5 125.5H70M296.5 125.25h20"/>
+        <g fill="#D9E4EA" opacity=".509" transform="translate(0 4)">
+            <rect width="67" height="13" x="20" y="76" rx="6.5"/>
+            <rect width="116" height="13" x="52" y="29" rx="6.5"/>
+            <rect width="306" height="18" rx="8"/>
+            <rect width="168" height="18" x="197" y="30" rx="8"/>
+            <rect width="106" height="18" x="197" y="80" rx="8"/>
+            <rect width="162" height="18" x="141" y="104" rx="8"/>
+            <rect width="222" height="13" x="33" y="53" rx="6.5"/>
+        </g>
+        <g transform="translate(55)">
+            <path fill="#858C8F" d="M187.784 42l-.784-.784L189.216 39l.784.784L187.784 42zm-3.568 0L182 39.784l.784-.784L185 41.216l-.784.784zm3.568 2L190 46.216l-.784.784L187 44.784l.784-.784zm-3.568 0l.784.784L182.784 47l-.784-.784L184.216 44z"/>
+            <circle cx="246" cy="102" r="4" stroke="#858C8F" stroke-width="2"/>
+            <circle cx="20" cy="11" r="4" stroke="#858C8F" stroke-width="2"/>
+            <circle cx="33" cy="20" r="3" stroke="#858C8F" stroke-width="2"/>
+            <path fill="#858C8F" d="M0 106v-2h15v2H0zm12 5v-2h12v2H12zm5-5v-2h6v2h-6zm-11 5v-2h5v2H6zM194 2V0h13v2h-13zm10 6V6h11v2h-11zm4-6V0h6v2h-6zm-10 6V6h4v2h-4z"/>
+        </g>
+        <g transform="translate(86 22)">
+            <path fill="#FFF" stroke="#8459B9" d="M16.925 95H0c.627 4.2 2.194 6.9 4.701 8.1 2.508 1.2 61.747 1.2 177.717 0 4.388-1.2 6.582-3.9 6.582-8.1h-20.687"/>
+            <path fill="#FFF" stroke="#8459B9" d="M16.5 23.5h161v72h-161z"/>
+            <path fill="#EBF1F4" stroke="#8459B9" d="M22.5 26.5h149v64h-149z" opacity=".8"/>
+            <path fill="#17C9B2" d="M23 0h149l17 13.95V27.9c-1.333 2.067-3.667 3.1-7 3.1s-5.667-1.033-7-3.1c-2 2.067-4.667 3.1-8 3.1s-5.333-1.292-6-3.875c-1.333 2.583-3.667 3.875-7 3.875s-5.667-1.292-7-3.875c-2 2.583-4.667 3.875-8 3.875s-5.333-1.292-6-3.875c-2 2.583-4.667 3.875-8 3.875s-5.667-1.292-7-3.875c-2 2.583-4.333 3.875-7 3.875s-5-1.292-7-3.875C102 29.708 99.667 31 97 31s-5-1.292-7-3.875C88.667 29.708 86.333 31 83 31s-5.667-1.292-7-3.875C74 29.708 71.333 31 68 31s-5.333-1.292-6-3.875C60 29.708 57.667 31 55 31s-5-1.292-7-3.875C46.667 29.708 44.333 31 41 31s-5.667-1.292-7-3.875C32.667 29.708 30 31 26 31s-6.333-1.033-7-3.1c-2 2.067-4.333 3.1-7 3.1s-5-1.292-7-3.875v-12.4L23 0z"/>
+            <path stroke="#8459B9" d="M75 96c.667 2 1.667 3 3 3h40c2-.667 3-1.667 3-3H75z"/>
+            <path stroke="#FFF" d="M5 16h184"/>
+            <circle cx="85" cy="55" r="2" fill="#9D7BC7"/>
+            <circle cx="111" cy="55" r="2" fill="#9D7BC7"/>
+            <path stroke="#9D7BC7" stroke-linecap="square" d="M91.5 68.5h12"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="345" height="127" viewBox="0 0 345 127">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#17C9B2" stroke-linecap="square" stroke-width="2" d="M60 125.5h214.5M19.5 125.5H55M281.5 125.25h20"/>
+        <g fill="#D9E4EA" opacity=".509" transform="translate(0 3)">
+            <rect width="67" height="13" y="77" rx="6.5"/>
+            <rect width="116" height="13" x="55" y="26" rx="6.5"/>
+            <rect width="280" height="19" x="6" rx="8"/>
+            <rect width="168" height="18" x="177" y="31" rx="8"/>
+            <rect width="106" height="18" x="177" y="81" rx="8"/>
+            <rect width="162" height="18" x="121" y="105" rx="8"/>
+            <rect width="222" height="13" x="13" y="54" rx="6.5"/>
+        </g>
+        <path fill="#FFF" stroke="#8459B9" d="M89.925 117H73c.627 4.2 2.194 6.9 4.701 8.1 2.508 1.2 61.747 1.2 177.717 0 4.388-1.2 6.582-3.9 6.582-8.1h-20.687"/>
+        <path fill="#FFF" stroke="#8459B9" d="M89.5 36.5h161v81h-161z"/>
+        <path fill="#EBF1F4" stroke="#8459B9" d="M95.5 41.5h149v71h-149z" opacity=".7"/>
+        <path stroke="#9D7BC7" d="M160 88.23c6 4.667 13 5 21 1"/>
+        <path stroke="#8459B9" d="M89 79c-6 .667-11.667-2.667-17-10M251 80c1.333 6 5 9 11 9"/>
+        <text fill="#8459B9" font-family="UniNeueBold, Uni Neue" font-size="24" font-weight="bold" transform="translate(72 36)">
+            <tspan x="82" y="53">me</tspan>
+        </text>
+        <g transform="translate(35)">
+            <path fill="#858C8F" d="M210.784 34l-.784-.784L212.216 31l.784.784L210.784 34zm-3.568 0L205 31.784l.784-.784L208 33.216l-.784.784zm3.568 2L213 38.216l-.784.784L210 36.784l.784-.784zm-3.568 0l.784.784L205.784 39l-.784-.784L207.216 36z"/>
+            <circle cx="246" cy="102" r="4" stroke="#858C8F" stroke-width="2"/>
+            <circle cx="20" cy="11" r="4" stroke="#858C8F" stroke-width="2"/>
+            <circle cx="33" cy="20" r="3" stroke="#858C8F" stroke-width="2"/>
+            <path fill="#858C8F" d="M0 106v-2h15v2H0zm12 5v-2h12v2H12zm5-5v-2h6v2h-6zm-11 5v-2h5v2H6zM194 2V0h13v2h-13zm10 6V6h11v2h-11zm4-6V0h6v2h-6zm-10 6V6h4v2h-4z"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="365" height="127" viewBox="0 0 365 127">
+    <defs>
+        <path id="a" d="M30 36h47v54H30V36z"/>
+        <mask id="b" width="47" height="54" x="0" y="0" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill="#D9E4EA" opacity=".509" transform="translate(0 5)">
+            <rect width="67" height="13" x="20" y="76" rx="6.5"/>
+            <rect width="116" height="13" x="61" y="29" rx="6.5"/>
+            <rect width="306" height="18" rx="8"/>
+            <rect width="168" height="18" x="197" y="30" rx="8"/>
+            <rect width="106" height="18" x="197" y="80" rx="8"/>
+            <rect width="162" height="18" x="141" y="104" rx="8"/>
+            <rect width="222" height="13" x="33" y="53" rx="6.5"/>
+        </g>
+        <g transform="translate(90 7)">
+            <path fill="#FFF" stroke="#8459B9" d="M23.603 10.455l132.868-.747c6.368-1.494 9.553-4.48 9.553-8.961v104.545c-1.158 6.472-4.921 9.708-11.29 9.708H10.576C3.526 115 0 111 0 103"/>
+            <path fill="#B7C7CF" d="M92 42h35a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H92a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm0 12h62a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H92a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm0 24h62a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H92a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm42-36h20a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-20a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm3 24h17a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-17a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm-22 0h15a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm-23 0h15a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H92a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z"/>
+            <use stroke="#17C9B2" stroke-dasharray="2" stroke-width="2" mask="url(#b)" xlink:href="#a"/>
+            <path fill="#FFF" d="M37 33h29v6H37zM40 87h29v6H40zM29 52h3v23h-3zM75 52h3v23h-3z"/>
+            <path fill="#FCFCFC" stroke="#8459B9" d="M22.148 103.338c-1.136-5.775-4.827-8.663-11.074-8.663S1.136 97.804 0 104.06V11.662C2.272 5.887 6.247 3 11.926 3S21.296 5.887 23 11.662v90.232C22.432 108.631 19.025 112 12.778 112c-4.543 0-7.136-2.082-7.778-6.245-.494-4.98 1.53-7.47 6.074-7.47 4.543 0 6.815 2.165 6.815 6.496 0 1.925-1.42 2.888-4.26 2.888-2.839 0-4.259-1.203-4.259-3.61l3.408-3.738H9.37"/>
+        </g>
+        <g fill="#EBF1F4" stroke="#17C9B2" stroke-width="2">
+            <path d="M217 28.639l5.706-5.528h21.738c1.419 0 2.556-1.102 2.556-2.444V3.444C247 2.102 245.863 1 244.444 1h-24.888C218.137 1 217 2.102 217 3.444V28.64z"/>
+            <path d="M263 35.639l-5.706-5.528h-21.738c-1.419 0-2.556-1.102-2.556-2.444V10.444C233 9.102 234.137 8 235.556 8h24.888C261.863 8 263 9.102 263 10.444V35.64z"/>
+        </g>
+        <g transform="translate(126 49)">
+            <rect width="35" height="42" fill="#17C9B2" rx="3"/>
+            <rect width="29" height="36" x="3" y="3" fill="#FCFCFC" rx="3"/>
+            <path stroke="#17C9B2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 28v-1.333C23 25.194 21.769 24 20.25 24h-5.5C13.231 24 12 25.194 12 26.667V28"/>
+            <circle cx="17.5" cy="18.5" r="2.5" stroke="#17C9B2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+    </g>
+</svg>
