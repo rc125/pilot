@@ -13,6 +13,7 @@ import WithoutCNPJ from './WithoutCNPJ'
 import CompanyData from './CompanyData'
 import PartnerAddress from './PartnerAddress'
 import PartnerData from './PartnerData'
+import WaitingRiskAnalysis from './WaitingRiskAnalysis'
 
 const mapStepToContainer = {
   'create-account': CreateAccount,
@@ -28,9 +29,11 @@ const mapStepToContainer = {
   'sales-amount-present': SalesAmount('present'),
   'sales-amount-future': SalesAmount('future'),
   contract: Contract,
+  'waiting-risk-analysis': WaitingRiskAnalysis,
 }
 
-const SelfRegisterForm = ({
+const SelfRegisterContainer = ({
+  registerData,
   onRedirectToHome,
   onSubmit,
   step,
@@ -39,15 +42,18 @@ const SelfRegisterForm = ({
   const container = mapStepToContainer[step]
 
   return React.createElement(container, {
+    registerData,
     onRedirectToHome,
     onSubmit,
     t,
   })
 }
 
-SelfRegisterForm.propTypes = {
+SelfRegisterContainer.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onRedirectToHome: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   step: PropTypes.oneOf([
     'create-account',
     'check-cnpj',
@@ -62,8 +68,14 @@ SelfRegisterForm.propTypes = {
     'sales-amount-present',
     'sales-amount-future',
     'contract',
+    'waiting-risk-analysis',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }
 
-export default SelfRegisterForm
+SelfRegisterContainer.defaultProps = {
+  registerData: {},
+  onSubmit: null,
+}
+
+export default SelfRegisterContainer

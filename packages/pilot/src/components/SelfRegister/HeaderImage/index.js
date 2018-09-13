@@ -11,6 +11,7 @@ import ImageWithoutCNPJ from './without-cnpj.svg'
 import ImageCompanyData from './company-data.svg'
 import ImagePartnerAddress from './partner-address.svg'
 import ImagePartnerData from './partner-data.svg'
+import ImageWaitingRiskAnalysis from './waiting-risk-analysis.svg'
 
 const mapStepToImage = {
   'create-account': <ImageCreateAccount />,
@@ -26,6 +27,7 @@ const mapStepToImage = {
   'sales-amount-present': <ImageSalesAmount />,
   'sales-amount-future': <ImageSalesAmount />,
   contract: <ImageContract />,
+  'waiting-risk-analysis': <ImageWaitingRiskAnalysis />,
 }
 
 const HeaderImage = ({ step }) =>
@@ -46,6 +48,7 @@ HeaderImage.propTypes = {
     'sales-amount-present',
     'sales-amount-future',
     'contract',
+    'waiting-risk-analysis',
   ]).isRequired,
 }
 

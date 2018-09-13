@@ -137,6 +137,17 @@ const SelfRegisterContract = () => (
   />
 )
 
+const SelfRegisterWaitingRiskAnalysis = () => (
+  <SelfRegister
+    registerData={{ email: 'francisgleydisson@gmail.com' }}
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="waiting-risk-analysis"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -151,4 +162,5 @@ export {
   SelfRegisterSalesAmountPresent,
   SelfRegisterSalesAmountFuture,
   SelfRegisterContract,
+  SelfRegisterWaitingRiskAnalysis,
 }
