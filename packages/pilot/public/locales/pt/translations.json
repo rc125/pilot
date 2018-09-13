@@ -653,7 +653,7 @@
         "question": "Sua empresa tem CNPJ ativo?"
       },
       "waiting_risk_analysis": {
-        "message_email_sent": "Dentro de 30 minutos você receberá um e-mail confirmando a sua conta.",
+        "message_email_sent": "Dentro de 30 minutos você receberá um e-mail confirmando a sua conta. O e-mail será enviado para",
         "message_support": "Caso você não receba nenhum e-mail de confirmação em 24 horas, por favor nos avise em relacionamento@pagar.me",
         "we_are_almost_finish": "Estamos quase lá!"
       },

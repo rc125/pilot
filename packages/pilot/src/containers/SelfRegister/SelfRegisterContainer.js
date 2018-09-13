@@ -33,6 +33,7 @@ const mapStepToContainer = {
 }
 
 const SelfRegisterContainer = ({
+  registerData,
   onRedirectToHome,
   onSubmit,
   step,
@@ -41,6 +42,7 @@ const SelfRegisterContainer = ({
   const container = mapStepToContainer[step]
 
   return React.createElement(container, {
+    registerData,
     onRedirectToHome,
     onSubmit,
     t,
@@ -48,6 +50,8 @@ const SelfRegisterContainer = ({
 }
 
 SelfRegisterContainer.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onRedirectToHome: PropTypes.func.isRequired,
   onSubmit: PropTypes.func,
   step: PropTypes.oneOf([
@@ -70,6 +74,7 @@ SelfRegisterContainer.propTypes = {
 }
 
 SelfRegisterContainer.defaultProps = {
+  registerData: {},
   onSubmit: null,
 }
 

@@ -25,6 +25,7 @@ const isForm = (step) => {
 }
 
 const SelfRegister = ({
+  registerData,
   onPreviousButton,
   onRedirectToHome,
   onSubmit,
@@ -45,6 +46,7 @@ const SelfRegister = ({
 
   return (
     <SelfRegisterWaiting
+      dataFlow={registerData}
       onRedirectToHome={onRedirectToHome}
       step={step}
       t={t}
@@ -53,6 +55,8 @@ const SelfRegister = ({
 }
 
 SelfRegister.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onPreviousButton: PropTypes.func.isRequired,
   onRedirectToHome: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
@@ -69,11 +73,14 @@ SelfRegister.propTypes = {
     'business-detail-future',
     'sales-amount-present',
     'sales-amount-future',
+    'contract',
+    'waiting-creating',
   ]),
   t: PropTypes.func.isRequired,
 }
 
 SelfRegister.defaultProps = {
+  registerData: {},
   step: 'create-account',
 }
 

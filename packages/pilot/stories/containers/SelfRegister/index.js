@@ -139,6 +139,7 @@ const SelfRegisterContract = () => (
 
 const SelfRegisterWaitingRiskAnalysis = () => (
   <SelfRegister
+    registerData={{ email: 'francisgleydisson@gmail.com' }}
     onPreviousButton={actionPrevious}
     onRedirectToHome={actionRedirectToHome}
     onSubmit={actionSubmit}

@@ -15,6 +15,7 @@ import SelfRegisterContainer from './SelfRegisterContainer'
 import style from './style.css'
 
 const SelfRegisterWaiting = ({
+  registerData,
   onRedirectToHome,
   step,
   t,
@@ -40,6 +41,7 @@ const SelfRegisterWaiting = ({
                     <Logo className={style.logo} width={140} />
                     <div className={classNames(style.growContent, style.centerContent)}>
                       <SelfRegisterContainer
+                        registerData={registerData}
                         onRedirectToHome={onRedirectToHome}
                         step={step}
                         t={t}
@@ -59,11 +61,17 @@ const SelfRegisterWaiting = ({
 )
 
 SelfRegisterWaiting.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onRedirectToHome: PropTypes.func.isRequired,
   step: PropTypes.oneOf([
     'waiting-creating',
   ]).isRequired,
   t: PropTypes.func.isRequired,
+}
+
+SelfRegisterWaiting.defaultProps = {
+  registerData: {},
 }
 
 export default SelfRegisterWaiting

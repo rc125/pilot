@@ -7,12 +7,12 @@ import style from './../style.css'
 
 const step = 'waiting-risk-analysis'
 
-const SelfRegisterWaitingRiskAnalysis = ({ t }) => (
+const SelfRegisterWaitingRiskAnalysis = ({ registerData, t }) => (
   <Message
     image={<HeaderImage step={step} />}
     message={
       <div className={style.headerBody}>
-        <p>{t('pages.self_register.waiting_risk_analysis.message_email_sent')}</p>
+        <p>{t('pages.self_register.waiting_risk_analysis.message_email_sent')} {registerData.email}</p>
         <p>{t('pages.self_register.waiting_risk_analysis.message_support')}</p>
       </div>
     }
@@ -25,6 +25,9 @@ const SelfRegisterWaitingRiskAnalysis = ({ t }) => (
 )
 
 SelfRegisterWaitingRiskAnalysis.propTypes = {
+  registerData: PropTypes.shape({
+    email: PropTypes.string,
+  }).isRequired,
   t: PropTypes.func.isRequired,
 }
 
