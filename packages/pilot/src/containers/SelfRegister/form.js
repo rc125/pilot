@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import AlreadySell from './AlreadySell'
+import BusinessDetailPresent from './BusinessDetailPresent'
+import BusinessDetailFuture from './BusinessDetailFuture'
 import CreateAccount from './CreateAccount'
 import CheckCNPJ from './CheckCNPJ'
+import SalesAmount from './SalesAmount'
 import TypeCNPJ from './TypeCNPJ'
 import WithoutCNPJ from './WithoutCNPJ'
 import CompanyData from './CompanyData'
@@ -17,6 +21,11 @@ const mapStepToContainer = {
   'company-data': CompanyData,
   'partner-data': PartnerData,
   'partner-address': PartnerAddress,
+  'already-sell': AlreadySell,
+  'business-detail-present': BusinessDetailPresent,
+  'business-detail-future': BusinessDetailFuture,
+  'sales-amount-present': SalesAmount('present'),
+  'sales-amount-future': SalesAmount('future'),
 }
 
 const SelfRegisterForm = ({
@@ -45,6 +54,11 @@ SelfRegisterForm.propTypes = {
     'company-data',
     'partner-data',
     'partner-address',
+    'already-sell',
+    'business-detail-present',
+    'business-detail-future',
+    'sales-amount-present',
+    'sales-amount-future',
   ]).isRequired,
   t: PropTypes.func.isRequired,
 }

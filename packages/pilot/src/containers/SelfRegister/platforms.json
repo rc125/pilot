@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Desenvolvimento próprio",
+    "value": "customized"
+  },
+  {
+    "name": "2Mind",
+    "value": "2mind"
+  },
+  {
+    "name": "BetaLabs",
+    "value": "betalabs"
+  },
+  {
+    "name": "Bis2Bis",
+    "value": "bis2bis"
+  },
+  {
+    "name": "BizCommerce",
+    "value": "bizcommerce"
+  },
+  {
+    "name": "Braavo",
+    "value": "braavo"
+  },
+  {
+    "name": "Bubb Store",
+    "value": "bubb_store"
+  },
+  {
+    "name": "DLoja",
+    "value": "dloja"
+  },
+  {
+    "name": "Dotstore",
+    "value": "dotstore"
+  },
+  {
+    "name": "Ecom Club",
+    "value": "ecom_club"
+  },
+  {
+    "name": "E-completo",
+    "value": "e-completo"
+  },
+  {
+    "name": "Edools",
+    "value": "edools"
+  },
+  {
+    "name": "Egondola",
+    "value": "egondola"
+  },
+  {
+    "name": "EzCommerce",
+    "value": "ezcommerce"
+  },
+  {
+    "name": "FBITS",
+    "value": "fbits"
+  },
+  {
+    "name": "FitCommerce",
+    "value": "fitcommerce"
+  },
+  {
+    "name": "Flexy",
+    "value": "flexy"
+  },
+  {
+    "name": "Internet Ad",
+    "value": "internet_ad"
+  },
+  {
+    "name": "Irroba ",
+    "value": "irroba"
+  },
+  {
+    "name": "Iset",
+    "value": "iset"
+  },
+  {
+    "name": "Jet Commerce",
+    "value": "jet_commerce"
+  },
+  {
+    "name": "Loja Integrada",
+    "value": "loja_integrada"
+  },
+  {
+    "name": "Lojcomm",
+    "value": "lojcomm"
+  },
+  {
+    "name": "Magento",
+    "value": "magento"
+  },
+  {
+    "name": "MKX",
+    "value": "mkx"
+  },
+  {
+    "name": "Moovin",
+    "value": "moovin"
+  },
+  {
+    "name": "Nova Oito",
+    "value": "nova_oito"
+  },
+  {
+    "name": "Opencart",
+    "value": "opencart"
+  },
+  {
+    "name": "Oxigênio",
+    "value": "oxigenio"
+  },
+  {
+    "name": "Prestashop",
+    "value": "prestashop"
+  },
+  {
+    "name": "Showare",
+    "value": "showare"
+  },
+  {
+    "name": "Signativa",
+    "value": "signativa"
+  },
+  {
+    "name": "Stays.net",
+    "value": "stays.net"
+  },
+  {
+    "name": "Uoou",
+    "value": "uoou"
+  },
+  {
+    "name": "VNDA",
+    "value": "vnda"
+  },
+  {
+    "name": "Vtex",
+    "value": "vtex"
+  },
+  {
+    "name": "WooCommerce",
+    "value": "woocommerce"
+  },
+  {
+    "name": "Xtech",
+    "value": "xtech"
+  },
+  {
+    "name": "Outra plataforma",
+    "value": "other"
+  }
+]

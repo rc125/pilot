@@ -77,6 +77,56 @@ const SelfRegisterPartnerAddress = () => (
   />
 )
 
+const SelfRegisterAlreadySell = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="already-sell"
+    t={identity}
+  />
+)
+
+const SelfRegisterBusinessDetailPresent = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="business-detail-present"
+    t={identity}
+  />
+)
+
+const SelfRegisterBusinessDetailFuture = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="business-detail-future"
+    t={identity}
+  />
+)
+
+const SelfRegisterSalesAmountPresent = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="sales-amount-present"
+    t={identity}
+  />
+)
+
+const SelfRegisterSalesAmountFuture = () => (
+  <SelfRegister
+    onPreviousButton={actionPrevious}
+    onRedirectToHome={actionRedirectToHome}
+    onSubmit={actionSubmit}
+    step="sales-amount-future"
+    t={identity}
+  />
+)
+
 export {
   SelfRegisterCreateAccount,
   SelfRegisterCheckCNPJ,
@@ -85,4 +135,9 @@ export {
   SelfRegisterCompanyData,
   SelfRegisterPartnerData,
   SelfRegisterPartnerAddress,
+  SelfRegisterAlreadySell,
+  SelfRegisterBusinessDetailPresent,
+  SelfRegisterBusinessDetailFuture,
+  SelfRegisterSalesAmountPresent,
+  SelfRegisterSalesAmountFuture,
 }
