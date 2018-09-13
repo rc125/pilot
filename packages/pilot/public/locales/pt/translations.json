@@ -593,6 +593,10 @@
         "question": "Sua empresa tem CNPJ ativo?",
         "yes": "Sim"
       },
+      "contract": {
+        "agree": "Concordo",
+        "form_title": "Termos de aceite"
+      },
       "company_data": {
         "commercial_phone": "Telefone comercial (com DDD)",
         "continue": "Continuar",
