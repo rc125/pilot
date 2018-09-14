@@ -11,7 +11,7 @@ import Form from 'react-vanilla-form'
 
 import cpfValidation from '../../../validation/cpf'
 import dateValidation from '../../../validation/date'
-import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpers'
+import { handleMaskField, onFormMaskFieldChange } from '../formMaskFieldHelpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import legalAgeValidation from '../../../validation/legalAge'
 import Message from '../../../components/Message'

@@ -7,7 +7,7 @@ import {
 import Form from 'react-vanilla-form'
 
 import cnpjValidation from '../../../validation/cnpj'
-import { handleMaskField } from '../form-mask-field-helpers'
+import { handleMaskField } from '../formMaskFieldHelpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
 import requiredValidation from '../../../validation/required'

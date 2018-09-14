@@ -10,7 +10,7 @@ import {
 import Form from 'react-vanilla-form'
 
 import cepValidation from '../../../validation/cep'
-import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpers'
+import { handleMaskField, onFormMaskFieldChange } from '../formMaskFieldHelpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
 import requiredValidation from '../../../validation/required'
