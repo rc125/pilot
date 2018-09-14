@@ -34,14 +34,12 @@ const isPhone = t => phoneValidation(t('validations.isPhone'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterPartnerData extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       formData: {
-        cpf: '',
-        birth_date: '',
-        phone: '',
+        ...props.registerData,
       },
     }
 
@@ -143,8 +141,14 @@ class SelfRegisterPartnerData extends Component {
 }
 
 SelfRegisterPartnerData.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  registerData: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+SelfRegisterPartnerData.defaultProps = {
+  registerData: {},
 }
 
 export default SelfRegisterPartnerData
