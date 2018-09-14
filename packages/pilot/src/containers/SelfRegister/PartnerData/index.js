@@ -38,9 +38,11 @@ class SelfRegisterPartnerData extends Component {
     super()
 
     this.state = {
-      cpf: '',
-      birth_date: '',
-      phone: '',
+      formData: {
+        cpf: '',
+        birth_date: '',
+        phone: '',
+      },
     }
 
     this.handleMaskField = handleMaskField.bind(this)
@@ -64,7 +66,7 @@ class SelfRegisterPartnerData extends Component {
         <Form
           className={style.fillWidth}
           data={{
-            ...this.state,
+            ...this.state.formData,
           }}
           onChange={this.onFormMaskFieldChange}
           onSubmit={onSubmit}
