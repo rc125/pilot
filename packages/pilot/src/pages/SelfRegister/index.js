@@ -108,7 +108,7 @@ class PageSelfRegister extends Component {
       createCompany(registerData)
         .then((result) => {
           if (result.ok) {
-            return history.replace('roda de ok')
+            return history.replace('rota de ok')
           }
           throw result
         })
