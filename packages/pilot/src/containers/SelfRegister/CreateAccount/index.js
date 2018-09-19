@@ -12,6 +12,7 @@ import {
 } from 'ramda'
 import Form from 'react-vanilla-form'
 
+import emailValidation from '../../../validation/email'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
 import requiredValidation from '../../../validation/required'
@@ -24,6 +25,8 @@ const equalsString = (t, str1) => ifElse(
 )
 
 const step = 'create-account'
+
+const isEmail = t => emailValidation(t('validations.isEmail'))
 
 class SelfRegisterCreateAccount extends Component {
   constructor () {
@@ -69,7 +72,7 @@ class SelfRegisterCreateAccount extends Component {
           onChange={this.handleFormChange}
           onSubmit={onSubmit}
           validation={{
-            email: isRequired,
+            email: [isRequired, isEmail(t)],
             password: isRequired,
             confirmPassword: [isRequired, equalsString(t, password)],
           }}
