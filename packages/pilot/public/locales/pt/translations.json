@@ -83,7 +83,8 @@
     "network_error": "Falha de comunicação com o Pagar.me. Verifique seu acesso a internet."
   },
   "validations": {
-    "isEmail": "Não é um e-mail válido"
+    "isEmail": "Não é um e-mail válido",
+    "isCnpj": "Não é um CNPJ válido"
   },
 
   "password_recovery": {

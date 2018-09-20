@@ -6,6 +6,7 @@ import {
 } from 'former-kit'
 import Form from 'react-vanilla-form'
 
+import cnpjValidation from '../../../validation/cnpj'
 import { handleMaskField } from '../form-mask-field-helpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
@@ -14,6 +15,7 @@ import style from '../style.css'
 
 const step = 'type-cnpj'
 
+const isCnpj = t => cnpjValidation(t('validations.isCnpj'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterTypeCNPJ extends Component {
@@ -55,7 +57,7 @@ class SelfRegisterTypeCNPJ extends Component {
           onSubmit={onSubmit}
           validateOn="blur"
           validation={{
-            cnpj: isRequired(t),
+            cnpj: [isRequired(t), isCnpj(t)],
           }}
         >
           <FormInput
