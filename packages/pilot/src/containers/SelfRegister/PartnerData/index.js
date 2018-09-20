@@ -9,6 +9,7 @@ import {
 } from 'former-kit'
 import Form from 'react-vanilla-form'
 
+import cpfValidation from '../../../validation/cpf'
 import dateValidation from '../../../validation/date'
 import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
@@ -26,6 +27,7 @@ const masks = {
 const step = 'partner-data'
 
 const hasLegalAge = t => legalAgeValidation(t('validations.hasLegalAge'))
+const isCpf = t => cpfValidation(t('validations.isCpf'))
 const isDate = t => dateValidation(t('validations.isDate'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
@@ -72,7 +74,7 @@ class SelfRegisterPartnerData extends Component {
               isDate(t),
               hasLegalAge(t),
             ],
-            cpf: isRequired(t),
+            cpf: [isRequired(t), isCpf(t)],
             montherName: isRequired(t),
             phone: isRequired(t),
             email: isRequired(t),

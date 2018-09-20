@@ -85,6 +85,7 @@
   "validations": {
     "isEmail": "Não é um e-mail válido",
     "isCnpj": "Não é um CNPJ válido",
+    "isCpf": "Não é um CPF válido",
     "isPhone": "Não é um telefone válido",
     "isDate": "Não é uma data válida",
     "hasLegalAge": "É preciso ter 18 anos ou mais"
