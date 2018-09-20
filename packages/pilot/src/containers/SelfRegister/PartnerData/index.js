@@ -15,6 +15,7 @@ import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpe
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import legalAgeValidation from '../../../validation/legalAge'
 import Message from '../../../components/Message'
+import phoneValidation from '../../../validation/phone'
 import requiredValidation from '../../../validation/required'
 import style from '../style.css'
 
@@ -29,6 +30,7 @@ const step = 'partner-data'
 const hasLegalAge = t => legalAgeValidation(t('validations.hasLegalAge'))
 const isCpf = t => cpfValidation(t('validations.isCpf'))
 const isDate = t => dateValidation(t('validations.isDate'))
+const isPhone = t => phoneValidation(t('validations.isPhone'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterPartnerData extends Component {
@@ -76,7 +78,7 @@ class SelfRegisterPartnerData extends Component {
             ],
             cpf: [isRequired(t), isCpf(t)],
             montherName: isRequired(t),
-            phone: isRequired(t),
+            phone: [isRequired(t), isPhone(t)],
             email: isRequired(t),
           }}
         >
