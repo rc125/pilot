@@ -9,6 +9,7 @@ import {
 } from 'former-kit'
 import Form from 'react-vanilla-form'
 
+import dateValidation from '../../../validation/date'
 import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
@@ -23,6 +24,7 @@ const masks = {
 
 const step = 'partner-data'
 
+const isDate = t => dateValidation(t('validations.isDate'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterPartnerData extends Component {
@@ -63,7 +65,7 @@ class SelfRegisterPartnerData extends Component {
           validateOn="blur"
           validation={{
             partner_name: isRequired(t),
-            birth_date: isRequired(t),
+            birth_date: [isRequired(t), isDate(t)],
             cpf: isRequired(t),
             montherName: isRequired(t),
             phone: isRequired(t),
