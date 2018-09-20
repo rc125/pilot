@@ -84,6 +84,7 @@
   },
   "validations": {
     "isEmail": "Não é um e-mail válido",
+    "isCep": "Não é um CEP válido",
     "isCnpj": "Não é um CNPJ válido",
     "isCpf": "Não é um CPF válido",
     "isPhone": "Não é um telefone válido",
