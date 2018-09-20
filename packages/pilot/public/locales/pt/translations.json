@@ -84,7 +84,8 @@
   },
   "validations": {
     "isEmail": "Não é um e-mail válido",
-    "isCnpj": "Não é um CNPJ válido"
+    "isCnpj": "Não é um CNPJ válido",
+    "isPhone": "Não é um telefone válido"
   },
 
   "password_recovery": {
