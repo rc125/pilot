@@ -93,7 +93,15 @@ class SelfRegisterPartnerData extends Component {
             </Row>
 
             <Row>
-              <Col tv={4} desk={4} tablet={5} palm={12}>
+              <Col tv={4} desk={4} tablet={4} palm={12}>
+                <FormInput
+                  label={t('pages.self_register.partner_data.cpf')}
+                  mask={masks.cpf}
+                  name="cpf"
+                  onChange={this.handleMaskField('cpf')}
+                />
+              </Col>
+              <Col tv={4} desk={4} tablet={4} palm={12}>
                 <FormInput
                   label={t('pages.self_register.partner_data.birth_date')}
                   mask={masks.date}
@@ -101,12 +109,12 @@ class SelfRegisterPartnerData extends Component {
                   onChange={this.handleMaskField('birth_date')}
                 />
               </Col>
-              <Col tv={8} desk={8} tablet={7} palm={12}>
+              <Col tv={4} desk={4} tablet={4} palm={12}>
                 <FormInput
-                  label={t('pages.self_register.partner_data.cpf')}
-                  mask={masks.cpf}
-                  name="cpf"
-                  onChange={this.handleMaskField('cpf')}
+                  label={t('pages.self_register.partner_data.phone')}
+                  mask={masks.phone}
+                  name="phone"
+                  onChange={this.handleMaskField('phone')}
                 />
               </Col>
             </Row>
@@ -116,23 +124,6 @@ class SelfRegisterPartnerData extends Component {
                 <FormInput
                   label={t('pages.self_register.partner_data.monther_name')}
                   name="montherName"
-                />
-              </Col>
-            </Row>
-
-            <Row>
-              <Col tv={4} desk={4} tablet={5} palm={12}>
-                <FormInput
-                  label={t('pages.self_register.partner_data.phone')}
-                  mask={masks.phone}
-                  name="phone"
-                  onChange={this.handleMaskField('phone')}
-                />
-              </Col>
-              <Col tv={8} desk={8} tablet={7} palm={12}>
-                <FormInput
-                  label={t('pages.self_register.partner_data.email')}
-                  name="email"
                 />
               </Col>
             </Row>
