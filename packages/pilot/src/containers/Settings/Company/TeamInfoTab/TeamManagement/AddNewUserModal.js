@@ -16,10 +16,9 @@ import IconWarning from 'emblematic-icons/svg/Warning32.svg'
 import IconInfo from 'emblematic-icons/svg/Info32.svg'
 import Close from 'emblematic-icons/svg/ClearClose32.svg'
 
-/* eslint-disable */
-const isEmail = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-const isEmailValid = t => value => isEmail.test(value) ? null : t('validations.isEmail')
-/* eslint-enable */
+import emailValidation from '../../../../../validation/email'
+
+const isEmail = t => emailValidation(t('validations.isEmail'))
 const required = t => value => (value ? null : t('pages.settings.user.card.access.field_required'))
 const permissions = [
   {
@@ -99,7 +98,7 @@ class AddNewUserModal extends React.Component {
             {
               email: [
                 required(t),
-                isEmailValid(t),
+                isEmail(t),
               ],
               permission: required(t),
             }

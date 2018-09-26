@@ -9,6 +9,7 @@ import {
 } from 'former-kit'
 import Form from 'react-vanilla-form'
 
+import cepValidation from '../../../validation/cep'
 import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
@@ -17,6 +18,7 @@ import style from '../style.css'
 
 const step = 'partner-address'
 
+const isCep = t => cepValidation(t('validations.isCep'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterPartnerAddress extends Component {
@@ -54,7 +56,7 @@ class SelfRegisterPartnerAddress extends Component {
           onSubmit={onSubmit}
           validateOn="blur"
           validation={{
-            cep: isRequired(t),
+            cep: [isRequired(t), isCep(t)],
             city: isRequired(t),
             neighborhood: isRequired(t),
             number: isRequired(t),

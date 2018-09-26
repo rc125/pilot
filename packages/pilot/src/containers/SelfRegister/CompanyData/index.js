@@ -13,11 +13,13 @@ import Form from 'react-vanilla-form'
 import { handleMaskField, onFormMaskFieldChange } from '../form-mask-field-helpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
+import phoneValidation from '../../../validation/phone'
 import requiredValidation from '../../../validation/required'
 import style from './../style.css'
 
 const step = 'company-data'
 
+const isPhone = t => phoneValidation(t('validations.isPhone'))
 const isRequired = t => requiredValidation(t('pages.self_register.required_error'))
 
 class SelfRegisterCompanyData extends Component {
@@ -53,7 +55,7 @@ class SelfRegisterCompanyData extends Component {
           validation={{
             tradeName: isRequired(t),
             legalName: isRequired(t),
-            commercialPhone: isRequired(t),
+            commercialPhone: [isRequired(t), isPhone(t)],
           }}
         >
           <Grid>
