@@ -20,7 +20,7 @@ const buildMql = applySpec({
   answers: {
     sales_starts: prop('salesStarts'),
     tpv: prop('amount'),
-    plataform: prop('platform'),
+    platform: prop('platform'),
     segment: prop('segment'),
   },
 })
