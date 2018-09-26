@@ -1,234 +1,110 @@
 [
   {
-    "name": "Arquitetura e Engenharia",
-    "value": "architecture_and_engineering"
+    "value": "AC",
+    "name": "Acre"
   },
   {
-    "name": "Arte e Antiguidades",
-    "value": "art_and_antiques"
+    "value": "AL",
+    "name": "Alagoas"
   },
   {
-    "name": "Artigos Religiosos",
-    "value": "religious_products"
+    "value": "AP",
+    "name": "Amapá"
   },
   {
-    "name": "Automóveis e Acessórios",
-    "value": "cars_and_autoparts"
+    "value": "AM",
+    "name": "Amazonas"
   },
   {
-    "name": "Bebês",
-    "value": "babies"
+    "value": "BA",
+    "name": "Bahia"
   },
   {
-    "name": "Brinquedos e Colecionáveis",
-    "value": "toys_and_collectibles"
+    "value": "CE",
+    "name": "Ceará"
   },
   {
-    "name": "Cama, Mesa e Banho",
-    "value": "bed_bath_table"
+    "value": "DF",
+    "name": "Distrito Federal"
   },
   {
-    "name": "Celulares e Telefonia",
-    "value": "cellphones_and_telephony"
+    "value": "ES",
+    "name": "Espírito Santo"
   },
   {
-    "name": "Clube de Compras",
-    "value": "collective_discount"
+    "value": "GO",
+    "name": "Goiás"
   },
   {
-    "name": "Comida, Bebida e Nutricional",
-    "value": "food_beverage_nutrition"
+    "value": "MA",
+    "name": "Maranhão"
   },
   {
-    "name": "Comércio Variado",
-    "value": "diverse"
+    "value": "MT",
+    "name": "Mato Grosso"
   },
   {
-    "name": "Construção e Jardinagem",
-    "value": "construction_and_gardening"
+    "value": "MS",
+    "name": "Mato Grosso do Sul"
   },
   {
-    "name": "Consultoria Empresarial",
-    "value": "consulting"
+    "value": "MG",
+    "name": "Minas Gerais"
   },
   {
-    "name": "Conteúdo Adulto",
-    "value": "adult_content"
+    "value": "PA",
+    "name": "Pará"
   },
   {
-    "name": "Câmeras",
-    "value": "cameras"
+    "value": "PB",
+    "name": "Paraíba"
   },
   {
-    "name": "Dentistas",
-    "value": "dentist"
+    "value": "PR",
+    "name": "Paraná"
   },
   {
-    "name": "Descarga de áudio/vídeo",
-    "value": "audio_video_download"
+    "value": "PE",
+    "name": "Pernambuco"
   },
   {
-    "name": "Desenvolvimento de Software",
-    "value": "software"
+    "value": "PI",
+    "name": "Piauí"
   },
   {
-    "name": "Educação",
-    "value": "education"
+    "value": "RJ",
+    "name": "Rio de Janeiro"
   },
   {
-    "name": "Eletrodomésticos",
-    "value": "home_appliances"
+    "value": "RN",
+    "name": "Rio Grande do Norte"
   },
   {
-    "name": "Eletrônicos",
-    "value": "electronics"
+    "value": "RS",
+    "name": "Rio Grande do Sul"
   },
   {
-    "name": "Entidades Públicas",
-    "value": "public_entities"
+    "value": "RO",
+    "name": "Rondônia"
   },
   {
-    "name": "Esporte",
-    "value": "sports"
+    "value": "RR",
+    "name": "Roraima"
   },
   {
-    "name": "Eventos",
-    "value": "events"
+    "value": "SC",
+    "name": "Santa Catarina"
   },
   {
-    "name": "Filmes, Seriados e Shows",
-    "value": "movies_series_shows"
+    "value": "SP",
+    "name": "São Paulo"
   },
   {
-    "name": "Flores e Cestas",
-    "value": "flowers_and_baskets"
+    "value": "SE",
+    "name": "Sergipe"
   },
   {
-    "name": "Fotografia e Gravação",
-    "value": "photography_and_recording"
-  },
-  {
-    "name": "Hardware e Acessórios",
-    "value": "hardware_and_accessories"
-  },
-  {
-    "name": "Hospedagem de Sites",
-    "value": "websites_hosting"
-  },
-  {
-    "name": "Hotéis",
-    "value": "hotels"
-  },
-  {
-    "name": "Imóveis",
-    "value": "properties"
-  },
-  {
-    "name": "Indústria e Agronegócios",
-    "value": "industry_and_farming"
-  },
-  {
-    "name": "Instrumentos Musicais",
-    "value": "musical_instruments"
-  },
-  {
-    "name": "Jogos Online",
-    "value": "online_games"
-  },
-  {
-    "name": "Jogos, Lazer e Divertimento",
-    "value": "games_and_leisure"
-  },
-  {
-    "name": "Jóias e Relógios",
-    "value": "jewelries"
-  },
-  {
-    "name": "Leilão de um centavo",
-    "value": "penny_auction"
-  },
-  {
-    "name": "Livros",
-    "value": "books"
-  },
-  {
-    "name": "Materiais de construção",
-    "value": "construction_material"
-  },
-  {
-    "name": "Médicos",
-    "value": "doctor"
-  },
-  {
-    "name": "Móveis e Decoração",
-    "value": "furnitures_and_decor"
-  },
-  {
-    "name": "Outras atividades profissionais",
-    "value": "other_professional_activities"
-  },
-  {
-    "name": "Papelaria",
-    "value": "office_supplies"
-  },
-  {
-    "name": "Perfumaria e Cosméticos",
-    "value": "perfumery_and_cosmetics"
-  },
-  {
-    "name": "Personal Trainers",
-    "value": "personal_trainers"
-  },
-  {
-    "name": "Pet Shop",
-    "value": "petshop"
-  },
-  {
-    "name": "Publicidade e Pesquisas de Mercado",
-    "value": "advertising_and_market_research"
-  },
-  {
-    "name": "Roupas e Acessórios",
-    "value": "apparel_and_accessories"
-  },
-  {
-    "name": "Salões de Beleza",
-    "value": "beauty_salon"
-  },
-  {
-    "name": "Saúde",
-    "value": "health"
-  },
-  {
-    "name": "Seguros e outros serviços financeiros",
-    "value": "insurance_and_financial_services"
-  },
-  {
-    "name": "Serviços",
-    "value": "services"
-  },
-  {
-    "name": "Serviços Jurídicos",
-    "value": "legal_services"
-  },
-  {
-    "name": "Telecomunicações",
-    "value": "telecommunications"
-  },
-  {
-    "name": "Terceiro Setor",
-    "value": "third_sector"
-  },
-  {
-    "name": "Táxi",
-    "value": "transport"
-  },
-  {
-    "name": "Utensílios domésticos",
-    "value": "household_items"
-  },
-  {
-    "name": "Viagem e Turismo",
-    "value": "travel_and_tourism"
+    "value": "TO",
+    "name": "Tocantins"
   }
 ]

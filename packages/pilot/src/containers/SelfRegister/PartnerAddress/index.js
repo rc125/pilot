@@ -14,7 +14,7 @@ import cepValidation from '../../../validation/cep'
 import { handleMaskField, onFormMaskFieldChange } from '../formMaskFieldHelpers'
 import HeaderImage from '../../../components/SelfRegister/HeaderImage'
 import Message from '../../../components/Message'
-import optionsSegments from '../states.json'
+import optionsStates from '../states.json'
 import requiredValidation from '../../../validation/required'
 import style from '../style.css'
 
@@ -120,7 +120,7 @@ class SelfRegisterPartnerAddress extends Component {
               <Col tv={4} desk={4} tablet={4} palm={12}>
                 <FormDropdown
                   name="state"
-                  options={optionsSegments}
+                  options={optionsStates}
                   placeholder={t('pages.self_register.partner_address.state')}
                 />
               </Col>
