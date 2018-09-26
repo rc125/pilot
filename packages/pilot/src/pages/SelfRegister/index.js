@@ -112,11 +112,10 @@ class PageSelfRegister extends Component {
           }
           throw result
         })
-        .catch((e) => {
+        .catch(() => {
           // TODO: When an internal error shows up a message must be shown
           // TODO: The API validation ERROS must be handled here
           // history.replace('roda de erro')
-          console.log(e)
         })
     }
   }
