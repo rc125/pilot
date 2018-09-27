@@ -81,7 +81,7 @@ class SelfRegisterCreateAccount extends Component {
         >
           <FormInput
             label={t('pages.self_register.create_account.email')}
-            name="accountEmail"
+            name="email"
           />
 
           <FormInput
