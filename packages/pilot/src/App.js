@@ -1,8 +1,8 @@
 import React from 'react'
 import { ThemeProvider } from 'former-kit'
 import theme from 'former-kit-skin-pagarme'
-import { HashRouter } from 'react-router-dom'
 import { Provider as StateProvider } from 'react-redux'
+import HashRouterWithPrompt from './HashRouterWithPrompt'
 
 import store from './configureStore'
 import Root from './pages/Root'
@@ -10,9 +10,9 @@ import Root from './pages/Root'
 const App = () => (
   <ThemeProvider theme={theme}>
     <StateProvider store={store}>
-      <HashRouter>
+      <HashRouterWithPrompt>
         <Root />
-      </HashRouter>
+      </HashRouterWithPrompt>
     </StateProvider>
   </ThemeProvider>
 )

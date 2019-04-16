@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { Prompt } from 'react-router-dom'
 import { Card, Steps } from 'former-kit'
 
 import IdentificationStep from './IdentificationStep'
@@ -49,6 +50,7 @@ class AddRecipients extends Component {
       fetchData: {},
       isLoading: false,
       openModal: false,
+      shouldValidateExit: false,
       stepsStatus: [...initialStepStatus],
     }
 
@@ -97,6 +99,7 @@ class AddRecipients extends Component {
     this.setState({
       currentStepNumber: nextStepNumber,
       data: newData,
+      shouldValidateExit: true,
       stepsStatus,
     })
   }
@@ -105,6 +108,7 @@ class AddRecipients extends Component {
     this.setState({
       data: newData,
       isLoading: true,
+      shouldValidateExit: true,
     }, () => {
       this.fetchAndSetNextStepData()
     })
@@ -304,6 +308,7 @@ class AddRecipients extends Component {
       error,
       isLoading,
       openModal,
+      shouldValidateExit,
       stepsStatus,
     } = this.state
 
@@ -321,6 +326,18 @@ class AddRecipients extends Component {
 
     return (
       <Fragment>
+        {openModal &&
+          <Prompt
+            when={shouldValidateExit === false}
+            message={t('prompt.message')}
+          />
+        }
+        {openModal === false &&
+          <Prompt
+            when={shouldValidateExit}
+            message={t('prompt.message')}
+          />
+        }
         { isLoading && <Loader visible /> }
         <Card>
           <Steps

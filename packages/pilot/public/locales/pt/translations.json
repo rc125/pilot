@@ -59,6 +59,12 @@
   "invalid_email": "E-mail inválido",
   "of": "de",
   "password": "Senha",
+  "prompt": {
+    "title": "Atenção!",
+    "message": "Você está deixando o fluxo atual. Tem certeza que deseja sair?",
+    "confirm": "Sim, quero sair",
+    "deny": "Não quero sair"
+  },
   "recipient": "Recebedor",
   "try_again": "Tentar novamente",
   "view_transaction": "Visualizar transação",
