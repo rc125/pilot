@@ -566,10 +566,10 @@ class Balance extends Component {
               <Card>
                 <Operations
                   columns={translateColumns(getColumns(typesLabels))}
+                  count={operations.total}
                   currentPage={currentPage}
+                  dates={dates}
                   disabled={disabled}
-                  emptyMessage={t('models.operations.empty_message')}
-                  exportLabel={t('models.operations.export')}
                   exporting={exporting}
                   labels={{
                     empty: t('models.operations.empty_message'),
@@ -582,18 +582,9 @@ class Balance extends Component {
                     totalOf: t('pages.balance.total.of'),
                   }}
                   loading={disabled || loading}
-                  ofLabel={t('of')}
                   onExport={onExport}
                   onPageChange={this.handleOperationsPageChange}
                   rows={operations.rows}
-                  subtitle={
-                    <span>
-                      {t('pages.balance.total.of')}
-                      <strong> {operations.total} </strong>
-                      {t('pages.balance.releases')}
-                    </span>
-                  }
-                  title={t('pages.balance.operations_title')}
                   totalPages={operations.count}
                 />
               </Card>
