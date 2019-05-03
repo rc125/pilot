@@ -571,6 +571,16 @@ class Balance extends Component {
                   emptyMessage={t('models.operations.empty_message')}
                   exportLabel={t('models.operations.export')}
                   exporting={exporting}
+                  labels={{
+                    empty: t('models.operations.empty_message'),
+                    exportCall: t('export_table'),
+                    exportTo: t('export_to'),
+                    results: t(
+                      'pages.balance.results',
+                      { count: operations.total }
+                    ),
+                    totalOf: t('pages.balance.total.of'),
+                  }}
                   loading={disabled || loading}
                   ofLabel={t('of')}
                   onExport={onExport}

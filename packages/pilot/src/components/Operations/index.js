@@ -1,15 +1,21 @@
-import React, { PureComponent } from 'react'
+import React, {
+  Fragment,
+  PureComponent,
+} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Download32 from 'emblematic-icons/svg/Download32.svg'
+import { isNil } from 'ramda'
 import {
   CardContent,
   CardTitle,
+  isMomentPropValidation,
   Pagination,
   Spacing,
 } from 'former-kit'
 import ExportData from '../ExportData'
 import TableData from './TableData'
+import dateFormat from '../../formatters/longDate'
 
 import style from './style.css'
 
@@ -36,7 +42,10 @@ class Operations extends PureComponent {
       currentPage,
       disabled,
       exporting,
-      ofLabel,
+      labels: {
+        exportCall,
+        exportTo,
+      },
       onExport,
       onPageChange,
       subtitle,
@@ -45,7 +54,7 @@ class Operations extends PureComponent {
 
     return (
       <div className={style.subtitle}>
-        <h3>{subtitle}</h3>
+        {subtitle}
         <ExportData
           exportOptions={getExportOptions(onExport)}
           icon={<Download32 width={12} height={12} />}
@@ -53,20 +62,58 @@ class Operations extends PureComponent {
           placement="bottomEnd"
           relevance="low"
           size="tiny"
-          subtitle="Exportar para:"
-          title="Exportar tabela"
+          subtitle={exportTo}
+          title={exportCall}
         />
         <Spacing size="tiny" />
         <Pagination
           currentPage={currentPage}
           disabled={disabled}
           onPageChange={onPageChange}
-          strings={{
-            of: ofLabel,
-          }}
+          format="single"
           totalPages={totalPages}
         />
       </div>
+    )
+  }
+
+  renderTitle () {
+    const {
+      count,
+      dates: {
+        end,
+        start,
+      },
+      labels: {
+        results,
+        totalOf,
+      },
+    } = this.props
+
+    const separator = (
+      <Fragment>
+        &nbsp;<small>-</small>&nbsp;
+      </Fragment>
+    )
+
+    return (
+      <span className={style.title}>
+        <strong>{dateFormat(start)}</strong>
+        {separator}
+        <strong>{dateFormat(end)}</strong>
+        {!isNil(count) && results &&
+          <span>
+            {separator}
+            {totalOf}
+            &nbsp;
+            <strong>
+              {count}
+            </strong>
+            &nbsp;
+            {results}
+          </span>
+        }
+      </span>
     )
   }
 
@@ -75,12 +122,12 @@ class Operations extends PureComponent {
       columns,
       currentPage,
       disabled,
-      emptyMessage,
+      labels: {
+        empty,
+      },
       loading,
-      ofLabel,
       onPageChange,
       rows,
-      title,
       totalPages,
     } = this.props
 
@@ -89,14 +136,14 @@ class Operations extends PureComponent {
         <div className={style.head}>
           <CardTitle
             subtitle={this.renderSubTitle()}
-            title={title}
+            title={this.renderTitle()}
           />
         </div>
         <CardContent>
           <TableData
             columns={columns}
             disabled={disabled}
-            emptyMessage={emptyMessage}
+            emptyMessage={empty}
             loading={loading}
             rows={rows}
           />
@@ -109,10 +156,8 @@ class Operations extends PureComponent {
           <Pagination
             currentPage={currentPage}
             disabled={disabled}
+            format="single"
             onPageChange={onPageChange}
-            strings={{
-              of: ofLabel,
-            }}
             totalPages={totalPages}
           />
         </CardContent>
@@ -133,12 +178,22 @@ Operations.propTypes = {
     renderer: PropTypes.func,
     title: PropTypes.string.isRequired,
   })).isRequired,
+  count: PropTypes.number,
   currentPage: PropTypes.number.isRequired,
+  dates: PropTypes.shape({
+    end: isMomentPropValidation.isRequired,
+    start: isMomentPropValidation.isRequired,
+  }).isRequired,
   disabled: PropTypes.bool,
-  emptyMessage: PropTypes.string.isRequired,
   exporting: PropTypes.bool.isRequired,
-  loading: PropTypes.bool.isRequired,
-  ofLabel: PropTypes.string.isRequired,
+  labels: PropTypes.shape({
+    empty: PropTypes.string.isRequired,
+    exportCall: PropTypes.string.isRequired,
+    exportTo: PropTypes.string.isRequired,
+    results: PropTypes.string,
+    totalOf: PropTypes.string,
+  }).isRequired,
+  loading: PropTypes.bool,
   onExport: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
   rows: PropTypes.arrayOf(PropTypes.shape({
@@ -159,13 +214,15 @@ Operations.propTypes = {
     transactionId: PropTypes.number,
     type: PropTypes.string.isRequired,
   })).isRequired,
-  subtitle: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.node,
   totalPages: PropTypes.number.isRequired,
 }
 
 Operations.defaultProps = {
+  count: null,
   disabled: false,
+  loading: false,
+  subtitle: null,
 }
 
 export default Operations

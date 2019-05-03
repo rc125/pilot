@@ -533,7 +533,8 @@
       "pending_requests_empty_message": "Nenhuma solicitação disponível",
       "pending_requests_title": "Solicitações recentes",
       "recipient": "Recebedor",
-      "releases": "lançamentos",
+      "results": "lançamento",
+      "results_plural": "lançamentos",
       "title": "Extrato",
       "total": {
         "outcoming": "Total de entradas",

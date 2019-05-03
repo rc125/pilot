@@ -85,3 +85,8 @@
   width: 100%;
   z-index: 5;
 }
+
+.title {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
+}
