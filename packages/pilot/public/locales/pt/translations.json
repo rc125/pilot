@@ -46,6 +46,8 @@
   "enter_password": "Digite sua senha",
   "error": "Erro",
   "export": "Exportar",
+  "export_table": "Exportar tabela",
+  "export_to": "Exportar para:",
   "filter_action": "Filtrar",
   "go_back": "voltar",
   "holder_name": "Portador do cartão",
@@ -1076,7 +1078,5 @@
   "password_strength": "Força",
   "password_rules_title": "Sua senha precisa ter:",
   "password_rules_min_length": "No mínimo {{length}} caracteres",
-  "password_rules_max_length": "No máximo {{length}} caracteres",
-  "transactions_export_table": "Exportar tabela",
-  "transactions_export_to": "Exportar para:"
+  "password_rules_max_length": "No máximo {{length}} caracteres"
 }

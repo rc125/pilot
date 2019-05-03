@@ -222,8 +222,8 @@ const TransactionsList = ({
                       placement="bottomEnd"
                       relevance="low"
                       size="tiny"
-                      subtitle={t('transactions_export_to')}
-                      title={t('transactions_export_table')}
+                      subtitle={t('export_to')}
+                      title={t('export_table')}
                     />
                     <SegmentedSwitch
                       disabled={loading}
