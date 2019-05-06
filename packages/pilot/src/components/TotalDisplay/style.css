@@ -12,7 +12,7 @@
 .amount {
   align-items: center;
   display: flex;
-  margin: var(--spacing-small) 0;
+  margin: var(--spacing-tiny) 0;
 
   & small {
     font-size: 18px;
@@ -25,10 +25,28 @@
     font-weight: bold;
   }
 
+  & small,
+  & span,
+  & .symbol {
+    align-items: center;
+    display: inline-flex;
+    height: 33px;
+  }
+
+  & .symbol {
+    font-size: 12px;
+    font-weight: lighter;
+    margin-right: 2px;
+  }
+
   & .title {
     color: var(--color-light-steel-100);
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  & .value {
+    display: flex;
   }
 }
 

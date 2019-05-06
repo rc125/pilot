@@ -5,7 +5,7 @@ import ContentLoader from 'react-content-loader'
 
 import DataDisplay from '../DataDisplay'
 import withLoading from '../withLoader'
-import currency from '../../formatters/currency'
+import currencyToParts from '../../formatters/currencyToParts'
 
 import style from './style.css'
 
@@ -35,24 +35,26 @@ const renderSymbol = (value) => {
 }
 
 const renderValue = (amount, amountSize, color) => {
-  const formattedValue = currency(Math.abs(amount))
-
+  const { symbol, value } = currencyToParts(Math.abs(amount))
   return (
     <div className={style.amount}>
       <small style={{ color }}>
         {renderSymbol(amount)}
       </small>
       {
-        formattedValue === 'NaN'
+        !value || value === 'NaN'
         ? <div className={style.empty} />
         : (
-          <span className={
-            classNames({
-              [style[amountSize]]: amountSize,
-            })}
-          >
-            {formattedValue}
-          </span>
+          <div className={style.value}>
+            <span className={style.symbol}>{symbol}</span>
+            <span className={
+              classNames({
+                [style[amountSize]]: amountSize,
+              })}
+            >
+              {value}
+            </span>
+          </div>
         )
       }
     </div>
