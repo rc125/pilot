@@ -111,9 +111,6 @@ const anyDateRange = {
   start: moment().subtract(3, 'months'),
 }
 
-const formatAmount = (amount = 0) =>
-  currencyFormatter(amount)
-
 const getTransfersPricing = path(['pricing', 'transfers'])
 
 const MINIMUM_API_VALUE = 100
@@ -448,7 +445,7 @@ class Balance extends Component {
                     ? null
                     : withdrawalAction
                 }
-                amount={formatAmount(amount)}
+                amount={amount}
                 detail={
                   <span>
                     {t('pages.balance.available_withdrawal')}
@@ -473,7 +470,7 @@ class Balance extends Component {
                   ? null
                   : anticipationAction
                 }
-                amount={formatAmount(outcoming)}
+                amount={outcoming}
                 // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
                 // It was commented on to remove the anticipation limits call on Balance page
                 // This code will be used again in the future when ATLAS project implements the anticipation flow
@@ -549,7 +546,6 @@ class Balance extends Component {
                 <CardContent>
                   <BalanceSummary
                     amount={this.getSummaryTotal()}
-                    dates={dates}
                     loading={loading}
                   />
                 </CardContent>
