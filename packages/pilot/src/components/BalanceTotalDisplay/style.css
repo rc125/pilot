@@ -17,6 +17,13 @@
   }
 }
 
+.symbol {
+  color: var(--color-light-steel-100);
+  font-size: 12px;
+  font-weight: lighter;
+  margin-right: 2px;
+}
+
 .title {
   padding-bottom: var(--spacing-tiny);
 }

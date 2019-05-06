@@ -5,13 +5,15 @@ import { action } from '@storybook/addon-actions'
 import Section from '../../Section'
 import BalanceTotalDisplay from '../../../src/components/BalanceTotalDisplay'
 
+const amount = 150000
+
 const BalanceTotalDisplayExample = () => (
   <Section>
     <Grid>
       <Row>
         <Col palm={12} tablet={6} desk={4} tv={4}>
           <BalanceTotalDisplay
-            amount="R$ 15.000,00"
+            amount={amount}
             action={{
               onClick: action('clicked'),
               title: 'Sacar',
@@ -25,7 +27,7 @@ const BalanceTotalDisplayExample = () => (
 
         <Col palm={12} tablet={6} desk={4} tv={4}>
           <BalanceTotalDisplay
-            amount="R$ 7.000,00"
+            amount={amount}
             action={{
               onClick: action('clicked'),
               title: 'Antecipar',
