@@ -1,0 +1,100 @@
+[
+  {
+    "id": 6911856,
+    "installment": null,
+    "type": "refund",
+    "status": "waiting_funds",
+    "anticipationId": null,
+    "transactionId": 6293604,
+    "recipientId": "re_cj47hn60h008kw16dwim8qm89",
+    "paymentMethod": "credit_card",
+    "paymentDate": {
+      "original": "2019-05-10T03:00:00.000Z",
+      "actual": "2019-05-10T03:00:00.000Z"
+    },
+    "outcoming": [
+      {
+        "amount": 1000,
+        "type": "payable"
+      }
+    ],
+    "outgoing": [
+      {
+        "amount": 50,
+        "type": "mdr"
+      }
+    ],
+    "net": 950
+  },
+  {
+    "id": 6906145,
+    "installment": 1,
+    "type": "refund",
+    "status": "paid",
+    "anticipationId": null,
+    "transactionId": 6318105,
+    "recipientId": "re_cj47hn60h008kw16dwim8qm89",
+    "paymentMethod": "boleto",
+    "paymentDate": {
+      "original": null,
+      "actual": "2019-05-07T03:00:00.000Z"
+    },
+    "outcoming": [
+      {
+        "amount": 500,
+        "type": "payable"
+      }
+    ],
+    "outgoing": [],
+    "net": 500
+  },
+  {
+    "id": 6906144,
+    "installment": null,
+    "type": "credit",
+    "status": "paid",
+    "anticipationId": null,
+    "transactionId": 6318105,
+    "recipientId": "re_cj47hn60h008kw16dwim8qm89",
+    "paymentMethod": "boleto",
+    "paymentDate": {
+      "original": null,
+      "actual": "2019-05-07T03:00:00.432Z"
+    },
+    "outcoming": [
+      {
+        "amount": 1000,
+        "type": "payable"
+      }
+    ],
+    "outgoing": [
+      {
+        "amount": 380,
+        "type": "mdr"
+      }
+    ],
+    "net": 620
+  },
+  {
+    "id": 6906129,
+    "installment": null,
+    "type": "refund",
+    "status": "paid",
+    "anticipationId": null,
+    "transactionId": 6318091,
+    "recipientId": "re_cj47hn60h008kw16dwim8qm89",
+    "paymentMethod": "boleto",
+    "paymentDate": {
+      "original": null,
+      "actual": "2019-05-07T03:00:00.000Z"
+    },
+    "outcoming": [
+      {
+        "amount": 1000,
+        "type": "payable"
+      }
+    ],
+    "outgoing": [],
+    "net": 1000
+  }
+]
