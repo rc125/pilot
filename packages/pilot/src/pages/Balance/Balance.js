@@ -375,20 +375,28 @@ class Balance extends Component {
       .then((total) => {
         this.setState({ total })
       })
-    // TODO add catch when BalanceSummary have loading state
   }
 
   requestData (id, searchQuery) {
     this.props.onRequestBalance({ searchQuery })
 
-    return this.props.client
-      .balance
-      .data(id, searchQuery)
-      .then(({ query, result }) => {
-        this.setState({
+    const dataPromise = this.props.client.balance.data(id, searchQuery)
+
+    const operationsPromise = this.props.client.balance
+      .operations({ recipientId: id, ...searchQuery })
+
+    Promise.all([dataPromise, operationsPromise])
+      .then(([data, operations]) => {
+        const { result: { search } } = operations
+        const { query, result } = data
+        const newState = {
           query,
-          result,
-        })
+          result: {
+            search,
+            ...result,
+          },
+        }
+        this.setState(newState)
 
         this.props.onReceiveBalance(query)
       })
@@ -646,6 +654,7 @@ Balance.propTypes = {
   client: PropTypes.shape({
     balance: PropTypes.shape({
       data: PropTypes.func.isRequired,
+      operations: PropTypes.func.isRequired,
       total: PropTypes.func.isRequired,
     }).isRequired,
   }).isRequired,
