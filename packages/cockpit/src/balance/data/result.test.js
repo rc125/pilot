@@ -1,6 +1,6 @@
 import buildResult from './result'
-import fromRequest from '../mocks/dataFromRequestsMock.json'
-import expectedResult from '../mocks/dataExpectedResult.json'
+import fromRequest from '../mocks/data/received.json'
+import expectedResult from '../mocks/data/expected.json'
 
 const dates = {
   start_date: 1523636040890,

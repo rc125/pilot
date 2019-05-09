@@ -1,5 +1,4 @@
 import Promise from 'bluebird'
-import moment from 'moment'
 import {
   always,
   isNil,
@@ -27,13 +26,6 @@ const data = client => (recipientId, {
     bulk_anticipations_pending: client.bulkAnticipations.find({
       recipientId,
       status: 'pending',
-    }),
-    operations: client.balanceOperations.find({
-      count,
-      end_date: moment(endDate).valueOf(),
-      page,
-      recipientId,
-      start_date: moment(startDate).valueOf(),
     }),
     recipient: client.recipients.find({ id: recipientId }),
   })
