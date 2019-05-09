@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
 import IconChart from 'emblematic-icons/svg/TrendingUp32.svg'
-import IconInfo from 'emblematic-icons/svg/Info32.svg'
 import IconTable from 'emblematic-icons/svg/Menu32.svg'
 import IconWarning from 'emblematic-icons/svg/Warning32.svg'
 import Search32 from 'emblematic-icons/svg/Search32.svg'
@@ -25,6 +24,7 @@ import {
   Col,
   DateInput,
   Dropdown,
+  Flexbox,
   Grid,
   Input,
   Pagination,
@@ -35,12 +35,15 @@ import {
 
 import style from './style.css'
 
-import Filter from '../Filter'
 import Charts from './Charts'
-import TableList from './TableList'
 import ExportData from '../../components/ExportData'
+import Filter from '../Filter'
+import TableList from './TableList'
 
 import tableColumns from './tableColumns'
+
+import { Message } from '../../../src/components/Message'
+import EmptyStateIcon from './EmptyStateIcon.svg'
 
 import itemsPerPage from '../../models/itemsPerPage'
 import formatCurrency from '../../formatters/currency'
@@ -75,6 +78,28 @@ const getExportOptions = onExport => ([
     title: 'Excel',
   },
 ])
+
+const buildEmptyState = t => (
+  <Flexbox
+    alignItems="center"
+    className={style.emptyStateBlock}
+    direction="column"
+  >
+    <Message
+      image={<EmptyStateIcon width={365} height={148} />}
+      message={
+        <Fragment>
+          <div>
+            {t('pages.transactions.no_results_title')}
+          </div>
+          <div>
+            {t('pages.transactions.no_results_message')}
+          </div>
+        </Fragment>
+      }
+    />
+  </Flexbox>
+)
 
 const TransactionsList = ({
   amount,
@@ -188,17 +213,7 @@ const TransactionsList = ({
           desk={12}
           tv={12}
         >
-          {rows.length <= 0 && !loading &&
-            <Alert
-              icon={<IconInfo height={16} width={16} />}
-              type="info"
-            >
-              <p>
-                <strong>{t('pages.transactions.no_results')}</strong>&nbsp;
-                {t('pages.transactions.try_again')}
-              </p>
-            </Alert>
-          }
+          {!rows.length && !loading && buildEmptyState(t) }
           {rows.length > 0 &&
             <Card>
               <CardTitle

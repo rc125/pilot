@@ -117,3 +117,12 @@
 .stretch {
   flex: 1;
 }
+
+.emptyStateBlock {
+  margin-top: var(--spacing-large);
+
+  & div {
+    text-align: center;
+    margin: var(--spacing-tiny) 0;
+  }
+}
