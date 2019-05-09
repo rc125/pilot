@@ -5,7 +5,6 @@ import {
   Route,
   Switch,
   withRouter,
-  // Prompt,
 } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { translate } from 'react-i18next'
