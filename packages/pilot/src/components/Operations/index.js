@@ -3,12 +3,11 @@ import React, {
   PureComponent,
 } from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import Download32 from 'emblematic-icons/svg/Download32.svg'
 import { isNil } from 'ramda'
 import {
-  CardContent,
   CardTitle,
+  Flexbox,
   isMomentPropValidation,
   Pagination,
   Spacing,
@@ -139,20 +138,14 @@ class Operations extends PureComponent {
             title={this.renderTitle()}
           />
         </div>
-        <CardContent>
-          <TableData
-            columns={columns}
-            disabled={disabled}
-            emptyMessage={empty}
-            loading={loading}
-            rows={rows}
-          />
-        </CardContent>
-        <CardContent className={classNames(
-            style.paginationBottom,
-            style.pagination
-          )}
-        >
+        <TableData
+          columns={columns}
+          disabled={disabled}
+          emptyMessage={empty}
+          loading={loading}
+          rows={rows}
+        />
+        <Flexbox justifyContent="flex-end">
           <Pagination
             currentPage={currentPage}
             disabled={disabled}
@@ -160,7 +153,7 @@ class Operations extends PureComponent {
             onPageChange={onPageChange}
             totalPages={totalPages}
           />
-        </CardContent>
+        </Flexbox>
       </div>
     )
   }
