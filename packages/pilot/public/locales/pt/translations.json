@@ -523,7 +523,6 @@
       "anticipation_error_info": "Devido ao volume alto de transações, não conseguimos calcular sua antecipação no momento. Caso deseje antecipar, use a Pagar.me API ou entre em contato conosco.",
       "anticipation_loading": "Calculando limites de antecipação.",
       "agency": "Agência",
-      "anticipation_title": "A receber",
       "anticipation": "Antecipar",
       "available_anticipation": "Liberado para antecipação",
       "available_withdrawal": "Liberado para saque",
@@ -534,6 +533,7 @@
       "operations_title": "Lançamentos do período",
       "pending_requests_empty_message": "Nenhuma solicitação disponível",
       "pending_requests_title": "Solicitações recentes",
+      "previous": "Anteriores",
       "recipient": "Recebedor",
       "results": "lançamento",
       "results_plural": "lançamentos",
@@ -545,6 +545,7 @@
         "of": "Total de"
       },
       "type": "Tipo de conta",
+      "waiting_funds": "A receber",
       "withdraw": "Sacar",
       "withdrawal_title": "Saldo atual",
       "adblock_error": "Para visualizar as informações de antecipação é necessário que as extensões de bloqueio de anúncio estejam desabilitadas."

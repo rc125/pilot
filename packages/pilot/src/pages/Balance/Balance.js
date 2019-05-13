@@ -205,6 +205,8 @@ const handleExportDataSuccess = (res, format) => {
   /* eslint-enable no-undef */
 }
 
+const timeframesQuery = ['past', 'future']
+
 class Balance extends Component {
   constructor (props) {
     super(props)
@@ -220,6 +222,7 @@ class Balance extends Component {
           start: moment().subtract(7, 'days'),
         },
         page: 1,
+        timeframe: 'future',
       },
       result: {},
       total: {},
@@ -238,6 +241,7 @@ class Balance extends Component {
     this.requestData = this.requestData.bind(this)
     this.requestTotal = this.requestTotal.bind(this)
     this.updateQuery = this.updateQuery.bind(this)
+    this.handleTimeframeChange = this.handleTimeframeChange.bind(this)
   }
 
   componentDidMount () {
@@ -350,6 +354,7 @@ class Balance extends Component {
       history.replace('/balance')
     }
   }
+
   requestAnticipationLimits (id) {
     const { client } = this.props
     const now = moment()
@@ -516,6 +521,17 @@ class Balance extends Component {
     })
   }
 
+  handleTimeframeChange (timeframeIndex) {
+    const timeframe = timeframesQuery[timeframeIndex]
+
+    const nextQuery = {
+      ...this.state.query,
+      timeframe,
+    }
+
+    this.updateQuery(nextQuery)
+  }
+
   render () {
     const {
       // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
@@ -526,6 +542,9 @@ class Balance extends Component {
       balanceError,
       company,
       error,
+      history: {
+        location,
+      },
       loading,
       t,
       user,
@@ -595,6 +614,8 @@ class Balance extends Component {
       )
     }
 
+    const { timeframe } = parseQueryUrl(location.search)
+
     if (!isEmptyResult && hasCompany) {
       return (
         <BalanceContainer
@@ -622,10 +643,16 @@ class Balance extends Component {
           onExport={this.handleExportData}
           onFilterClick={this.handleFilterClick}
           onPageChange={this.handlePageChange}
+          onTimeframeChange={this.handleTimeframeChange}
           onWithdrawClick={this.handleWithdraw}
           recipient={recipient}
           requests={requests}
           search={search}
+          selectedTab={
+            timeframe
+            ? timeframesQuery.findIndex(value => value === timeframe)
+            : 0
+          }
           t={t}
           total={total}
         />
