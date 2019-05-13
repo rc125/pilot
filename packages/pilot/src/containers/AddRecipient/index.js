@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Prompt } from 'react-router-dom'
 import { Card, Steps } from 'former-kit'
 
 import IdentificationStep from './IdentificationStep'
@@ -9,7 +8,6 @@ import ConfigurationStep from './ConfigurationStep'
 import ConfirmStep from './ConfirmStep'
 import ConclusionStep from './ConclusionStep'
 import ErrorStep from './ErrorStep'
-import ConfirmModal from '../../components/ConfirmModal'
 import Loader from '../../components/Loader'
 import style from './style.css'
 
@@ -49,12 +47,9 @@ class AddRecipients extends Component {
       error,
       fetchData: {},
       isLoading: false,
-      openModal: false,
-      shouldValidateExit: false,
       stepsStatus: [...initialStepStatus],
     }
 
-    this.closeExitModal = this.closeExitModal.bind(this)
     this.createNewStepStatus = this.createNewStepStatus.bind(this)
     this.createSteps = this.createSteps.bind(this)
     this.fetchAndSetNextStepData = this.fetchAndSetNextStepData.bind(this)
@@ -65,7 +60,6 @@ class AddRecipients extends Component {
     this.handleNextStep = this.handleNextStep.bind(this)
     this.handleTryAgain = this.handleTryAgain.bind(this)
     this.handleViewDetails = this.handleViewDetails.bind(this)
-    this.openExitModal = this.openExitModal.bind(this)
     this.renderError = this.renderError.bind(this)
     this.renderStep = this.renderStep.bind(this)
 
@@ -99,7 +93,6 @@ class AddRecipients extends Component {
     this.setState({
       currentStepNumber: nextStepNumber,
       data: newData,
-      shouldValidateExit: true,
       stepsStatus,
     })
   }
@@ -108,7 +101,6 @@ class AddRecipients extends Component {
     this.setState({
       data: newData,
       isLoading: true,
-      shouldValidateExit: true,
     }, () => {
       this.fetchAndSetNextStepData()
     })
@@ -226,14 +218,6 @@ class AddRecipients extends Component {
     })
   }
 
-  openExitModal () {
-    this.setState({ openModal: true })
-  }
-
-  closeExitModal () {
-    this.setState({ openModal: false })
-  }
-
   renderStep () {
     const {
       currentStepNumber,
@@ -255,7 +239,7 @@ class AddRecipients extends Component {
       ...options,
       data: data[currentStep.id],
       onBack: this.handleBackNavigation,
-      onCancel: this.openExitModal,
+      onCancel: onExit,
       onContinue: this.handleContinueNavigation,
       onEdit: this.handleEdit,
       onExit,
@@ -307,15 +291,8 @@ class AddRecipients extends Component {
       currentStepNumber,
       error,
       isLoading,
-      openModal,
-      shouldValidateExit,
       stepsStatus,
     } = this.state
-
-    const {
-      onExit,
-      t,
-    } = this.props
 
     const isConclusion = this.steps[currentStepNumber].id === CONCLUSION
     const shouldRemoveCardBorder = (error || isConclusion)
@@ -326,18 +303,6 @@ class AddRecipients extends Component {
 
     return (
       <Fragment>
-        {openModal &&
-          <Prompt
-            when={shouldValidateExit === false}
-            message={t('prompt.message')}
-          />
-        }
-        {openModal === false &&
-          <Prompt
-            when={shouldValidateExit}
-            message={t('prompt.message')}
-          />
-        }
         { isLoading && <Loader visible /> }
         <Card>
           <Steps
@@ -352,18 +317,6 @@ class AddRecipients extends Component {
               : this.renderStep()
           }
         </Card>
-        <ConfirmModal
-          isOpen={openModal}
-          onCancel={this.closeExitModal}
-          onConfirm={onExit}
-          title={t('pages.add_recipient.cancel_recipient_creation')}
-          cancelText={t('pages.add_recipient.no_keep')}
-          confirmText={t('pages.add_recipient.yes_cancel')}
-        >
-          <p className={style.centerText}>
-            {t('pages.add_recipient.cancel_recipient_message')}
-          </p>
-        </ConfirmModal>
       </Fragment>
     )
   }

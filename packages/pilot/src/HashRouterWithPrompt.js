@@ -1,20 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { translate } from 'react-i18next'
 import PropTypes from 'prop-types'
-import IconClose from 'emblematic-icons/svg/ClearClose32.svg'
 
 import { compose } from 'ramda'
 
-import {
-  Button,
-  Modal,
-  ModalActions,
-  ModalContent,
-  ModalTitle,
-  Spacing,
-} from 'former-kit'
-
 import { HashRouter } from 'react-router-dom'
+
+import { Spacing } from 'former-kit'
+import ConfirmModal from '../src/components/ConfirmModal'
 
 import style from './style.css'
 
@@ -60,42 +53,24 @@ class HashRouterWithPrompt extends Component {
       callback,
       message,
     } = this.state
+
     return (
       <Fragment>
         {callback && message &&
-          <Modal
+          <ConfirmModal
             isOpen
-            onRequestClose={this.handleCancelClick}
+            onCancel={this.handleCancelClick}
+            onConfirm={this.handleConfirmationClick}
+            title={t('prompt.title')}
+            cancelText={t('prompt.deny')}
+            confirmText={t('prompt.confirm')}
           >
-            <ModalTitle
-              title={t('prompt.title')}
-              closeIcon={<IconClose width={16} height={16} />}
-              onClose={this.handleCancelClick}
-            />
-            <ModalContent>
-              <hr />
-              <div className={style.messageContainer}>
-                { message }
-              </div>
-            </ModalContent>
             <Spacing />
-            <ModalActions>
-              <Spacing />
-              <Button
-                onClick={this.handleCancelClick}
-                fill="outline"
-              >
-                {t('prompt.deny')}
-              </Button>
-              <Button
-                onClick={this.handleConfirmationClick}
-                fill="gradient"
-              >
-                {t('prompt.confirm')}
-              </Button>
-              <Spacing />
-            </ModalActions>
-          </Modal>
+            <div className={style.messageContainer}>
+              {t('prompt.message')}
+            </div>
+            <Spacing />
+          </ConfirmModal>
         }
         <HashRouter getUserConfirmation={this.getUserConfirmation}>
           {children}

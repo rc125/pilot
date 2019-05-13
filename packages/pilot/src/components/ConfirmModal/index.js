@@ -30,6 +30,7 @@ const ConfirmModal = ({
       onClose={onCancel}
     />
     <ModalContent>
+      <hr />
       {children}
     </ModalContent>
     <ModalActions>

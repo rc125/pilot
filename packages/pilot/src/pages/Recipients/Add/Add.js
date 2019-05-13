@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { translate } from 'react-i18next'
-import { withRouter } from 'react-router-dom'
+import { Prompt, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { compose, pathOr } from 'ramda'
 
@@ -68,7 +68,10 @@ class AddRecipientPage extends Component {
   }
 
   onLoginAgain () {
-    this.props.redirectToLoginPage()
+    this.setState(
+      { shouldValidateExit: false },
+      this.props.redirectToLoginPage()
+    )
   }
 
   onViewDetails (recipientId) {
@@ -85,16 +88,23 @@ class AddRecipientPage extends Component {
   }
 
   render () {
+    const { t } = this.props
     return (
-      <AddRecipient
-        fetchAccounts={this.fetchAccounts}
-        onExit={this.onExit}
-        onLoginAgain={this.onLoginAgain}
-        onViewDetails={this.onViewDetails}
-        options={this.props.options}
-        submitRecipient={this.submitRecipient}
-        t={this.props.t}
-      />
+      <Fragment>
+        <Prompt
+          when
+          message={t('prompt.message')}
+        />
+        <AddRecipient
+          fetchAccounts={this.fetchAccounts}
+          onExit={this.onExit}
+          onLoginAgain={this.onLoginAgain}
+          onViewDetails={this.onViewDetails}
+          options={this.props.options}
+          submitRecipient={this.submitRecipient}
+          t={this.props.t}
+        />
+      </Fragment>
     )
   }
 }

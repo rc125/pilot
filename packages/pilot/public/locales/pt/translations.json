@@ -61,7 +61,7 @@
   "password": "Senha",
   "prompt": {
     "title": "Atenção!",
-    "message": "Você está deixando o fluxo atual. Tem certeza que deseja sair?",
+    "message": "Tem certeza que deseja cancelar o fluxo atual? Todas as informações serão perdidas.",
     "confirm": "Sim, quero sair",
     "deny": "Não quero sair"
   },
