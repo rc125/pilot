@@ -1,0 +1,23 @@
+{
+  "id": 6911856,
+  "installment": null,
+  "type": "credit_card",
+  "transactionId": 6293604,
+  "payment_date": {
+    "original": "2019-05-10T03:00:00.000Z",
+    "actual": "2019-05-10T03:00:00.000Z"
+  },
+  "outcoming": [
+    {
+      "amount": 1000,
+      "type": "payable"
+    }
+  ],
+  "outgoing": [
+    {
+      "amount": 50,
+      "type": "mdr"
+    }
+  ],
+  "net": 950
+}

@@ -1,0 +1,20 @@
+{
+  "object": "payable",
+  "id": 6911856,
+  "status": "waiting_funds",
+  "amount": -1000,
+  "fee": -50,
+  "anticipation_fee": 0,
+  "fraud_coverage_fee": 0,
+  "installment": null,
+  "transaction_id": 6293604,
+  "split_rule_id": null,
+  "bulk_anticipation_id": null,
+  "recipient_id": "re_cj47hn60h008kw16dwim8qm89",
+  "payment_date": "2019-05-10T03:00:00.000Z",
+  "original_payment_date": "2019-05-10T03:00:00.000Z",
+  "type": "refund",
+  "payment_method": "credit_card",
+  "accrual_date": null,
+  "date_created": "2019-05-08T18:40:24.393Z"
+}

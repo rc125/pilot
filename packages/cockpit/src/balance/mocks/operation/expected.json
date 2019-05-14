@@ -1,0 +1,20 @@
+{
+  "id": 2499868,
+  "installment": 3,
+  "type": "credit_card",
+  "transactionId": 1785141,
+  "payment_date": {
+    "original": null,
+    "actual": "2017-03-03T03:00:00.000Z"
+  },
+  "outcoming": [
+    { "type": "payable", "amount": 30000 }
+  ],
+  "outgoing": [
+    { "type": "mdr", "amount": 115 },
+    { "type": "anticipation_fee", "amount": 100 }
+  ],
+  "net": 29785,
+  "sourceId": null,
+  "targetId": null
+}

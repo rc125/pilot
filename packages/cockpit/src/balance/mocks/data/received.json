@@ -1,0 +1,93 @@
+{
+  "recipient": {
+    "object": "recipient",
+    "id": "re_cixm61j7e00doin6de8ocgttb",
+    "transfer_enabled": true,
+    "last_transfer": null,
+    "transfer_interval": "weekly",
+    "transfer_day": 5,
+    "automatic_anticipation_enabled": true,
+    "automatic_anticipation_type": "full",
+    "automatic_anticipation_days": null,
+    "automatic_anticipation_1025_delay": 0,
+    "anticipatable_volume_percentage": 85,
+    "date_created": "2017-01-06T18:59:35.936Z",
+    "date_updated": "2017-01-06T18:59:35.936Z",
+    "postback_url": "https://requestb.in/tl0092tl",
+    "status": "active",
+    "status_reason": null,
+    "bank_account": {
+      "object": "bank_account",
+      "id": 17365090,
+      "bank_code": "341",
+      "agencia": "0932",
+      "agencia_dv": "5",
+      "conta": "58054",
+      "conta_dv": "1",
+      "type": "conta_corrente",
+      "document_type": "cpf",
+      "document_number": "26268738888",
+      "legal_name": "API BANK ACCOUNT",
+      "charge_transfer_fees": true,
+      "date_created": "2017-01-06T18:52:22.215Z"
+    }
+  },
+  "balance": {
+    "object": "balance",
+    "waiting_funds": {
+      "amount": 2000
+    },
+    "available": {
+      "amount": 3000
+    },
+    "transferred": {
+      "amount": 4000
+    }
+  },
+  "bulk_anticipations_limit": {
+    "maximum": {
+      "amount": 23000,
+      "anticipation_fee": 1000,
+      "fee": 2633
+    },
+    "minimum": {
+      "amount": 10000,
+      "anticipation_fee": 200,
+      "fee": 1543
+    }
+  },
+  "bulk_anticipations_pending": [
+    {
+      "amount": 600005,
+      "automatic_transfer": true,
+      "anticipation_fee": 44940,
+      "date_created": "2017-01-06T05:17:54.000Z",
+      "date_updated": "2017-01-06T05:17:54.000Z",
+      "fee": 30025,
+      "id": "ba_cig37i5s6004xor6e5cefsjsp",
+      "object": "bulk_anticipation",
+      "payment_date": "2017-02-13T02:00:00.000Z",
+      "status": "pending",
+      "timeframe": "start",
+      "type": "spot"
+    },
+    {
+      "amount": 406065,
+      "automatic_transfer": false,
+      "anticipation_fee": 16842,
+      "date_created": "2017-01-06T17:08:41.000Z",
+      "date_updated": "2017-01-06T12:20:51.000Z",
+      "fee": 20313,
+      "id": "ba_cig120jcg000rii6evg415z4w",
+      "object": "bulk_anticipation",
+      "payment_date": "2017-02-16T02:00:00.000Z",
+      "status": "pending",
+      "timeframe": "start",
+      "type": "spot"
+    }
+  ],
+  "withdrawal": {
+    "minimum": 0,
+    "maximum": 3000
+  }
+}
