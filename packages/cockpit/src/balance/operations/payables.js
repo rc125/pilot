@@ -1,37 +1,20 @@
 import {
-  __,
-  always,
-  apply,
-  applySpec,
-  assoc,
-  either,
-  isEmpty,
-  isNil,
-  map,
   juxt,
   reject,
-  path,
   pipe,
-  pluck,
   prop,
   propEq,
-  subtract,
-  sum,
-  when,
 } from 'ramda'
+import {
+  formatRows,
+  transformMovementTypePropTo,
+} from './shared'
 
-const transformMovementTypePropTo = (propPath, to) => pipe(
-  path(propPath),
-  when(either(isNil, isEmpty), always(0)),
-  Math.abs,
-  assoc('amount', __, { type: to })
-)
-
-const buildOperationOutcoming = juxt([
+export const buildOutcoming = juxt([
   transformMovementTypePropTo(['amount'], 'payable'),
 ])
 
-const buildOperationOutgoing = pipe(
+export const buildOutgoing = pipe(
   juxt([
     transformMovementTypePropTo(['fraud_coverage_fee'], 'fraud_coverage_fee'),
     transformMovementTypePropTo(['fee'], 'mdr'),
@@ -40,34 +23,10 @@ const buildOperationOutgoing = pipe(
   reject(propEq('amount', 0))
 )
 
-const buildPayableRow = applySpec({
-  id: prop('id'),
-  installment: prop('installment'),
-  type: prop('type'),
-  status: prop('status'),
-  transactionId: prop('transaction_id'),
-  recipientId: prop('recipient_id'),
-  paymentMethod: prop('payment_method'),
-  anticipationId: prop('bulk_anticipation_id'),
-  paymentDate: {
-    actual: prop('payment_date'),
-    original: prop('original_payment_date'),
-  },
-  outcoming: buildOperationOutcoming,
-  outgoing: buildOperationOutgoing,
-  net: pipe(
-    juxt([
-      pipe(buildOperationOutcoming, pluck('amount'), sum),
-      pipe(buildOperationOutgoing, pluck('amount'), sum),
-    ]),
-    apply(subtract)
-  ),
+export const getInstallment = prop('installment')
+
+export default formatRows({
+  buildOutcoming,
+  buildOutgoing,
+  getInstallment,
 })
-
-export const buildPayableRows = map(buildPayableRow)
-
-const payables = (client, filters) =>
-  client.payables.all(filters)
-    .then(buildPayableRows)
-
-export default payables

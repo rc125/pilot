@@ -1,26 +1,19 @@
-import moment from 'moment'
-import fetchPayables from './payables'
+import buildRequestPromise from './buildRequest'
 
-const operationsData = client => ({
-  count,
-  dates: {
-    end: endDate,
-    start: startDate,
-  },
-  page,
-  recipientId,
-  status,
-  type,
-}) => fetchPayables(client, {
-  count,
-  end_date: moment(endDate).valueOf(),
-  page,
-  recipient_id: recipientId,
-  status,
-  start_date: moment(startDate).valueOf(),
-  type,
-})
-  .then(data => ({
+const operationsData = client => (query) => {
+  const {
+    count,
+    dates: {
+      end: endDate,
+      start: startDate,
+    },
+    page,
+    status,
+  } = query
+
+  const requestPromise = buildRequestPromise(client, query)
+
+  return requestPromise.then(data => ({
     query: {
       count,
       dates: {
@@ -33,7 +26,7 @@ const operationsData = client => ({
     result: {
       search: {
         operations: {
-          count: 0,
+          count: 1000,
           offset: 0,
           rows: data,
           total: 0,
@@ -41,5 +34,6 @@ const operationsData = client => ({
       },
     },
   }))
+}
 
 export default operationsData

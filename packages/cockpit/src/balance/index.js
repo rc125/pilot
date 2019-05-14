@@ -1,9 +1,9 @@
 import data from './data'
-import total from './total'
 import operations from './operations'
+import total from './total'
 
 export default {
   data,
-  total,
   operations,
+  total,
 }
