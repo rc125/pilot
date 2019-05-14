@@ -185,12 +185,11 @@ const renderPaymentDate = (paymentDate, toolTipText) => {
 
 const getColumns = labels => ([
   {
-    accessor: ['payment_date', 'actual'],
+    accessor: ['paymentDate', 'actual'],
     align: 'center',
     orderable: false,
-    // eslint-disable-next-line camelcase
-    renderer: ({ payment_date }) =>
-      renderPaymentDate(payment_date, labels.anticipationMessage),
+    renderer: ({ paymentDate }) =>
+      renderPaymentDate(paymentDate, labels.anticipationMessage),
     title: 'models.operations.payment_date',
   },
   {

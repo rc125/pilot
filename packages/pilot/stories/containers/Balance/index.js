@@ -57,6 +57,7 @@ class BalanceState extends Component {
           start: moment(),
         },
         page: 1,
+        timeframe: 'past',
       },
       total: {
         net: 1000000,
@@ -99,10 +100,12 @@ class BalanceState extends Component {
           currentPage={query.page}
           dates={dates}
           disabled={false}
+          exporting={false}
           filterDisable={compareMomentDates(query.dates, dates)}
           loading={loading}
           onAnticipationClick={action('anticipation')}
           onDateChange={this.handleDateChange}
+          onExport={action('export click')}
           onFilterClick={action('filter click')}
           onPageChange={action('page click')}
           onWithdrawClick={action('withdraw')}

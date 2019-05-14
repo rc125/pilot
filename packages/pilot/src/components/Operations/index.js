@@ -205,7 +205,7 @@ Operations.propTypes = {
     net: PropTypes.number.isRequired,
     outcoming: PropTypes.arrayOf(outShape).isRequired,
     outgoing: PropTypes.arrayOf(outShape).isRequired,
-    payment_date: PropTypes.shape({
+    paymentDate: PropTypes.shape({
       actual: PropTypes.string,
       original: PropTypes.string,
     }).isRequired,

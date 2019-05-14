@@ -46,7 +46,7 @@
         {
           "id": 4861,
           "type": "debit",
-          "payment_date": {
+          "paymentDate": {
             "original": null,
             "actual": "2017-03-06T03:00:00.000Z"
           },
@@ -62,7 +62,7 @@
         {
           "id": 4852,
           "type": "debit",
-          "payment_date": {
+          "paymentDate": {
             "original": null,
             "actual": "2017-03-06T03:00:00.000Z"
           },
@@ -78,7 +78,7 @@
         {
           "id": 4840,
           "type": "debit",
-          "payment_date": {
+          "paymentDate": {
             "original": null,
             "actual": "2017-03-05T03:00:00.000Z"
           },
@@ -94,7 +94,7 @@
         {
           "id": 2499868,
           "type": "credit",
-          "payment_date": {
+          "paymentDate": {
             "original": null,
             "actual": "2017-03-03T03:00:00.000Z"
           },
@@ -110,7 +110,7 @@
         {
           "id": 2499850,
           "type": "refund",
-          "payment_date": {
+          "paymentDate": {
             "original": null,
             "actual": "2017-09-03T03:00:00.000Z"
           },
@@ -126,7 +126,7 @@
         {
           "id": "",
           "type": "gateway",
-          "payment_date": {
+          "paymentDate": {
             "original": null,
             "actual": "2017-09-03T03:00:00.000Z"
           },
