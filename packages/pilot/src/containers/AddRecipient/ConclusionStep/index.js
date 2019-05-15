@@ -21,7 +21,7 @@ class ConclusionStep extends Component {
 
   render () {
     const {
-      onExit,
+      onExitAfterRecipientCreation,
       onViewDetails,
       t,
     } = this.props
@@ -37,7 +37,7 @@ class ConclusionStep extends Component {
           {t('pages.add_recipient.can_see_recipient')}
         </p>
         <div>
-          <Button fill="outline" onClick={onExit}>
+          <Button fill="outline" onClick={onExitAfterRecipientCreation}>
             {t('pages.add_recipient.exit')}
           </Button>
           <Spacing size="large" />
@@ -51,7 +51,7 @@ class ConclusionStep extends Component {
 }
 
 ConclusionStep.propTypes = {
-  onExit: PropTypes.func.isRequired,
+  onExitAfterRecipientCreation: PropTypes.func.isRequired,
   onViewDetails: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
 }

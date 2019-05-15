@@ -56,8 +56,14 @@ class AddRecipientPage extends Component {
   constructor (props) {
     super(props)
 
+    this.state = {
+      shouldValidateExit: true,
+    }
+
     this.fetchAccounts = this.fetchAccounts.bind(this)
     this.onExit = this.onExit.bind(this)
+    this.onExitAfterRecipientCreation =
+      this.onExitAfterRecipientCreation.bind(this)
     this.onLoginAgain = this.onLoginAgain.bind(this)
     this.onViewDetails = this.onViewDetails.bind(this)
     this.submitRecipient = this.submitRecipient.bind(this)
@@ -65,6 +71,13 @@ class AddRecipientPage extends Component {
 
   onExit () {
     this.props.history.replace('/recipients')
+  }
+
+  onExitAfterRecipientCreation () {
+    this.setState(
+      { shouldValidateExit: false },
+      this.onExit
+    )
   }
 
   onLoginAgain () {
@@ -75,7 +88,12 @@ class AddRecipientPage extends Component {
   }
 
   onViewDetails (recipientId) {
-    this.props.history.replace(`/recipients/detail/${recipientId}`)
+    this.setState(
+      { shouldValidateExit: false },
+      () => {
+        this.props.history.replace(`/recipients/detail/${recipientId}`)
+      }
+    )
   }
 
   submitRecipient (recipient) {
@@ -89,15 +107,18 @@ class AddRecipientPage extends Component {
 
   render () {
     const { t } = this.props
+    const { shouldValidateExit } = this.state
+
     return (
       <Fragment>
         <Prompt
-          when
+          when={shouldValidateExit}
           message={t('prompt.message')}
         />
         <AddRecipient
           fetchAccounts={this.fetchAccounts}
           onExit={this.onExit}
+          onExitAfterRecipientCreation={this.onExitAfterRecipientCreation}
           onLoginAgain={this.onLoginAgain}
           onViewDetails={this.onViewDetails}
           options={this.props.options}

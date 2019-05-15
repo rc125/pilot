@@ -227,6 +227,7 @@ class AddRecipients extends Component {
 
     const {
       onExit,
+      onExitAfterRecipientCreation,
       options,
       t,
     } = this.props
@@ -243,6 +244,7 @@ class AddRecipients extends Component {
       onContinue: this.handleContinueNavigation,
       onEdit: this.handleEdit,
       onExit,
+      onExitAfterRecipientCreation,
       onViewDetails: this.handleViewDetails,
       t,
     }
@@ -325,6 +327,7 @@ class AddRecipients extends Component {
 AddRecipients.propTypes = {
   fetchAccounts: PropTypes.func.isRequired,
   onExit: PropTypes.func.isRequired,
+  onExitAfterRecipientCreation: PropTypes.func.isRequired,
   onLoginAgain: PropTypes.func.isRequired,
   onViewDetails: PropTypes.func.isRequired,
   options: PropTypes.shape({
