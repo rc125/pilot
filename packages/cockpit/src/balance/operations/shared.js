@@ -22,6 +22,7 @@ import {
   prop,
   propEq,
   propSatisfies,
+  sortBy,
   subtract,
   sum,
   T,
@@ -103,18 +104,22 @@ export const formatRows = ({
   buildOutcoming,
   buildOutgoing,
   getInstallment,
-}) => map(applySpec({
-  id: prop('id'),
-  installment: getInstallment,
-  net: buildNetAmount(buildOutcoming, buildOutgoing),
-  outcoming: buildOutcoming,
-  outgoing: buildOutgoing,
-  paymentDate: {
-    actual: getOperationDate('payment_date', 'date_created'),
-    original: getOperationDate('original_payment_date'),
-  },
-  sourceId: getSourceId,
-  targetId: getTargetId,
-  type: getType,
-  transactionId: getTransactionId,
-}))
+  sortPath,
+}) => pipe(
+  map(applySpec({
+    id: prop('id'),
+    installment: getInstallment,
+    net: buildNetAmount(buildOutcoming, buildOutgoing),
+    outcoming: buildOutcoming,
+    outgoing: buildOutgoing,
+    paymentDate: {
+      actual: getOperationDate('payment_date', 'date_created'),
+      original: getOperationDate('original_payment_date'),
+    },
+    sourceId: getSourceId,
+    targetId: getTargetId,
+    type: getType,
+    transactionId: getTransactionId,
+  })),
+  sortBy(path(sortPath || ['id']))
+)

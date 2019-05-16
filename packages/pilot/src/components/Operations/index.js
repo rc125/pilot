@@ -7,6 +7,7 @@ import Download32 from 'emblematic-icons/svg/Download32.svg'
 import { isNil } from 'ramda'
 import {
   CardTitle,
+  Dropdown,
   Flexbox,
   isMomentPropValidation,
   Pagination,
@@ -15,7 +16,6 @@ import {
 import ExportData from '../ExportData'
 import TableData from './TableData'
 import dateFormat from '../../formatters/longDate'
-
 import style from './style.css'
 
 const getExportOptions = onExport => ([
@@ -41,12 +41,15 @@ class Operations extends PureComponent {
       currentPage,
       disabled,
       exporting,
+      itemsPerPage,
       labels: {
         exportCall,
         exportTo,
       },
       onExport,
       onPageChange,
+      onPageCountChange,
+      pageSizeOptions,
       subtitle,
       totalPages,
     } = this.props
@@ -63,6 +66,17 @@ class Operations extends PureComponent {
           size="tiny"
           subtitle={exportTo}
           title={exportCall}
+        />
+        <Spacing size="tiny" />
+        <Dropdown
+          disabled={disabled}
+          name="page-count"
+          onChange={e =>
+            onPageCountChange(parseInt(e.target.value, 10))
+          }
+          options={pageSizeOptions}
+          size="tiny"
+          value={itemsPerPage.toString()}
         />
         <Spacing size="tiny" />
         <Pagination
@@ -179,6 +193,7 @@ Operations.propTypes = {
   }).isRequired,
   disabled: PropTypes.bool,
   exporting: PropTypes.bool.isRequired,
+  itemsPerPage: PropTypes.number.isRequired,
   labels: PropTypes.shape({
     empty: PropTypes.string.isRequired,
     exportCall: PropTypes.string.isRequired,
@@ -189,6 +204,11 @@ Operations.propTypes = {
   loading: PropTypes.bool,
   onExport: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
+  onPageCountChange: PropTypes.func.isRequired,
+  pageSizeOptions: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    value: PropTypes.string,
+  })).isRequired,
   rows: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string,
     id: PropTypes.oneOfType([

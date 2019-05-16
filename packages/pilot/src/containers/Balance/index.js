@@ -73,7 +73,7 @@ const isSameDay = date =>
 
 const isNotNullOrEmpty = complement(either(isNil, isEmpty))
 
-const isValidDateAndSameDay = when(
+const isValidDayAndSameDay = when(
   isNotNullOrEmpty,
   pipe(
     prop('payment_date'),
@@ -105,7 +105,6 @@ class Balance extends Component {
     this.getSummaryTotal = this.getSummaryTotal.bind(this)
     this.handleFilterClick = this.handleFilterClick.bind(this)
     this.handleDatesChange = this.handleDatesChange.bind(this)
-    this.handleOperationsPageChange = this.handleOperationsPageChange.bind(this)
     this.handlePresetChange = this.handlePresetChange.bind(this)
     this.handleRequestCancelClick = this.handleRequestCancelClick.bind(this)
     // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
@@ -114,13 +113,25 @@ class Balance extends Component {
     // More details in issue #1159
     // this.renderAnticipation = this.renderAnticipation.bind(this)
     this.renderOperations = this.renderOperations.bind(this)
-
+    const { end, start } = props.dates
+    const daysDiff = Math.abs(moment(start).diff(moment(end), 'day'))
     this.state = {
       dates: {
-        end: props.dates.end,
-        start: props.dates.start,
+        end,
+        start,
       },
+      selectedPreset: daysDiff
+        ? `days-${daysDiff}`
+        : 'days-7',
       showDateInputCalendar: false,
+    }
+  }
+
+  componentDidUpdate ({ dates: prevDates }) {
+    const { dates } = this.props
+    if (!datesEqual(prevDates, dates)) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ dates })
     }
   }
 
@@ -259,16 +270,13 @@ class Balance extends Component {
   }
 
   handleFilterClick () {
-    if (isEmptyDates(this.state.dates)) {
-      this.props.onFilterClick(anyDateRange)
+    const { timeframe } = this.props
+    const { dates } = this.state
+    if (isEmptyDates(dates)) {
+      this.props.onFilterClick(anyDateRange, timeframe)
     } else {
-      this.props.onFilterClick(this.state.dates)
+      this.props.onFilterClick(dates, timeframe)
     }
-  }
-
-  handleOperationsPageChange (pageIndex) {
-    const { onPageChange } = this.props
-    onPageChange(pageIndex)
   }
 
   handlePresetChange () {
@@ -337,14 +345,20 @@ class Balance extends Component {
       dates,
       disabled,
       exporting,
+      hasNextPage,
+      itemsPerPage,
       loading,
       onExport,
+      onPageChange,
+      onPageCountChange,
+      pageSizeOptions,
       search: {
         operations,
       },
       t,
+      timeframe,
     } = this.props
-
+    const { selectedPreset } = this.state
     const filterDatesEqualCurrent = datesEqual(this.state.dates, dates)
 
     return (
@@ -354,17 +368,22 @@ class Balance extends Component {
         dates={this.state.dates}
         disabled={disabled}
         exporting={exporting}
+        hasNextPage={hasNextPage}
         isFilterActive={filterDatesEqualCurrent}
+        itemsPerPage={itemsPerPage}
         loading={loading}
         onDateChange={this.handleDatesChange}
         onDatePresetChange={this.handlePresetChange}
         onExport={onExport}
         onFilterClick={this.handleFilterClick}
-        onPageChange={this.handleOperationsPageChange}
+        onPageChange={onPageChange}
+        onPageCountChange={onPageCountChange}
         operations={operations}
-        selectedPreset="last-7"
+        pageSizeOptions={pageSizeOptions}
+        selectedPreset={selectedPreset}
         showDateInputCalendar={this.state.showDateInputCalendar}
         t={t}
+        timeframe={timeframe}
       />
     )
   }
@@ -549,7 +568,7 @@ class Balance extends Component {
           <ModalContent>
             <div className={style.modalAlignContent}>
               {
-                isValidDateAndSameDay(anticipationCancel)
+                isValidDayAndSameDay(anticipationCancel)
                   ?
                     <Fragment>
                       <span>
@@ -619,7 +638,7 @@ Balance.propTypes = {
     amount: PropTypes.number.isRequired,
     available: PropTypes.shape({
       withdrawal: PropTypes.number.isRequired,
-    }),
+    }).isRequired,
     outcoming: PropTypes.number.isRequired,
   }).isRequired,
   company: PropTypes.shape({
@@ -630,6 +649,8 @@ Balance.propTypes = {
   dates: datesShape.isRequired, // eslint-disable-line react/no-typos
   disabled: PropTypes.bool.isRequired,
   exporting: PropTypes.bool.isRequired,
+  hasNextPage: PropTypes.bool,
+  itemsPerPage: PropTypes.number.isRequired,
   loading: PropTypes.bool,
   modalConfirmOpened: PropTypes.bool,
   onAnticipationClick: PropTypes.func.isRequired,
@@ -639,8 +660,10 @@ Balance.propTypes = {
   onExport: PropTypes.func.isRequired,
   onFilterClick: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
+  onPageCountChange: PropTypes.func.isRequired,
   onTimeframeChange: PropTypes.func.isRequired,
   onWithdrawClick: PropTypes.func.isRequired,
+  pageSizeOptions: PropTypes.arrayOf(PropTypes.number),
   recipient: PropTypes.shape({
     bank_account: PropTypes.shape({
       account: PropTypes.string.isRequired,
@@ -681,6 +704,7 @@ Balance.propTypes = {
   }).isRequired,
   selectedTab: PropTypes.number,
   t: PropTypes.func.isRequired,
+  timeframe: PropTypes.oneOf(['future', 'past']),
   total: PropTypes.shape({
     net: PropTypes.number,
     outcoming: PropTypes.number,
@@ -690,12 +714,15 @@ Balance.propTypes = {
 
 Balance.defaultProps = {
   anticipationCancel: null,
+  hasNextPage: false,
   loading: false,
   modalConfirmOpened: false,
   onCancelRequestClick: null,
   onCancelRequestClose: null,
   onConfirmCancelPendingRequest: null,
+  pageSizeOptions: [15, 30, 60, 100],
   selectedTab: 0,
+  timeframe: 'past',
   total: {},
 }
 

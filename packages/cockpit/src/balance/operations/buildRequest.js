@@ -8,28 +8,45 @@ import {
 import formatPayablesRows from './payables'
 import formatOperationsRows from './operations'
 
-export const buildBaseQuery = ({
+const buildBaseQuery = ({
   count,
-  dates: {
-    end: endDate,
-    start: startDate,
-  },
   page,
   recipientId,
 }) => ({
   count,
-  end_date: moment(endDate).valueOf(),
   page,
   recipient_id: recipientId,
-  start_date: moment(startDate).valueOf(),
 })
 
-export const buildPayablesQuery = query => ({
+const buildOperationsQuery = ({
+  dates: {
+    end,
+    start,
+  },
+  ...query
+}) => ({
   ...buildBaseQuery(query),
-  status: ['waiting_funds', 'pre_paid'],
+  end_date: moment(end).valueOf(),
+  start_date: moment(start).valueOf(),
 })
 
-export const buildPayablesRequest = curry((client, query) => {
+const buildPayablesQuery = ({
+  dates: {
+    end,
+    start,
+  },
+  ...query
+}) => ({
+  ...buildBaseQuery(query),
+  payment_date: [
+    `>=${moment(start).startOf('day').valueOf()}`,
+    `<=${moment(end).endOf('day').valueOf()}`,
+  ],
+  // status: ['waiting_funds', 'pre_paid'],
+  status: 'waiting_funds',
+})
+
+const buildPayablesRequest = curry((client, query) => {
   const payablesQuery = buildPayablesQuery(query)
 
   return client.payables
@@ -37,8 +54,8 @@ export const buildPayablesRequest = curry((client, query) => {
     .then(formatPayablesRows)
 })
 
-export const buildOperationsRequest = curry((client, query) => {
-  const operationsQuery = buildBaseQuery(query)
+const buildOperationsRequest = curry((client, query) => {
+  const operationsQuery = buildOperationsQuery(query)
 
   return client.balanceOperations
     .find(operationsQuery)
