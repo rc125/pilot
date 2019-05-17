@@ -1,6 +1,6 @@
 import {
-  always,
   equals,
+  identity,
   ifElse,
   negate,
   uncurryN,
@@ -32,71 +32,48 @@ const buildTodayPreset = t => ({
   mode: 'single',
 })
 
-const buildFurutePresets = t => () => ({
-  key: 'last',
-  label: t('dates.last'),
-  list: [
-    {
-      date: () => -7,
-      key: 'last-7',
-      label: t('dates.last-7'),
-      mode: 'period',
-    },
-    {
-      date: () => -15,
-      key: 'last-15',
-      label: t('dates.last-15'),
-      mode: 'period',
-    },
-    {
-      date: () => -30,
-      key: 'last-30',
-      label: t('dates.last-30'),
-      mode: 'period',
-    },
-    {
-      date: () => -60,
-      key: 'last-60',
-      label: t('dates.last-60'),
-      mode: 'period',
-    },
-  ],
+const buildDaysPresetsList = (t, transform) => [
+  {
+    date: () => transform(7),
+    key: 'days-7',
+    label: t('dates.days-7'),
+    mode: 'period',
+  },
+  {
+    date: () => transform(15),
+    key: 'days-15',
+    label: t('dates.days-15'),
+    mode: 'period',
+  },
+  {
+    date: () => transform(30),
+    key: 'days-30',
+    label: t('dates.days-30'),
+    mode: 'period',
+  },
+  {
+    date: () => transform(60),
+    key: 'days-60',
+    label: t('dates.days-60'),
+    mode: 'period',
+  },
+]
+
+const buildFuturePresets = t => () => ({
+  key: 'days',
+  label: t('dates.next'),
+  list: buildDaysPresetsList(t, identity),
 })
 
 const buildPastPresets = t => () => ({
-  key: 'last',
+  key: 'days',
   label: t('dates.last'),
-  list: [
-    {
-      date: () => -7,
-      key: 'last-7',
-      label: t('dates.last-7'),
-      mode: 'period',
-    },
-    {
-      date: () => -15,
-      key: 'last-15',
-      label: t('dates.last-15'),
-      mode: 'period',
-    },
-    {
-      date: () => -30,
-      key: 'last-30',
-      label: t('dates.last-30'),
-      mode: 'period',
-    },
-    {
-      date: () => -60,
-      key: 'last-60',
-      label: t('dates.last-60'),
-      mode: 'period',
-    },
-  ],
+  list: buildDaysPresetsList(t, negate),
 })
 
 const buildPresets = uncurryN(2, t => ifElse(
   equals('future'),
-  buildFurutePresets(t),
+  buildFuturePresets(t),
   buildPastPresets(t)
 ))
 
