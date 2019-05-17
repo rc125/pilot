@@ -42,7 +42,13 @@ const buildPayablesQuery = ({
     `>=${moment(start).startOf('day').valueOf()}`,
     `<=${moment(end).endOf('day').valueOf()}`,
   ],
-  // status: ['waiting_funds', 'pre_paid'],
+  /*
+    Este parametro de status vai ficar fixo como waiting_funds
+    até que o a issue https://github.com/pagarme/pagarme-core/issues/1973 do
+    pagarme-core seja resolvida, isso deve acontecer no próximo RT.
+    O valor que deverá ser utilizado é o seguinte
+    ['waiting_funds', 'pre_paid']
+  */
   status: 'waiting_funds',
 })
 

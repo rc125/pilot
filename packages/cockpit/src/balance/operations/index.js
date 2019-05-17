@@ -1,28 +1,13 @@
+import { omit } from 'ramda'
 import buildRequestPromise from './buildRequest'
 
-const operationsData = client => (query) => {
-  const {
-    count,
-    dates: {
-      end: endDate,
-      start: startDate,
-    },
-    page,
-    status,
-  } = query
+const ignoredProps = ['status', 'recipientId']
 
+const operationsData = client => (query) => {
   const requestPromise = buildRequestPromise(client, query)
 
   return requestPromise.then(data => ({
-    query: {
-      count,
-      dates: {
-        end: endDate,
-        start: startDate,
-      },
-      page,
-      status,
-    },
+    query: omit(ignoredProps, query),
     result: {
       search: {
         operations: {

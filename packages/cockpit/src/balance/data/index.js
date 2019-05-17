@@ -3,6 +3,7 @@ import {
   always,
   isNil,
   when,
+  omit,
 } from 'ramda'
 
 import buildResult from './result'
@@ -12,15 +13,9 @@ const getValidStatus = when(
   always('available')
 )
 
-const data = client => (recipientId, {
-  count,
-  dates: {
-    end: endDate,
-    start: startDate,
-  },
-  page,
-  status,
-} = {}) =>
+const ignoredProps = ['status', 'recipientId']
+
+const data = client => (recipientId, query = {}) =>
   Promise.props({
     balance: client.balance.find({ recipientId }),
     bulk_anticipations_pending: client.bulkAnticipations.find({
@@ -30,13 +25,8 @@ const data = client => (recipientId, {
     recipient: client.recipients.find({ id: recipientId }),
   })
     .then(buildResult({
-      count,
-      dates: {
-        end: endDate,
-        start: startDate,
-      },
-      page,
-      status: getValidStatus(status),
+      ...omit(ignoredProps, query),
+      status: getValidStatus(query.status),
     }))
 
 
