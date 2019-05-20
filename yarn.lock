@@ -6085,29 +6085,35 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-former-kit-skin-pagarme@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/former-kit-skin-pagarme/-/former-kit-skin-pagarme-1.2.0.tgz#0f1537ddf010cb21b6163143f3eaeb690a17f989"
-  integrity sha512-lpeRiVcW8QNYDAsw5y0z3FA1n/pCjnbhY06hu5KBU9fV47Ik2APbKLxkVRlS008ft8DteMxVTgP33tIB+EwznA==
+former-kit-skin-pagarme@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/former-kit-skin-pagarme/-/former-kit-skin-pagarme-1.3.0.tgz#05bdd1f8e9b91c4a8c767e46e336e899f7d71c74"
+  integrity sha512-5N+EcazvwHabG4Cy6BXK18lGqPhpvLWhd7obQaokniQmpVW2abDyatsbQ1X6VbeYWZx8ubSIPRoPi14IFiAQmw==
   dependencies:
     emblematic-icons "0.6.1"
     react-dates "18.4.0"
 
-former-kit@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/former-kit/-/former-kit-1.4.0.tgz#72fbf10a67c83a71d18458268e9bbaf2ff49a282"
-  integrity sha512-ash9OPSl5mQGV3COFD5Ki1zLbC/Dj8f20z+1eTqU4Pfs5MN22Nr5SNnRILeqbi5y2JXvR5VcVXKLXmG9Usl6HQ==
+former-kit-skin-pagarme@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/former-kit-skin-pagarme/-/former-kit-skin-pagarme-1.3.1.tgz#a4a8b6c3bd363d5dea906dd155d00f97726c4acb"
+  integrity sha512-72OtJ1Sd6AtpZmeNF7S9dkmAk/sLrIbV9Ah7hFoAveKwon35M4hkTP1ndCNyhsEea7s0AF7XVHX2rfV67xiReA==
+  dependencies:
+    emblematic-icons "0.6.1"
+    react-dates "18.4.0"
+
+former-kit@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/former-kit/-/former-kit-1.5.1.tgz#c652f6eb93c21b365a222a7b0d26a463ac4762d5"
+  integrity sha512-lbmZgINGOE5eNfx0Fn34f+GFK0xOt7UsYIMZayGNvCfxdGQjrxWpMkNX4awlRmQv/m29/ffNOwvieifO3YOuzA==
   dependencies:
     classnames "2.2.6"
     emblematic-icons "0.6.1"
-    former-kit-skin-pagarme "1.2.0"
+    former-kit-skin-pagarme "1.3.0"
     promise "8.0.2"
     prop-types "15.6.2"
     ramda "0.26.1"
-    react "16.8.6"
     react-click-outside "3.0.1"
     react-dates "18.4.1"
-    react-dom "16.8.6"
     react-input-mask "2.0.4"
     react-maskedinput "4.0.1"
     react-modal "3.8.1"
@@ -11367,16 +11373,6 @@ react-dom@16.8.1:
     prop-types "^15.6.2"
     scheduler "^0.13.1"
 
-react-dom@16.8.6:
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
-  integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.13.6"
-
 react-dom@^16.6.3, react-dom@^16.7.0:
   version "16.8.3"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.3.tgz#ae236029e66210783ac81999d3015dfc475b9c32"
@@ -11740,16 +11736,6 @@ react@16.8.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.13.1"
-
-react@16.8.6:
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
-  integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.13.6"
 
 react@^16.6.3, react@^16.7.0:
   version "16.8.3"
@@ -12535,14 +12521,6 @@ scheduler@^0.13.1, scheduler@^0.13.3:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.3.tgz#bed3c5850f62ea9c716a4d781f9daeb9b2a58896"
   integrity sha512-UxN5QRYWtpR1egNWzJcVLk8jlegxAugswQc984lD3kU7NuobsO37/sRfbpTdBjtnD5TBNFA2Q2oLV5+UmPSmEQ==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
-scheduler@^0.13.6:
-  version "0.13.6"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
-  integrity sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
