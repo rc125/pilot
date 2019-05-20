@@ -38,6 +38,7 @@ import {
   Grid,
   Legend,
   Row,
+  Truncate,
 } from 'former-kit'
 import IconInfo from 'emblematic-icons/svg/Info32.svg'
 import IconCheck from 'emblematic-icons/svg/Check24.svg'
@@ -637,12 +638,20 @@ class TransactionDetails extends Component {
 
     const formattedCustomer = formatCustomerData(customer || {})
 
+    const applyTruncateCustomerEmail = (
+      <span className={style.value}>
+        <Truncate
+          text={formattedCustomer.email}
+        />
+      </span>
+    )
+
     const customerDetailsContent = {
       birthday: formattedCustomer && formattedCustomer.birthday,
       city: formattedCustomer && formattedCustomer.city,
       complementary: formattedCustomer && formattedCustomer.complementary,
       document_number: formattedCustomer && formattedCustomer.document_number,
-      email: formattedCustomer && formattedCustomer.email,
+      email: formattedCustomer.email && applyTruncateCustomerEmail,
       name: formattedCustomer && formattedCustomer.name,
       neighborhood: formattedCustomer && formattedCustomer.neighborhood,
       phone: formattedCustomer && formattedCustomer.phone,

@@ -43,6 +43,11 @@
   }
 }
 
+.value {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
+}
+
 @media print {
 
   /* stylelint-disable declaration-no-important */

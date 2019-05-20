@@ -159,7 +159,7 @@ const shape = {
   city: PropTypes.string,
   complementary: PropTypes.string,
   document_number: PropTypes.string,
-  email: PropTypes.string,
+  email: PropTypes.node,
   name: PropTypes.string,
   neighborhood: PropTypes.string,
   phone: PropTypes.string,
