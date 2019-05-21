@@ -13,7 +13,10 @@ import {
   prop,
 } from 'ramda'
 
-import { Button } from 'former-kit'
+import {
+  Button,
+  Truncate,
+} from 'former-kit'
 
 import formatCpfCnpj from '../../formatters/cpfCnpj'
 import formatCurrency from '../../formatters/currency'
@@ -49,6 +52,18 @@ const getDefaultDocumentNumber = pipe(
     )
   )
 )
+
+const applyTruncateCustomerEmail = (item) => {
+  const value = path(['customer', 'email'], item)
+
+  return value
+    ? (
+      <Truncate
+        text={value}
+      />
+    )
+    : null
+}
 
 const getDefaultColumns = ({ onDetailsClick, t }) => ([
   {
@@ -96,6 +111,7 @@ const getDefaultColumns = ({ onDetailsClick, t }) => ([
   {
     accessor: ['customer', 'email'],
     orderable: true,
+    renderer: applyTruncateCustomerEmail,
     title: t('models.transaction.email'),
   },
   {
