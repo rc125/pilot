@@ -12,3 +12,8 @@
 .captureWarning {
   font-size: var(--caption-font-size);
 }
+
+.value {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
+}

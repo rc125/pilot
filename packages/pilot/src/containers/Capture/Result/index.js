@@ -9,6 +9,7 @@ import {
   ModalContent,
   Row,
   Spacing,
+  Truncate,
 } from 'former-kit'
 import IconError from 'emblematic-icons/svg/ClearClose32.svg'
 
@@ -62,7 +63,13 @@ const Result = ({
                   cardNumber: cardFirstDigits && cardLastDigits
                   ? `${formatCardNumber(cardFirstDigits)} ${cardLastDigits}`
                   : '',
-                  customerEmail,
+                  customerEmail: (
+                    <span className={style.value}>
+                      <Truncate
+                        text={customerEmail}
+                      />
+                    </span>
+                  ),
                   customerName,
                   installments,
                 }}

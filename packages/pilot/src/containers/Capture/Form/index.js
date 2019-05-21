@@ -11,6 +11,7 @@ import {
   ModalContent,
   Row,
   Spacing,
+  Truncate,
 } from 'former-kit'
 import { equals } from 'ramda'
 import Form from 'react-vanilla-form'
@@ -68,7 +69,13 @@ const CaptureForm = ({
     cardNumber: cardFirstDigits && cardLastDigits
       ? `${formatCardNumber(cardFirstDigits)} ${cardLastDigits}`
       : '',
-    customerEmail,
+    customerEmail: (
+      <span className={style.value}>
+        <Truncate
+          text={customerEmail}
+        />
+      </span>
+    ),
     customerName,
     installments,
   }

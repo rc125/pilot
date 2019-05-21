@@ -11,3 +11,8 @@
   font-weight: var(--title-font-weight);
   margin: 0;
 }
+
+.value {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
+}
