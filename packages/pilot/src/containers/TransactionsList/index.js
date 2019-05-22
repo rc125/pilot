@@ -263,7 +263,7 @@ const TransactionsList = ({
                         onPageCountChange(parseInt(e.target.value, 10))
                       }
                       options={itemsPerPage.map(i => ({
-                        name: t('pages.transactions.items_per_page', { count: i }),
+                        name: t('items_per_page', { count: i }),
                         value: `${i}`,
                       }))}
                       size="tiny"
