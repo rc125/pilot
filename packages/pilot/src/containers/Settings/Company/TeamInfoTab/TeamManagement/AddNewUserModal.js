@@ -11,6 +11,7 @@ import {
   ModalContent,
   ModalActions,
   RadioGroup,
+  Truncate,
 } from 'former-kit'
 import IconWarning from 'emblematic-icons/svg/Warning32.svg'
 import IconInfo from 'emblematic-icons/svg/Info32.svg'
@@ -147,8 +148,15 @@ class AddNewUserModal extends React.Component {
                 icon={<IconInfo height={16} width={16} />}
               >
                 {t('pages.settings.company.card.team.modal.success',
-                  { email: this.state.submittedEmail })
-                }
+                  {
+                    email: (
+                      <span className={style.value}>
+                        <Truncate
+                          text={this.state.submittedEmail}
+                        />
+                      </span>
+                    )}
+                 )}
               </Alert>
             }
           </ModalContent>

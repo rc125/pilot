@@ -4,6 +4,7 @@ import {
   Button,
   Table,
   CardSection,
+  Truncate,
 } from 'former-kit'
 import {
   compose,
@@ -71,8 +72,26 @@ class UserTable extends React.Component {
 
   getColumns () {
     return [
-      { accessor: ['name'], orderable: false, title: 'Nome' },
-      { accessor: ['email'], orderable: false, title: 'E-mail' },
+      {
+        accessor: ['name'],
+        orderable: false,
+        renderer: user => (
+          <Truncate
+            text={user.name}
+          />
+        ),
+        title: 'Nome',
+      },
+      {
+        accessor: ['email'],
+        orderable: false,
+        renderer: user => (
+          <Truncate
+            text={user.email}
+          />
+        ),
+        title: 'E-mail',
+      },
       {
         accessor: ['role'],
         orderable: true,
