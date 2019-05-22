@@ -9,6 +9,7 @@ import {
   FormInput,
   Grid,
   Row,
+  Truncate,
 } from 'former-kit'
 
 import CurrencyInput from '../../../components/CurrencyInput'
@@ -19,6 +20,8 @@ import lessThanOrEqualValidation from '../../../validation/lessThanOrEqual'
 import numberValidation from '../../../validation/number'
 import Property from '../../../components/Property'
 import requiredValidation from '../../../validation/required'
+
+import style from './style.css'
 
 class CardForm extends Component {
   constructor (props) {
@@ -49,6 +52,14 @@ class CardForm extends Component {
     const isRequired = requiredValidation(t('pages.refund.required'))
     const isNumber = numberValidation(t('pages.refund.number'))
 
+    const applyTruncate = (
+      <span className={style.value}>
+        <Truncate
+          text={email}
+        />
+      </span>
+    )
+
     return (
       <Form
         data={{
@@ -78,7 +89,7 @@ class CardForm extends Component {
               <Col palm={12} tablet={5} desk={5} tv={5}>
                 <Property
                   title={t('models.customer.email')}
-                  value={email}
+                  value={applyTruncate}
                 />
               </Col>
 

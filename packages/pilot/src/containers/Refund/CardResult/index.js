@@ -5,12 +5,15 @@ import {
   Button,
   ModalActions,
   ModalContent,
+  Truncate,
 } from 'former-kit'
 
 import IconError from 'emblematic-icons/svg/ClearClose32.svg'
 import IconSuccess from 'emblematic-icons/svg/Check32.svg'
 
 import CreditCardRefundDetails from '../../../components/CreditCardRefundDetails'
+
+import style from './style.css'
 
 const CardResult = ({
   amount,
@@ -50,7 +53,13 @@ const CardResult = ({
             brand,
             cardFirstDigits,
             cardLastDigits,
-            email,
+            email: (
+              <span className={style.value}>
+                <Truncate
+                  text={email}
+                />
+              </span>
+            ),
             holderName,
             installments: t(
               'models.transaction.installments_count',

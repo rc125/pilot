@@ -3,9 +3,12 @@ import PropTypes from 'prop-types'
 import {
   Button,
   ModalActions,
+  Truncate,
 } from 'former-kit'
 
 import CreditCardRefundDetails from '../../../components/CreditCardRefundDetails'
+
+import style from './style.css'
 
 class CardConfirmation extends Component {
   constructor (props) {
@@ -42,7 +45,13 @@ class CardConfirmation extends Component {
             brand,
             cardFirstDigits,
             cardLastDigits,
-            email,
+            email: (
+              <span className={style.value}>
+                <Truncate
+                  text={email}
+                />
+              </span>
+            ),
             holderName,
             installments: t(
               'models.transaction.installments_count',
