@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalTitle,
   Row,
+  Truncate,
 } from 'former-kit'
 
 import { mapObjIndexed } from 'ramda'
@@ -38,7 +39,13 @@ const CreditCardRefundDetails = ({ contents, labels, title }) => {
     amount: formatCurrency(amount),
     brand,
     cardNumber: `${formatCardNumber(cardFirstDigits)} ${cardLastDigits}`,
-    email,
+    email: (
+      <span className={style.value}>
+        <Truncate
+          text={email}
+        />
+      </span>
+    ),
     holderName,
     installments,
   }

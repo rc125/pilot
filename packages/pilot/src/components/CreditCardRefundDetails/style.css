@@ -5,3 +5,8 @@
   font-size: 24px;
   font-weight: bold;
 }
+
+.value {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
+}
