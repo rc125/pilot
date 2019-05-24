@@ -1,31 +1,6 @@
-import moment from 'moment'
-import {
-  always,
-  isNil,
-  when,
-} from 'ramda'
+import buildRequest from './buildRequest'
 
-import buildBalanceTotal from './result'
-
-const getValidStatus = when(
-  isNil,
-  always('available')
-)
-
-const total = client => (recipientId, {
-  dates: {
-    end: endDate,
-    start: startDate,
-  },
-  status,
-} = {}) =>
-  client.balanceOperations.days({
-    end_date: moment(endDate).valueOf(),
-    recipient_id: recipientId,
-    start_date: moment(startDate).valueOf(),
-    status: getValidStatus(status),
-  })
-    .then(buildBalanceTotal)
-
+const total = client => (recipientId, query) =>
+  buildRequest(client, { recipientId, ...query })
 
 export default total

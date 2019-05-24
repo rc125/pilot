@@ -1,4 +1,4 @@
-import buildBalanceTotal from './result'
+import buildBalanceTotal from './operations'
 import fromRequest from '../mocks/totalFromRequestsMock.json'
 import expectedResult from '../mocks/totalExpectedResult.json'
 
