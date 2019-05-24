@@ -1,50 +1,5 @@
 @import "former-kit-skin-pagarme/dist/styles/spacing.css";
-@import "former-kit-skin-pagarme/dist/styles/colors/light.css";
 
-.content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.amount,
-.dates {
-  align-items: center;
-  display: flex;
-}
-
-.amount > *:not(:first-child) {
+.summaryContent > *:not(:first-child) {
   margin-left: var(--spacing-medium);
-}
-
-.dates h3 {
-  color: var(--color-light-steel-100);
-}
-
-.date {
-  align-items: center;
-  display: flex;
-
-  & > h3 {
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 0;
-    margin-right: var(--spacing-tiny);
-    margin-top: 0;
-  }
-
-  & strong,
-  & span {
-    color: var(--color-light-steel-100);
-    display: block;
-    font-size: 14px;
-  }
-
-  & strong {
-    text-transform: uppercase;
-  }
-}
-
-.icon {
-  margin: 0 var(--spacing-medium);
 }

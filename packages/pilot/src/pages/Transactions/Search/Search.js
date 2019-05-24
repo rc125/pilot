@@ -42,7 +42,6 @@ import {
   receiveSearch,
   clearSearch,
 } from './actions'
-import { requestLogout } from '../../Account/actions'
 
 import dateSelectorPresets from '../../../models/dateSelectorPresets'
 import filterOptions from '../../../models/transactionFilterOptions'
@@ -62,9 +61,6 @@ const mapDispatchToProps = dispatch => ({
   },
   onRequestSearch: (query) => {
     dispatch(requestSearch(query))
-  },
-  onRequestSearchFail: (error) => {
-    dispatch(requestLogout(error))
   },
 })
 
@@ -93,7 +89,7 @@ const normalizeQueryDatesToString = pipe(
   mergeAll
 )
 
-const stringToMoment = str => moment(str, 'L')
+const stringToMoment = str => moment(str)
 
 const normalizeDateTime = property => (date) => {
   if (property === 'start') {
@@ -325,9 +321,6 @@ class TransactionsSearch extends React.Component {
           query,
         })
         this.props.onReceiveSearch(res)
-      })
-      .catch((error) => {
-        this.props.onRequestSearchFail(error)
       })
   }
 
@@ -571,7 +564,6 @@ TransactionsSearch.propTypes = {
   onReceiveSearch: PropTypes.func.isRequired,
   onRequestClearSearch: PropTypes.func.isRequired,
   onRequestSearch: PropTypes.func.isRequired,
-  onRequestSearchFail: PropTypes.func.isRequired,
   query: PropTypes.shape({
     count: PropTypes.number.isRequired,
     dates: PropTypes.shape({

@@ -10,7 +10,9 @@ import {
   pipe,
   prop,
   propSatisfies,
+  lt,
   when,
+  __,
 } from 'ramda'
 import classNames from 'classnames'
 import { Tooltip } from 'former-kit'
@@ -61,15 +63,37 @@ const getTypeLabel = (type, labels) => {
 
 const isNotAnticipation = propSatisfies(isNil, 'original')
 
-// eslint-disable-next-line react/prop-types
-const renderDescription = ({ installment, type }, labels) => (
+const isTransferSource = lt(__, 0)
+
+const renderTargetOrSource = (type, net, targetId, sourceId, labels) => {
+  if (type === 'inter_recipient' && isTransferSource(net)) {
+    return (<div>{`${labels.to} ${targetId}`}</div>)
+  }
+
+  if (type === 'inter_recipient' && !isTransferSource(net)) {
+    return (<div>{`${labels.from} ${sourceId}`}</div>)
+  }
+
+  return null
+}
+
+/* eslint-disable react/prop-types */
+const renderDescription = ({
+  installment,
+  net,
+  sourceId,
+  targetId,
+  type,
+}, labels) => (
   <div className={style.descriptionColumn}>
     <div className={style.type}>{getTypeLabel(type, labels)}</div>
     {!isNil(installment) &&
-      <div>{`${getTypeLabel('installment', labels)} ${installment}`}</div>
+      <div>{`${labels.installment} ${installment}`}</div>
     }
+    {renderTargetOrSource(type, net, targetId, sourceId, labels)}
   </div>
 )
+/* eslint-enable react/prop-types */
 
 const getAbsoluteValue = Math.abs
 
@@ -161,12 +185,11 @@ const renderPaymentDate = (paymentDate, toolTipText) => {
 
 const getColumns = labels => ([
   {
-    accessor: ['payment_date', 'actual'],
+    accessor: ['paymentDate', 'actual'],
     align: 'center',
     orderable: false,
-    // eslint-disable-next-line camelcase
-    renderer: ({ payment_date }) =>
-      renderPaymentDate(payment_date, labels.anticipationMessage),
+    renderer: ({ paymentDate }) =>
+      renderPaymentDate(paymentDate, labels.anticipationMessage),
     title: 'models.operations.payment_date',
   },
   {

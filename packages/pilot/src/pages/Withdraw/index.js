@@ -21,6 +21,7 @@ import partnersBankCodes from '../../models/partnersBanksCodes'
 import env from '../../environment'
 
 import { receiveWithdraw } from './actions/'
+import { withError } from '../ErrorBoundary'
 
 const mapStateToProps = ({
   account: {
@@ -44,7 +45,8 @@ const enhanced = compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  withRouter
+  withRouter,
+  withError
 )
 
 const getDefaultRecipient = client => (
@@ -131,7 +133,6 @@ class Withdraw extends Component {
       ...defaultStepsState,
       confirmationDisabledButtons: false,
       confirmationPasswordError: '',
-      error: '',
       requested: '0',
     }
 
@@ -152,7 +153,6 @@ class Withdraw extends Component {
           id,
         },
       },
-      t,
     } = this.props
 
     let recipientPromise
@@ -166,20 +166,11 @@ class Withdraw extends Component {
     recipientPromise
       .then((recipient) => {
         this.setState({
-          error: '',
           recipient,
         })
 
         if (!id) {
           history.replace(`/withdraw/${recipient.id}`)
-        }
-      })
-      .catch(({ response }) => {
-        const { type } = response.errors[0]
-        if (type === 'not_found') {
-          this.setState({
-            error: t('pages.withdraw.no_recipient'),
-          })
         }
       })
   }
@@ -303,7 +294,6 @@ class Withdraw extends Component {
       confirmationDisabledButtons,
       confirmationPasswordError,
       currentStep,
-      error,
       recipient,
       requested,
       statusMessage,
@@ -311,6 +301,7 @@ class Withdraw extends Component {
     } = this.state
 
     const {
+      error,
       history,
       t,
     } = this.props
@@ -347,7 +338,13 @@ class Withdraw extends Component {
             icon={<IconError height={16} width={16} />}
             type="error"
           >
-            <span>{error}</span>
+            <span>
+              {
+                error.localized
+                  ? error.localized.message
+                  : error.message
+              }
+            </span>
           </Alert>
         }
       </Fragment>
@@ -357,6 +354,14 @@ class Withdraw extends Component {
 
 Withdraw.propTypes = {
   client: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  error: PropTypes.shape({
+    affectedRoute: PropTypes.string.isRequired,
+    localized: PropTypes.shape({
+      message: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+    message: PropTypes.string.isRequired,
+  }),
   history: PropTypes.shape({
     goBack: PropTypes.func,
     push: PropTypes.func,
@@ -378,6 +383,7 @@ Withdraw.propTypes = {
 }
 
 Withdraw.defaultProps = {
+  error: null,
   pricing: {},
 }
 

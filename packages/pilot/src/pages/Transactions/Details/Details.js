@@ -22,11 +22,13 @@ import {
 } from 'ramda'
 import moment from 'moment'
 import qs from 'qs'
+import IconInfo from 'emblematic-icons/svg/Info32.svg'
+import { Alert } from 'former-kit'
+
 import {
   requestDetails,
   receiveDetails,
 } from './actions'
-import { requestLogout } from '../../Account/actions'
 import Reprocess from '../../Reprocess'
 import currencyFormatter from '../../../formatters/decimalCurrency'
 import getColumnFormatter from '../../../formatters/columnTranslator'
@@ -35,6 +37,7 @@ import ManualReview from '../../ManualReview'
 import TransactionDetailsContainer from '../../../containers/TransactionDetails'
 import Refund from '../../Refund'
 import Capture from '../../Capture'
+import { withError } from '../../ErrorBoundary'
 
 const hasPrintInQueryString = pipe(
   tail,
@@ -62,7 +65,6 @@ const mapStateToProps = ({
 const mapDispatchToProps = ({
   onReceiveDetails: receiveDetails,
   onRequestDetails: requestDetails,
-  onRequestDetailsFail: requestLogout,
 })
 
 const enhanced = compose(
@@ -71,7 +73,8 @@ const enhanced = compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  withRouter
+  withRouter,
+  withError
 )
 
 const copyToClipBoard = (text) => {
@@ -288,9 +291,6 @@ class TransactionDetails extends Component {
         this.setState({ result })
         this.props.onReceiveDetails(result)
       })
-      .catch((error) => {
-        this.props.onRequestDetailsFail(error)
-      })
   }
 
   handleAlertDismiss () {
@@ -392,6 +392,7 @@ class TransactionDetails extends Component {
 
   render () {
     const {
+      error,
       match: { params: { id } },
       permission,
       t,
@@ -412,6 +413,21 @@ class TransactionDetails extends Component {
       showReprocess,
       transactionDetailsLabels,
     } = this.state
+
+    if (error) {
+      const message = error.localized
+        ? error.localized.message
+        : error.message
+
+      return (
+        <Alert
+          icon={<IconInfo height={16} width={16} />}
+          type="error"
+        >
+          <span>{message}</span>
+        </Alert>
+      )
+    }
 
     const transaction = removeCustomerUnusedPhones(result.transaction)
 
@@ -568,6 +584,16 @@ class TransactionDetails extends Component {
 
 TransactionDetails.propTypes = {
   client: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  error: PropTypes.shape({
+    localized: PropTypes.shape({
+      message: PropTypes.string,
+      title: PropTypes.string,
+    }),
+    message: PropTypes.string,
+    method: PropTypes.string,
+    status: PropTypes.number,
+    type: PropTypes.string,
+  }),
   history: PropTypes.shape({
     push: PropTypes.func,
     replace: PropTypes.func,
@@ -583,9 +609,12 @@ TransactionDetails.propTypes = {
   }).isRequired,
   onReceiveDetails: PropTypes.func.isRequired,
   onRequestDetails: PropTypes.func.isRequired,
-  onRequestDetailsFail: PropTypes.func.isRequired,
   permission: PropTypes.string.isRequired,
   t: PropTypes.func.isRequired,
+}
+
+TransactionDetails.defaultProps = {
+  error: undefined,
 }
 
 export default enhanced(TransactionDetails)

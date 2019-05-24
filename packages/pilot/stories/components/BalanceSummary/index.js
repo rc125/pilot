@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import Section from '../../Section'
 import BalanceSummary from '../../../src/components/BalanceSummary'
 
@@ -25,10 +24,7 @@ const BalanceSummaryExample = () => (
   <Section>
     <BalanceSummary
       amount={amount}
-      dates={{
-        end: moment(),
-        start: moment().subtract(4, 'days'),
-      }}
+      loading={false}
     />
   </Section>
 )

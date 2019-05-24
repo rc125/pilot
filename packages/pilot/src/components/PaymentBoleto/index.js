@@ -58,7 +58,7 @@ const PaymentBoleto = ({
 )
 
 PaymentBoleto.propTypes = {
-  barcode: PropTypes.string.isRequired,
+  barcode: PropTypes.string,
   copyBarcodeFeedback: PropTypes.string.isRequired,
   copyBarcodeLabel: PropTypes.string.isRequired,
   dueDate: PropTypes.string.isRequired,
@@ -67,6 +67,10 @@ PaymentBoleto.propTypes = {
   onShow: PropTypes.func.isRequired,
   showBoletoLabel: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+}
+
+PaymentBoleto.defaultProps = {
+  barcode: null,
 }
 
 export default PaymentBoleto

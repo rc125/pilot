@@ -4,5 +4,10 @@
     "add-module-exports",
     "ramda",
     "transform-object-rest-spread"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-runtime"]
+    }
+  }
 }

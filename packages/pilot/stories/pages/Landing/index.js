@@ -38,6 +38,7 @@ const TestPresentation = (
   <Presentation
     environment="test"
     environmentUrl=""
+    onRegister={action('register click')}
     t={t}
   />
 )
@@ -46,6 +47,7 @@ const LivePresentation = (
   <Presentation
     environment="live"
     environmentUrl=""
+    onRegister={action('register click')}
     t={t}
   />
 )

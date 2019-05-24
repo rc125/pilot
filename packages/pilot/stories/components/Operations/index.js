@@ -13,6 +13,9 @@ import {
   sortBy,
   toLower,
 } from 'ramda'
+import { Button } from 'former-kit'
+import moment from 'moment'
+
 import Operations from '../../../src/components/Operations'
 import getColumns from '../../../src/components/Operations/operationsTableColumns'
 import operationsTypesLabels from '../../../src/models/operationTypes'
@@ -62,9 +65,13 @@ class OperationsState extends Component {
     this.sortRows = getRowsSort(operations.rows, columns)
     this.handleOrderChange = this.handleOrderChange.bind(this)
     this.handlePageChange = this.handlePageChange.bind(this)
+    this.toggleLoading = this.toggleLoading.bind(this)
+    this.toggleExporting = this.toggleExporting.bind(this)
 
     this.state = {
       columns,
+      exporting: false,
+      loading: false,
       offset: 1,
       order: 'ascending',
       orderColumnIndex,
@@ -87,9 +94,35 @@ class OperationsState extends Component {
     action(`page changed to ${this.state.offset}`)
   }
 
+  toggleExporting () {
+    this.setState({
+      exporting: true,
+    })
+
+    setTimeout(() => {
+      this.setState({
+        exporting: false,
+      })
+    }, 1000)
+  }
+
+  toggleLoading () {
+    this.setState({
+      loading: true,
+    })
+
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      })
+    }, 1000)
+  }
+
   render () {
     const {
       columns,
+      exporting,
+      loading,
       offset,
       order,
       orderColumnIndex,
@@ -99,22 +132,34 @@ class OperationsState extends Component {
     } = this.state
 
     return (
-      <Operations
-        columns={columns}
-        emptyMessage="No items found"
-        exportLabel="Export"
-        currentPage={offset}
-        ofLabel="of"
-        onExport={() => null}
-        onOrderChange={this.handleOrderChange}
-        onPageChange={this.handlePageChange}
-        order={order}
-        orderColumnIndex={orderColumnIndex}
-        rows={rows}
-        subtitle={`Total of ${total} accounting entries`}
-        title="Accounting posting history"
-        totalPages={totalPages}
-      />
+      <div>
+        <Operations
+          columns={columns}
+          count={total}
+          currentPage={offset}
+          dates={{
+            end: moment(),
+            start: moment().subtract(7, 'days'),
+          }}
+          exporting={exporting}
+          labels={{
+            empty: 'No items found',
+            exportCall: 'Export table',
+            exportTo: 'Export to:',
+            results: 'accounting entries',
+            totalOf: 'Total of',
+          }}
+          loading={loading}
+          onExport={this.toggleExporting}
+          onOrderChange={this.handleOrderChange}
+          onPageChange={this.handlePageChange}
+          order={order}
+          orderColumnIndex={orderColumnIndex}
+          rows={rows}
+          totalPages={totalPages}
+        />
+        <Button onClick={this.toggleLoading}>Load</Button>
+      </div>
     )
   }
 }

@@ -23,7 +23,6 @@ import {
   map,
   partial,
   path,
-  pathOr,
   pipe,
   prop,
   propSatisfies,
@@ -41,6 +40,7 @@ import {
 import AnticipationContainer from '../../containers/Anticipation'
 import env from '../../environment'
 import partnersBankCodes from '../../models/partnersBanksCodes'
+import { withError } from '../ErrorBoundary'
 
 const mapStateToProps = ({
   account: {
@@ -70,7 +70,8 @@ const mapDispatchToProps = {
 const enhanced = compose(
   translate(),
   connect(mapStateToProps, mapDispatchToProps),
-  withRouter
+  withRouter,
+  withError
 )
 
 const createBulk = (client, {
@@ -327,7 +328,6 @@ class Anticipation extends Component {
           paymentDate: nextAnticipableDay,
         })
       })
-      .catch(error => this.setState({ businessCalendarError: error }))
 
     if (isInvalidRecipientId(id)) {
       getDefaultRecipient(client)
@@ -441,6 +441,7 @@ class Anticipation extends Component {
 
     const {
       destroyAnticipation,
+      error,
       match: {
         params: {
           id: recipientId,
@@ -448,7 +449,7 @@ class Anticipation extends Component {
       },
     } = this.props
 
-    if (bulkAnticipationStatus && bulkAnticipationStatus !== 'pending') {
+    if (!error && bulkAnticipationStatus && bulkAnticipationStatus !== 'pending') {
       destroyAnticipation({
         anticipationId: bulkId,
         recipientId,
@@ -827,7 +828,6 @@ class Anticipation extends Component {
   render () {
     const {
       approximateRequested,
-      businessCalendarError,
       calendar,
       currentStep,
       error,
@@ -850,11 +850,12 @@ class Anticipation extends Component {
 
     const {
       client,
-      error: limitsError,
+      error: requestError,
       limits: {
         max,
         min,
       },
+      limitsError,
       loading: limitsLoading,
       t,
     } = this.props
@@ -865,19 +866,29 @@ class Anticipation extends Component {
       ? approximateRequested + totalCostAndTransfer
       : totalCostAndTransfer
 
-    if (businessCalendarError) {
+    if (requestError) {
+      const message = requestError.localized
+        ? requestError.localized.message
+        : requestError.message
+
       return (
         <Alert
           icon={<IconInfo height={16} width={16} />}
-          type="info"
+          type="error"
+        >
+          <span>{message}</span>
+        </Alert>
+      )
+    }
+
+    if (limitsError) {
+      return (
+        <Alert
+          icon={<IconInfo height={16} width={16} />}
+          type="error"
         >
           <span>
             {limitsError && limitsError}
-            {pathOr(
-                t('pages.balance.unknown_error'),
-                ['errors', 0, 'message'],
-                error
-            )}
           </span>
         </Alert>
       )
@@ -931,7 +942,12 @@ Anticipation.propTypes = {
     }).isRequired,
   }).isRequired,
   destroyAnticipation: PropTypes.func.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.shape({
+    localized: PropTypes.shape({
+      message: PropTypes.string.isRequired,
+    }),
+    message: PropTypes.string.isRequired,
+  }),
   history: PropTypes.shape({
     goBack: PropTypes.func,
     push: PropTypes.func,
@@ -941,6 +957,7 @@ Anticipation.propTypes = {
     max: PropTypes.number,
     min: PropTypes.number,
   }).isRequired,
+  limitsError: PropTypes.string,
   loading: PropTypes.bool,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -958,7 +975,8 @@ Anticipation.propTypes = {
 }
 
 Anticipation.defaultProps = {
-  error: '',
+  error: null,
+  limitsError: '',
   loading: false,
   pricing: null,
 }

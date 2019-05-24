@@ -15,10 +15,9 @@ import {
 } from 'ramda'
 import { Layout } from 'former-kit'
 import env from '../../environment'
-
+import { ErrorBoundary } from '../ErrorBoundary'
 import Sidebar from './Sidebar'
 import Header from './Header'
-
 import routes from './routes'
 
 // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
@@ -82,22 +81,24 @@ const LoggedArea = ({
     }
     header={<Header t={t} />}
   >
-    <Switch>
-      {Object.values(routes).map(({ component, path: pathURI }) => (
-        <Route
-          key={pathURI}
-          path={pathURI}
-          component={component}
+    <ErrorBoundary>
+      <Switch>
+        {Object.values(routes).map(({ component, path: pathURI }) => (
+          <Route
+            key={pathURI}
+            path={pathURI}
+            component={component}
+          />
+        ))}
+        <Redirect
+          to={
+            recipientId
+              ? `/balance/${recipientId}`
+              : '/balance/'
+          }
         />
-      ))}
-      <Redirect
-        to={
-          recipientId
-            ? `/balance/${recipientId}`
-            : '/balance/'
-        }
-      />
-    </Switch>
+      </Switch>
+    </ErrorBoundary>
   </Layout>
 )
 

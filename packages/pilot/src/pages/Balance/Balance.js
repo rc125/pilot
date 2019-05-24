@@ -39,6 +39,7 @@ import {
 import { requestLimits } from '../Anticipation'
 import BalanceContainer from '../../containers/Balance'
 import env from '../../environment'
+import { withError } from '../ErrorBoundary'
 
 const mapStateToProps = ({
   account: {
@@ -59,7 +60,7 @@ const mapStateToProps = ({
   //   loading: anticipationLoading,
   // },
   balance: {
-    error,
+    balanceError,
     loading,
     query,
   },
@@ -73,9 +74,9 @@ const mapStateToProps = ({
   //   error: !isNil(anticipationError),
   //   loading: anticipationLoading,
   // },
+  balanceError,
   client,
   company,
-  error,
   loading,
   query,
   sessionId,
@@ -95,7 +96,8 @@ const enhanced = compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  withRouter
+  withRouter,
+  withError
 )
 
 const isNilOrEmpty = anyPass([isNil, isEmpty])
@@ -203,6 +205,8 @@ const handleExportDataSuccess = (res, format) => {
   /* eslint-enable no-undef */
 }
 
+const timeframesQuery = ['past', 'future']
+
 class Balance extends Component {
   constructor (props) {
     super(props)
@@ -218,6 +222,7 @@ class Balance extends Component {
           start: moment().subtract(7, 'days'),
         },
         page: 1,
+        timeframe: 'future',
       },
       result: {},
       total: {},
@@ -236,6 +241,7 @@ class Balance extends Component {
     this.requestData = this.requestData.bind(this)
     this.requestTotal = this.requestTotal.bind(this)
     this.updateQuery = this.updateQuery.bind(this)
+    this.handleTimeframeChange = this.handleTimeframeChange.bind(this)
   }
 
   componentDidMount () {
@@ -348,6 +354,7 @@ class Balance extends Component {
       history.replace('/balance')
     }
   }
+
   requestAnticipationLimits (id) {
     const { client } = this.props
     const now = moment()
@@ -373,20 +380,28 @@ class Balance extends Component {
       .then((total) => {
         this.setState({ total })
       })
-    // TODO add catch when BalanceSummary have loading state
   }
 
   requestData (id, searchQuery) {
     this.props.onRequestBalance({ searchQuery })
 
-    return this.props.client
-      .balance
-      .data(id, searchQuery)
-      .then(({ query, result }) => {
-        this.setState({
+    const dataPromise = this.props.client.balance.data(id, searchQuery)
+
+    const operationsPromise = this.props.client.balance
+      .operations({ recipientId: id, ...searchQuery })
+
+    Promise.all([dataPromise, operationsPromise])
+      .then(([data, operations]) => {
+        const { result: { search } } = operations
+        const { query, result } = data
+        const newState = {
           query,
-          result,
-        })
+          result: {
+            search,
+            ...result,
+          },
+        }
+        this.setState(newState)
 
         this.props.onReceiveBalance(query)
       })
@@ -506,6 +521,17 @@ class Balance extends Component {
     })
   }
 
+  handleTimeframeChange (timeframeIndex) {
+    const timeframe = timeframesQuery[timeframeIndex]
+
+    const nextQuery = {
+      ...this.state.query,
+      timeframe,
+    }
+
+    this.updateQuery(nextQuery)
+  }
+
   render () {
     const {
       // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
@@ -513,8 +539,12 @@ class Balance extends Component {
       // This code will be used again in the future when ATLAS project implements the anticipation flow
       // More details in issue #1159
       // anticipation,
+      balanceError,
       company,
       error,
+      history: {
+        location,
+      },
       loading,
       t,
       user,
@@ -542,16 +572,31 @@ class Balance extends Component {
     const hasCompany = !isNil(company)
 
     if (error) {
+      const message = error.localized
+        ? error.localized.message
+        : error.message
+
       return (
         <Alert
           icon={<IconInfo height={16} width={16} />}
-          type="info"
+          type="error"
+        >
+          <span>{message}</span>
+        </Alert>
+      )
+    }
+
+    if (balanceError) {
+      return (
+        <Alert
+          icon={<IconInfo height={16} width={16} />}
+          type="error"
         >
           <span>
             {pathOr(
-              t('pages.balance.unknown_error'),
+              t('pages.balance.adblock_error'),
               ['errors', 0, 'message'],
-              error
+              balanceError
             )}
           </span>
         </Alert>
@@ -568,6 +613,8 @@ class Balance extends Component {
         </Alert>
       )
     }
+
+    const { timeframe } = parseQueryUrl(location.search)
 
     if (!isEmptyResult && hasCompany) {
       return (
@@ -596,10 +643,16 @@ class Balance extends Component {
           onExport={this.handleExportData}
           onFilterClick={this.handleFilterClick}
           onPageChange={this.handlePageChange}
+          onTimeframeChange={this.handleTimeframeChange}
           onWithdrawClick={this.handleWithdraw}
           recipient={recipient}
           requests={requests}
           search={search}
+          selectedTab={
+            timeframe
+            ? timeframesQuery.findIndex(value => value === timeframe)
+            : 0
+          }
           t={t}
           total={total}
         />
@@ -620,9 +673,15 @@ Balance.propTypes = {
   //   error: PropTypes.bool.isRequired,
   //   loading: PropTypes.bool.isRequired,
   // }).isRequired,
+  balanceError: PropTypes.shape({
+    errors: PropTypes.arrayOf(PropTypes.shape({
+      message: PropTypes.string,
+    })),
+  }),
   client: PropTypes.shape({
     balance: PropTypes.shape({
       data: PropTypes.func.isRequired,
+      operations: PropTypes.func.isRequired,
       total: PropTypes.func.isRequired,
     }).isRequired,
   }).isRequired,
@@ -633,9 +692,10 @@ Balance.propTypes = {
     }).isRequired,
   }),
   error: PropTypes.shape({
-    errors: PropTypes.arrayOf(PropTypes.shape({
-      message: PropTypes.string,
-    })),
+    localized: PropTypes.shape({
+      message: PropTypes.string.isRequired,
+    }),
+    message: PropTypes.string,
   }),
   history: PropTypes.shape({
     location: PropTypes.shape({
@@ -672,6 +732,7 @@ Balance.propTypes = {
 }
 
 Balance.defaultProps = {
+  balanceError: null,
   company: null,
   error: null,
   query: null,

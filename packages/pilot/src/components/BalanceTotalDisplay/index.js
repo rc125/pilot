@@ -6,6 +6,7 @@ import {
   CardContent,
   CardTitle,
 } from 'former-kit'
+import currencyToParts from '../../formatters/currencyToParts'
 
 import style from './style.css'
 
@@ -15,38 +16,46 @@ const BalanceTotalDisplay = ({
   detail,
   disabled,
   title,
-}) => (
-  <Card>
-    <CardTitle
-      className={style.title}
-      title={title}
-    />
-    <CardContent>
-      <h2 className={style.amount}>{amount}</h2>
-      <div className={style.detail}>
-        {detail}
-      </div>
-      {
-        action &&
-        <Button
-          disabled={disabled}
-          fill="gradient"
-          onClick={action.onClick}
-          size="default"
-        >
-          {action.title}
-        </Button>
-      }
-    </CardContent>
-  </Card>
-)
+}) => {
+  const { symbol, value } = currencyToParts(Math.abs(amount))
+  return (
+    <Card>
+      <CardTitle
+        className={style.title}
+        title={title}
+      />
+      <CardContent>
+        <span className={style.symbol}>
+          {symbol}
+        </span>
+        <span className={style.amount}>
+          {value}
+        </span>
+        <div className={style.detail}>
+          {detail}
+        </div>
+        {
+          action &&
+          <Button
+            disabled={disabled}
+            fill="gradient"
+            onClick={action.onClick}
+            size="default"
+          >
+            {action.title}
+          </Button>
+        }
+      </CardContent>
+    </Card>
+  )
+}
 
 BalanceTotalDisplay.propTypes = {
   action: PropTypes.shape({
     onClick: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
   }),
-  amount: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
   detail: PropTypes.node,
   // The detail property was changed to not be required
   // because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)

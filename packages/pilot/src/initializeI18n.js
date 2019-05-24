@@ -20,14 +20,15 @@ i18n
     },
     debug: true,
     defaultNS: 'translations',
-    fallbackLng: 'pt',
     interpolation: {
       escapeValue: false,
     },
+    lng: 'pt',
     ns: ['translations'],
     react: {
       wait: true,
     },
+    whitelist: ['pt'],
   })
 
 export default i18n

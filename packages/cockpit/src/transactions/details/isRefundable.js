@@ -34,7 +34,14 @@ const isRefundable = (transaction) => {
 
   const checkPaymentMethodAndAcquirers = cond([
     [both(propNotEq('acquirer_name', 'rede'), isCreditOrDebit), T],
-    [both(isBoleto, isPagarmeOrDevAcquirer), T],
+    [
+      allPass([
+        isBoleto,
+        isPagarmeOrDevAcquirer,
+        propNotEq('status', 'authorized'),
+      ]),
+      T,
+    ],
     [
       allPass([
         isCreditOrDebit,

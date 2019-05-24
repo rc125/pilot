@@ -11,11 +11,11 @@ import {
 } from './actions'
 
 const initialState = {
-  error: null,
   limits: {
     max: null,
     min: null,
   },
+  limitsError: null,
   loading: true,
 }
 
@@ -25,8 +25,8 @@ export default function anticipationReducer (state = initialState, action) {
   switch (action.type) {
     case ANTICIPABLE_LIMITS_REQUEST: {
       return {
-        error: null,
         limits: state.limits,
+        limitsError: null,
         loading: true,
       }
     }
@@ -37,11 +37,11 @@ export default function anticipationReducer (state = initialState, action) {
       } = action
 
       return {
-        error: null,
         limits: {
           max: call(getLimitsProp('maximum'), payload),
           min: call(getLimitsProp('minimum'), payload),
         },
+        limitsError: null,
         loading: false,
       }
     }
@@ -53,7 +53,7 @@ export default function anticipationReducer (state = initialState, action) {
 
       return {
         ...state,
-        error: payload,
+        limitsError: payload,
         loading: false,
       }
     }

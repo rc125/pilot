@@ -48,22 +48,22 @@ describe('isRefundable', () => {
     expect(isRefundable(transaction)).toBe(true)
   })
 
-  it('should return true if status is authorized, acquirer is `pagarme` and is boleto', () => {
+  it('should return false if status is authorized, acquirer is `pagarme` and is boleto', () => {
     const transaction = merge(transactionMock, {
       acquirer_name: 'pagarme',
       payment_method: 'boleto',
       status: 'authorized',
     })
-    expect(isRefundable(transaction)).toBe(true)
+    expect(isRefundable(transaction)).toBe(false)
   })
 
-  it('should return true if status is authorized, acquirer is `development` and is boleto', () => {
+  it('should return false if status is authorized, acquirer is `development` and is boleto', () => {
     const transaction = merge(transactionMock, {
       acquirer_name: 'development',
       payment_method: 'boleto',
       status: 'authorized',
     })
-    expect(isRefundable(transaction)).toBe(true)
+    expect(isRefundable(transaction)).toBe(false)
   })
 
   it('should return true if status is paid, acquirer is `pagarme` and is boleto', () => {

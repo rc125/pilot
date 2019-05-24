@@ -17,6 +17,16 @@
   & > div .pagination.paginationBottom {
     padding-top: var(--spacing-medium);
   }
+
+  & > div:last-child {
+    padding-top: var(--spacing-medium);
+  }
+
+  & .head > div:first-child {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: var(--spacing-tiny);
+  }
 }
 
 .head {
@@ -84,4 +94,9 @@
   position: absolute;
   width: 100%;
   z-index: 5;
+}
+
+.title {
+  color: var(--color-light-steel-100);
+  font-size: 14px;
 }

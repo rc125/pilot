@@ -20,7 +20,6 @@ import {
   Card,
   CardContent,
   Col,
-  DateInput,
   Grid,
   Modal,
   ModalActions,
@@ -28,13 +27,14 @@ import {
   ModalTitle,
   Row,
   Spacing,
+  TabBar,
+  TabItem,
   // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
   // It was commented on to remove the anticipation limits call on Balance page
   // This code will be used again in the future when ATLAS project implements the anticipation flow
   // More details in issue #1159
   // Tooltip,
 } from 'former-kit'
-import IconCalendar from 'emblematic-icons/svg/Calendar32.svg'
 import IconClose from 'emblematic-icons/svg/ClearClose32.svg'
 // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
 // It was commented on to remove the anticipation limits call on Balance page
@@ -42,36 +42,15 @@ import IconClose from 'emblematic-icons/svg/ClearClose32.svg'
 // More details in issue #1159
 // import IconInfo from 'emblematic-icons/svg/Info32.svg'
 
-import BalanceSummary from '../../components/BalanceSummary'
 import BalanceTotalDisplay from '../../components/BalanceTotalDisplay'
 import bulkAnticipationsLabels from '../../models/bulkAnticipationTypes'
 import currencyFormatter from '../../formatters/currency'
 import dateFormatter from '../../formatters/longDate'
-import dateLimits from '../../models/dateSelectorLimits'
-import dateInputPresets from '../../models/dateSelectorPresets'
 import DetailsHead from '../../components/DetailsHead'
-import getColumns from '../../components/Operations/operationsTableColumns'
-import getColumnsTranslator from '../../formatters/columnTranslator'
-import Operations from '../../components/Operations'
-import operationsTypesLabels from '../../models/operationTypes'
 import PendingRequests from '../../components/PendingRequests'
-import style from './style.css'
+import BalanceOperations from '../BalanceOperations'
 
-const getDateLabels = t => ({
-  anyDate: t('dates.any'),
-  cancel: t('dates.cancel'),
-  confirmPeriod: t('dates.confirm'),
-  custom: t('dates.custom'),
-  day: t('dates.day'),
-  daySelected: t('dates.day_selected'),
-  daysSelected: t('dates.selected'),
-  end: t('dates.end'),
-  noDayOrPeriodSelected: t('dates.no_selected'),
-  period: t('dates.period'),
-  select: t('dates.select'),
-  start: t('dates.start'),
-  today: t('dates.today'),
-})
+import style from './style.css'
 
 const datesEqual = (left, right) => {
   if (left.start === right.start && left.end === right.end) {
@@ -80,7 +59,7 @@ const datesEqual = (left, right) => {
 
   return (
     moment(left.start).diff(moment(right.start), 'days') === 0
-    && moment(right.end).diff(moment(right.end), 'days') === 0
+    && moment(left.end).diff(moment(right.end), 'days') === 0
   )
 }
 
@@ -111,9 +90,6 @@ const anyDateRange = {
   start: moment().subtract(3, 'months'),
 }
 
-const formatAmount = (amount = 0) =>
-  currencyFormatter(amount)
-
 const getTransfersPricing = path(['pricing', 'transfers'])
 
 const MINIMUM_API_VALUE = 100
@@ -137,9 +113,7 @@ class Balance extends Component {
     // This code will be used again in the future when ATLAS project implements the anticipation flow
     // More details in issue #1159
     // this.renderAnticipation = this.renderAnticipation.bind(this)
-
-    this.localizedPresets = dateInputPresets(props.t)
-    this.dateLabels = getDateLabels(props.t)
+    this.renderOperations = this.renderOperations.bind(this)
 
     this.state = {
       dates: {
@@ -357,6 +331,44 @@ class Balance extends Component {
   //   )
   // }
 
+  renderOperations () {
+    const {
+      currentPage,
+      dates,
+      disabled,
+      exporting,
+      loading,
+      onExport,
+      search: {
+        operations,
+      },
+      t,
+    } = this.props
+
+    const filterDatesEqualCurrent = datesEqual(this.state.dates, dates)
+
+    return (
+      <BalanceOperations
+        amount={this.getSummaryTotal()}
+        currentPage={currentPage}
+        dates={this.state.dates}
+        disabled={disabled}
+        exporting={exporting}
+        isFilterActive={filterDatesEqualCurrent}
+        loading={loading}
+        onDateChange={this.handleDatesChange}
+        onDatePresetChange={this.handlePresetChange}
+        onExport={onExport}
+        onFilterClick={this.handleFilterClick}
+        onPageChange={this.handleOperationsPageChange}
+        operations={operations}
+        selectedPreset="last-7"
+        showDateInputCalendar={this.state.showDateInputCalendar}
+        t={t}
+      />
+    )
+  }
+
   render () {
     const {
       // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
@@ -377,26 +389,17 @@ class Balance extends Component {
         outcoming,
       },
       company,
-      currentPage,
-      dates,
       disabled,
-      exporting,
-      loading,
       modalConfirmOpened,
       onAnticipationClick,
       onCancelRequestClick,
       onCancelRequestClose,
       onConfirmCancelPendingRequest,
-      onExport,
+      onTimeframeChange,
       onWithdrawClick,
-      search: {
-        operations,
-      },
+      selectedTab,
       t,
     } = this.props
-
-    const translateColumns = getColumnsTranslator(t)
-    const typesLabels = map(t, operationsTypesLabels)
 
     const anticipationAction = {
       disabled,
@@ -409,8 +412,6 @@ class Balance extends Component {
       onClick: onWithdrawClick,
       title: t('pages.balance.withdraw'),
     }
-
-    const filterDatesEqualCurrent = datesEqual(this.state.dates, dates)
 
     const { ted } = getTransfersPricing(company)
 
@@ -448,7 +449,7 @@ class Balance extends Component {
                     ? null
                     : withdrawalAction
                 }
-                amount={formatAmount(amount)}
+                amount={amount}
                 detail={
                   <span>
                     {t('pages.balance.available_withdrawal')}
@@ -473,7 +474,7 @@ class Balance extends Component {
                   ? null
                   : anticipationAction
                 }
-                amount={formatAmount(outcoming)}
+                amount={outcoming}
                 // This block of code is commented because of issue #1159 (https://github.com/pagarme/pilot/issues/1159)
                 // It was commented on to remove the anticipation limits call on Balance page
                 // This code will be used again in the future when ATLAS project implements the anticipation flow
@@ -491,7 +492,7 @@ class Balance extends Component {
                   </span>
                 }
                 disabled={disabled}
-                title={t('pages.balance.anticipation_title')}
+                title={t('pages.balance.waiting_funds')}
               />
             </Col>
             <Col
@@ -520,72 +521,20 @@ class Balance extends Component {
               tablet={12}
               tv={12}
             >
-              <Card className={style.allowOverflow}>
-                <CardContent>
-                  <div className={style.filter}>
-                    <DateInput
-                      active={filterDatesEqualCurrent}
-                      disabled={disabled}
-                      icon={<IconCalendar width={16} height={16} />}
-                      limits={dateLimits}
-                      onChange={this.handleDatesChange}
-                      onPresetChange={this.handlePresetChange}
-                      presets={this.localizedPresets}
-                      selectedPreset="last-7"
-                      strings={this.dateLabels}
-                      showCalendar={this.state.showDateInputCalendar}
-                      dates={this.state.dates}
-                    />
-                    <Button
-                      disabled={filterDatesEqualCurrent}
-                      fill="gradient"
-                      onClick={this.handleFilterClick}
-                      size="default"
-                    >
-                      {t('filter_action')}
-                    </Button>
-                  </div>
-                </CardContent>
-                <CardContent>
-                  <BalanceSummary
-                    amount={this.getSummaryTotal()}
-                    dates={dates}
-                    loading={loading}
-                  />
-                </CardContent>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col
-              desk={12}
-              palm={12}
-              tablet={12}
-              tv={12}
-            >
               <Card>
-                <Operations
-                  columns={translateColumns(getColumns(typesLabels))}
-                  currentPage={currentPage}
-                  disabled={disabled}
-                  emptyMessage={t('models.operations.empty_message')}
-                  exportLabel={t('models.operations.export')}
-                  exporting={exporting}
-                  loading={disabled || loading}
-                  ofLabel={t('of')}
-                  onExport={onExport}
-                  onPageChange={this.handleOperationsPageChange}
-                  rows={operations.rows}
-                  subtitle={
-                    <span>
-                      {t('pages.balance.total.of')}
-                      <strong> {operations.total} </strong>
-                      {t('pages.balance.releases')}
-                    </span>
-                  }
-                  title={t('pages.balance.operations_title')}
-                  totalPages={operations.count}
-                />
+                <CardContent>
+                  <TabBar
+                    onTabChange={onTimeframeChange}
+                    selected={selectedTab}
+                  >
+                    <TabItem text={t('pages.balance.previous')}>
+                      {this.renderOperations()}
+                    </TabItem>
+                    <TabItem text={t('pages.balance.waiting_funds')}>
+                      {this.renderOperations()}
+                    </TabItem>
+                  </TabBar>
+                </CardContent>
               </Card>
             </Col>
           </Row>
@@ -690,6 +639,7 @@ Balance.propTypes = {
   onExport: PropTypes.func.isRequired,
   onFilterClick: PropTypes.func.isRequired,
   onPageChange: PropTypes.func.isRequired,
+  onTimeframeChange: PropTypes.func.isRequired,
   onWithdrawClick: PropTypes.func.isRequired,
   recipient: PropTypes.shape({
     bank_account: PropTypes.shape({
@@ -721,12 +671,15 @@ Balance.propTypes = {
           actual: PropTypes.string.isRequired,
           original: PropTypes.string,
         }),
+        sourceId: PropTypes.string,
+        targetId: PropTypes.string,
         transactionId: PropTypes.number,
         type: PropTypes.string.isRequired,
       })),
       total: PropTypes.number.isRequired,
     }),
   }).isRequired,
+  selectedTab: PropTypes.number,
   t: PropTypes.func.isRequired,
   total: PropTypes.shape({
     net: PropTypes.number,
@@ -742,6 +695,7 @@ Balance.defaultProps = {
   onCancelRequestClick: null,
   onCancelRequestClose: null,
   onConfirmCancelPendingRequest: null,
+  selectedTab: 0,
   total: {},
 }
 

@@ -46,6 +46,8 @@
   "enter_password": "Digite sua senha",
   "error": "Erro",
   "export": "Exportar",
+  "export_table": "Exportar tabela",
+  "export_to": "Exportar para:",
   "filter_action": "Filtrar",
   "go_back": "voltar",
   "holder_name": "Portador do cartão",
@@ -369,15 +371,18 @@
       "details_title": "Detalhes do extrato",
       "empty_message": "Não foram encontrados lançamentos neste período",
       "export": "Exportar tudo",
+      "from": "De",
       "gateway_service": "Serviços de gateway",
       "id": "Id da operação",
       "installment": "Parcela",
+      "inter_recipient": "Transferência",
       "mdr": "MDR",
       "net": "total",
       "outcoming": "entradas",
       "outgoing": "saídas",
       "payment_date": "data",
       "refund": "Estorno",
+      "to": "Para",
       "transaction_id": "ID da transação",
       "transfer": "Saque",
       "transfer_fee": "TED",
@@ -423,7 +428,13 @@
       "permission": {
         "admin": "Administrador",
         "read_only": "Somente leitura",
-        "read_write": "Leitura e escrita"
+        "read_write": "Leitura e escrita",
+        "errors": {
+          "insufficient_permission": {
+            "message": "Permissão insuficiente para realizar esta operação",
+            "title": "Erro de permissão"
+          }
+        }
       }
     }
   },
@@ -512,7 +523,6 @@
       "anticipation_error_info": "Devido ao volume alto de transações, não conseguimos calcular sua antecipação no momento. Caso deseje antecipar, use a Pagar.me API ou entre em contato conosco.",
       "anticipation_loading": "Calculando limites de antecipação.",
       "agency": "Agência",
-      "anticipation_title": "A receber",
       "anticipation": "Antecipar",
       "available_anticipation": "Liberado para antecipação",
       "available_withdrawal": "Liberado para saque",
@@ -523,8 +533,10 @@
       "operations_title": "Lançamentos do período",
       "pending_requests_empty_message": "Nenhuma solicitação disponível",
       "pending_requests_title": "Solicitações recentes",
+      "previous": "Anteriores",
       "recipient": "Recebedor",
-      "releases": "lançamentos",
+      "results": "lançamento",
+      "results_plural": "lançamentos",
       "title": "Extrato",
       "total": {
         "outcoming": "Total de entradas",
@@ -533,9 +545,10 @@
         "of": "Total de"
       },
       "type": "Tipo de conta",
+      "waiting_funds": "A receber",
       "withdraw": "Sacar",
       "withdrawal_title": "Saldo atual",
-      "unknown_error": "Olá, para você poder visualizar as informações do seu extrato é necessário que as extensões do tipo AdBlock estejam desabilitadas."
+      "adblock_error": "Para visualizar as informações de antecipação é necessário que as extensões de bloqueio de anúncio estejam desabilitadas."
     },
     "capture": {
       "capture_action": "Capturar",
@@ -549,6 +562,22 @@
       "token_capture_warning": "Como esta transação foi criada com sua chave de criptografia, a captura manual pode listar um valor diferente do desejado.",
       "token_capture_link": "Mais informações",
       "value_to_capture": "Valor a ser capturado R$"
+    },
+    "error": {
+      "application_message": "Por favor recarregue a página",
+      "application_title": "Erro de aplicação",
+      "back_to_login": "Voltar para login",
+      "internal_title": "Erro Interno",
+      "internal_message": "Houve um erro interno, por favor recarregue a página",
+      "no_connection": "Por favor verifique sua conexão com a internet e recarrege a página",
+      "no_connection_title": "Sem internet?",
+      "page_refresh": "Recarregar página",
+      "rate_limit_message": "Limite de acessos excedido. Tente novamente mais tarde",
+      "rate_limit_title": "Limite de acessos",
+      "unauthorized": "Parece que sua sessão expirou",
+      "unauthorized_title": "Oh não!",
+      "unauthorized_live_environment": "Sua conta não está habilitada para o ambiente de produção",
+      "unauthorized_live_environment_title": "Ambiente indisponível"
     },
     "manual_review": {
       "approve_action": "Aprovar transação",
@@ -929,6 +958,9 @@
       "details": "Ver detalhes",
       "document": "CPF / CNPJ",
       "email": "E-mail",
+      "errors": {
+        "not_found": "Transação não encontrada"
+      },
       "events_title": "Histórico da transação",
       "header": {
         "approve": "Aprovar",
@@ -1002,7 +1034,8 @@
       "graphic_legends": "Legendas",
       "items_per_page_plural": "{{count}} itens por página",
       "items_per_page": "{{count}} item por página",
-      "no_results": "Nenhum resultado.",
+      "no_results_message": "Tente novamente com outros filtros.",
+      "no_results_title": "Não foram encontrados resultados para essa busca.",
       "period_full": "Todo período",
       "period_today": "Hoje",
       "period": "{{start}} - {{end}}",
@@ -1047,7 +1080,5 @@
   "password_strength": "Força",
   "password_rules_title": "Sua senha precisa ter:",
   "password_rules_min_length": "No mínimo {{length}} caracteres",
-  "password_rules_max_length": "No máximo {{length}} caracteres",
-  "transactions_export_table": "Exportar tabela",
-  "transactions_export_to": "Exportar para:"
+  "password_rules_max_length": "No máximo {{length}} caracteres"
 }

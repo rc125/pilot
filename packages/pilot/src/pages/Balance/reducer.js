@@ -4,7 +4,7 @@ import {
 } from './actions'
 
 const initialState = {
-  error: null,
+  balanceError: null,
   loading: true,
   query: null,
 }
@@ -19,7 +19,7 @@ export default function balanceReducer (state, action) {
       } = action
 
       return {
-        error: null,
+        balanceError: null,
         loading: true,
         query,
       }
@@ -27,23 +27,23 @@ export default function balanceReducer (state, action) {
 
     case BALANCE_RECEIVE: {
       const {
-        error,
+        balanceError,
         payload,
         payload: {
           query,
         },
       } = action
 
-      if (error) {
+      if (balanceError) {
         return {
-          error: payload.response || {},
+          balanceError: payload.response || {},
           loading: false,
           query,
         }
       }
 
       return {
-        error: null,
+        balanceError: null,
         loading: false,
         query,
       }
