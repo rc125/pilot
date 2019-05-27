@@ -3,6 +3,7 @@ import {
   always,
   apply,
   applySpec,
+  ascend,
   assoc,
   both,
   cond,
@@ -22,7 +23,7 @@ import {
   prop,
   propEq,
   propSatisfies,
-  sortBy,
+  sortWith,
   subtract,
   sum,
   T,
@@ -104,7 +105,6 @@ export const formatRows = ({
   buildOutcoming,
   buildOutgoing,
   getInstallment,
-  sortPath,
 }) => pipe(
   map(applySpec({
     id: prop('id'),
@@ -121,5 +121,8 @@ export const formatRows = ({
     type: getType,
     transactionId: getTransactionId,
   })),
-  sortBy(path(sortPath || ['id']))
+  sortWith([
+    ascend(prop('id')),
+    ascend(path(['paymentDate', 'actual'])),
+  ])
 )

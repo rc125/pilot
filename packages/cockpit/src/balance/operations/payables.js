@@ -29,5 +29,4 @@ export default formatRows({
   buildOutcoming,
   buildOutgoing,
   getInstallment,
-  sortPath: ['paymentDate', 'actual'],
 })
