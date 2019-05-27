@@ -9,7 +9,7 @@
   "transaction_id": 1785141,
   "split_rule_id": null,
   "bulk_anticipation_id": null,
-  "recipient_id": "re_cj5idth9i00lc8c6elbeiayhs",
+  "recipient_id": "re_abc",
   "payment_date": "2017-03-03T03:00:00.000Z",
   "original_payment_date": null,
   "type": "credit",

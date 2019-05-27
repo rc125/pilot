@@ -1,0 +1,569 @@
+[
+  {
+    "date": "2019-06-11T03:00:00.000Z",
+    "paid": {
+      "credit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    },
+    "waiting_funds": {
+      "credit_card": {
+        "credit": {
+          "amount": 305500,
+          "fee": 15277,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    },
+    "prepaid": {
+      "credit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    }
+  },
+  {
+    "date": "2019-06-14T03:00:00.000Z",
+    "paid": {
+      "credit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    },
+    "waiting_funds": {
+      "credit_card": {
+        "credit": {
+          "amount": 525000,
+          "fee": 26250,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    },
+    "prepaid": {
+      "credit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    }
+  },
+  {
+    "date": "2019-06-24T03:00:00.000Z",
+    "paid": {
+      "credit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    },
+    "waiting_funds": {
+      "credit_card": {
+        "credit": {
+          "amount": 834,
+          "fee": 42,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    },
+    "prepaid": {
+      "credit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "boleto": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      },
+      "debit_card": {
+        "credit": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "refund": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        },
+        "chargeback": {
+          "amount": 0,
+          "fee": 0,
+          "fraud_coverage_fee": 0,
+          "anticipation_fee": 0
+        }
+      }
+    }
+  }
+]
