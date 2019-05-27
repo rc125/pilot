@@ -1,58 +1,28 @@
 [
   {
-    "id": 6911856,
+    "id": 6906129,
     "installment": null,
-    "type": "credit_card",
-    "transactionId": 6293604,
-    "paymentDate": {
-      "original": "2019-05-10T03:00:00.000Z",
-      "actual": "2019-05-10T03:00:00.000Z"
-    },
+    "net": 1000,
     "outcoming": [
       {
         "amount": 1000,
         "type": "payable"
       }
     ],
-    "outgoing": [
-      {
-        "amount": 50,
-        "type": "mdr"
-      }
-    ],
-    "net": 950,
-    "sourceId": null,
-    "targetId": null
-  },
-  {
-    "id": 6906145,
-    "installment": 1,
-    "type": "boleto",
-    "transactionId": 6318105,
-    "paymentDate": {
-      "original": null,
-      "actual": "2019-05-07T03:00:00.000Z"
-    },
-    "outcoming": [
-      {
-        "amount": 500,
-        "type": "payable"
-      }
-    ],
     "outgoing": [],
-    "net": 500,
+    "paymentDate": {
+      "actual": "2019-05-07T03:00:00.000Z",
+      "original": null
+    },
     "sourceId": null,
-    "targetId": null
+    "targetId": null,
+    "transactionId": 6318091,
+    "type": "boleto"
   },
   {
     "id": 6906144,
     "installment": null,
-    "type": "boleto",
-    "transactionId": 6318105,
-    "paymentDate": {
-      "original": null,
-      "actual": "2019-05-07T03:00:00.432Z"
-    },
+    "net": 620,
     "outcoming": [
       {
         "amount": 1000,
@@ -65,28 +35,58 @@
         "type": "mdr"
       }
     ],
-    "net": 620,
+    "paymentDate": {
+      "actual": "2019-05-07T03:00:00.432Z",
+      "original": null
+    },
     "sourceId": null,
-    "targetId": null
+    "targetId": null,
+    "transactionId": 6318105,
+    "type": "boleto"
   },
   {
-    "id": 6906129,
-    "installment": null,
-    "type": "boleto",
-    "transactionId": 6318091,
+    "id": 6906145,
+    "installment": 1,
+    "net": 500,
+    "outcoming": [
+      {
+        "amount": 500,
+        "type": "payable"
+      }
+    ],
+    "outgoing": [],
     "paymentDate": {
-      "original": null,
-      "actual": "2019-05-07T03:00:00.000Z"
+      "actual": "2019-05-07T03:00:00.000Z",
+      "original": null
     },
+    "sourceId": null,
+    "targetId": null,
+    "transactionId": 6318105,
+    "type": "boleto"
+  },
+  {
+    "id": 6911856,
+    "installment": null,
+    "net": 950,
     "outcoming": [
       {
         "amount": 1000,
         "type": "payable"
       }
     ],
-    "outgoing": [],
-    "net": 1000,
+    "outgoing": [
+      {
+        "amount": 50,
+        "type": "mdr"
+      }
+    ],
+    "paymentDate": {
+      "actual": "2019-05-10T03:00:00.000Z",
+      "original": "2019-05-10T03:00:00.000Z"
+    },
     "sourceId": null,
-    "targetId": null
+    "targetId": null,
+    "transactionId": 6293604,
+    "type": "credit_card"
   }
 ]
